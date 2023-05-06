@@ -1,0 +1,127 @@
+       <!-- Start Footer Area -->
+       <footer class="footer-area footer-style-wrap">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="single-footer-widget mb-30">
+                        <h3>Contact Us</h3>
+
+                        <ul class="contact-us-link">
+                            <li>
+                                <!-- <i class="bx bx-map"></i> -->
+                                <i class="bi bi-geo-alt-fill"></i>
+                                <a href="" target="_blank">M-13, Ground Floor, OLD-DLF Colony,<br/> Sec-14, Gurugram,<br/> Haryana-122001 INDIA</a>
+                            </li>
+                            <li>
+                                <!-- <i class="bx bx-phone-call"></i> -->
+                                <i class="bi bi-telephone-fill"></i>
+                                <a href="tel:01244252196"> 0124-4252-196</a>
+                            </li>
+                            <li>
+                                <!-- <i class="bx bx-envelope"></i> -->
+                                <i class="bi bi-envelope-fill"></i>
+                                <a href="mailto:info@anushram.com">info@anushram.com</a>
+                            </li>
+                        </ul>
+
+                        <ul class="social-link">
+                            <li><a href="https://www.facebook.com/anushramphd/" class="d-block" target="_blank"><i class="bi bi-facebook"></i></a></li>
+                            <li><a href="#" class="d-block" target="_blank"><i class="bx bxl-twitter"></i></a></li>
+                            <li><a href="#" class="d-block" target="_blank"><i class="bx bxl-instagram"></i></a></li>
+                            <li><a href="#" class="d-block" target="_blank"><i class="bx bxl-linkedin"></i></a></li>
+                            <li><a href="#" class="d-block" target="_blank"><i class="bx bxl-pinterest-alt"></i></a></li>
+                        </ul>
+
+                        <div class="iso">
+                            <img src="../../assets/img/isco logo.png" alt="">
+                            <img src="../../assets/img/hmc.png" alt="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6 col-sm-6">
+                    <div class="single-footer-widget mb-30">
+                        <h3>Support</h3>
+
+                        <ul class="support-link">
+                            <li><a routerLink="/about">About Us</a></li>
+                            <li><a routerLink="/terms">Terms & Condition</a></li>
+                            <li><a routerLink="/refund">Refund Policy</a></li>
+                            <li><a routerLink="/bank">Bank Account</a></li>
+                            <li><a routerLink="/terms">Condition</a></li>
+                            <li><a routerLink="/privacy">Privacy</a></li>
+                            <li><a routerLink="/support">Support</a></li>
+                            <li><a routerLink="/faqs">FAQ's</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6 col-sm-6">
+                    <div class="single-footer-widget mb-30">
+                        <h3>Useful Link</h3>
+
+                        <ul class="useful-link">
+                            <li><a href="#">P.hD Entrance Exam</a></li>
+                            <li><a href="https://www.ugc.gov.in/">UGC</a></li>
+                            <li><a href="#">Top University</a></li>
+                            <li><a href="#">Top College</a></li>
+                            <li><a href="#">Articles</a></li>
+                            <li><a href="#">Seminar</a></li>
+                            <li><a routerLink="/gallery/video">Gallery</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="single-footer-widget mb-30">
+                        <h3>Newsletter</h3>
+
+                        <div class="newsletter-box">
+                            <p>To get the latest news and latest updates from us.</p>
+
+                            <form 
+                            [formGroup]="newsForm"
+                            class="newsletter-form" 
+                            data-bs-toggle="validator" 
+                            novalidate="true"
+                            >
+                                <label>Your e-mail address:</label>
+                                <input
+                                type="email" 
+                                class="input-newsletter" 
+                                placeholder="Enter your email" 
+                                name="EMAIL" 
+                                required=""
+                                autocomplete="off"
+                                formControlName="email"
+                                >
+                                <button type="submit" class="disabled" style="pointer-events: all; cursor: pointer;" (click)="subcribe()">Subscribe</button>
+                                <div id="validator-newsletter" class="form-result"></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom-area footer-bottom-style-wrap">
+            <div class="container">
+                <div class="logo">
+                    <a routerLink="/" class="d-inline-block"><img src="assets/img/logo/logo.png" alt="image"></a>
+                </div>
+                <p>&copy; 2022 <a routerLink="/" target="_blank">Anushram</a> Designed By <a href="#" target="_blank">Stuvalley Technology Pvt. Ltd.</a> | All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer Area -->
+    
+    <div class="go-top" (click)="topFunction()"><a ><i class="bx bx-up-arrow-alt"></i></a></div>
+
+    <!-- Dark version -->
+    <!-- <div class="dark-version">
+        <label id="switch" class="switch">
+            <input type="checkbox" onchange="toggleTheme()" id="slider">
+            <span class="slider round"></span>
+        </label>
+    </div> -->
+    <!-- Dark version -->

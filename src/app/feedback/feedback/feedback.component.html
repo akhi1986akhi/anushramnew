@@ -1,0 +1,93 @@
+<div class="container-fluid">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">
+                <a>
+                    Feedback
+                </a>
+            </li>
+        </ol>
+        <ul>
+            <li>
+                <span>
+                    <a routerLink="/">Home </a>> <a routerLink="/user-dash/user-dashboard">Dashboard</a>
+                </span>
+            </li>
+            <li>
+                <span>
+                    > <a>Feedback</a>
+                </span>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="left-right-btn">
+        <button><img src="assets/img/left.png" alt=""></button>
+        <button><img src="assets/img/right.png" alt=""></button>
+    </div>
+</div>
+<hr />
+
+
+<!-- Start Contact Area -->
+<section class="contact-area pb-100">
+    <div class="container">
+        <div class="section-title p-3" *ngIf="!message">
+            <!-- <span class="sub-title">Contact Us</span> -->
+            <h2>Please Share Your Feedback & Testimonial With Us </h2>
+            <p>Your feedback is important to us, as it will help me to better understand your needs and make the necessary adjustments to provide you with the best possible experience. Please feel free to share your thoughts and 
+                suggestions with me at any time. We also looking for your testimonial that how Anushram helps you in the journey of your research.</p>
+        </div>
+        <div class="section-title p-3" *ngIf="message">
+            <!-- <span class="sub-title">Contact Us</span> -->
+            <h2 style="color:seagreen">Thanks for Your Feedback! </h2>
+            <div class="feedback-success" *ngIf="message">
+                <img src="assets/images/certificate/29.png" alt="">
+            </div>
+            <p style="color:rgba(46, 139, 86, 0.635)">Our team is dedicated to providing you with the best possible experience, and your feedback can help us achieve that. We welcome any comments or suggestions you may have.</p>
+        </div>
+        <div class="contact-form" *ngIf="!message">
+         
+            <form [formGroup]="feedbackForm" (ngSubmit)="submit()" id="contactForm" novalidate="true">
+                <div class="row">
+                    <div class="col-lg-6 col-md-12">
+                        <div class="form-group">
+                            <input type="text" name="name" id="name" class="form-control" formControlName="fullName" required="" data-error="Please enter your name" placeholder="Your Name">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-12">
+                        <div class="form-group">
+                            <input type="email" name="email" id="email" class="form-control" formControlName="email" required="" data-error="Please enter your email" placeholder="Your Email">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+
+                 
+
+               
+
+                    <div class="col-lg-12 col-md-12">
+                        <div class="form-group">
+                            <textarea name="message" class="form-control" id="message" formControlName="description" cols="30" rows="8" required="" data-error="Write your message" placeholder="Your Message"></textarea>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-12 col-md-12">
+                        <button type="submit" class="default-btn disabled" style="pointer-events: all; cursor: pointer;"><i class="bx bx-paper-plane icon-arrow before"></i><span class="label">Send Feedback</span><i class="bx bx-paper-plane icon-arrow after"></i></button>
+                        <div id="msgSubmit" class="h3 text-center hidden"></div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        
+    </div>
+
+    <div id="particles-js-circle-bubble-3"><canvas class="particles-js-canvas-el" width="1825" height="1074" style="width: 100%; height: 100%;"></canvas></div>
+    <div class="contact-bg-image"><img src="assets/img/map.png" alt="image"></div>
+</section>
+<!-- End Contact Area -->

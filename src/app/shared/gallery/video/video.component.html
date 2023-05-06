@@ -1,0 +1,153 @@
+    <!-- Start Page Title Area -->
+    <div class="page-title-area page-title-style-three item-bg3 jarallax" data-jarallax='{"speed": 0.3}' style="height: 10vh;">
+        <div class="container">
+            <div class="page-title-content">
+                <ul>
+                    <li><a routerLink="/">Home</a></li> 
+                    <li>Video Gallery</li>
+                </ul>
+                <h2>Video Gallery</h2>
+            </div>
+        </div>
+    </div>
+    <!-- End Page Title Area -->
+ <!-- Start Gallery Area -->
+ <section class="gallery-area pt-100 pb-70" *ngif="false">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="single-gallery-item mb-0" data-bs-toggle="modal" data-bs-target="#gallery" (click)="getTitle('Title 1')">
+                    <img src="assets/images/gallery/1.jpg" alt="Gallery Image" data-original="assets/img/gallery/1.jpg">
+                   
+                </div>
+                <div class="title mb-30" data-bs-toggle="modal" data-bs-target="#gallery" (click)="getTitle('Title 1')">
+                    <i class="bi bi-play-btn-fill"></i> Anushram.com - Finest Platform For Research Training
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="single-gallery-item mb-0" data-bs-toggle="modal" data-bs-target="#gallery" (click)="getTitle('Title 2')">
+                    <img src="assets/images/gallery/2.jpg" alt="Gallery Image" data-original="assets/img/gallery/2.jpg">
+                </div>
+                <div class="title mb-30" data-bs-toggle="modal" data-bs-target="#gallery" (click)="getTitle('Title 2')">
+                    <i class="bi bi-play-btn-fill"></i> Basic Of PhD | Tips for the PhD Student
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="single-gallery-item mb-0" (click)="getTitle('Title 3')" data-bs-toggle="modal" data-bs-target="#gallery">
+                    <img src="assets/images/gallery/3.jpg" alt="Gallery Image" data-original="assets/img/gallery/3.jpg">
+                </div>
+                <div class="title mb-30" (click)="getTitle('Title 3')" data-bs-toggle="modal" data-bs-target="#gallery">
+                    <i class="bi bi-play-btn-fill"></i> Boon to Career Growth | Career & Monetary Growth
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="single-gallery-item mb-0" (click)="getTitle('Title 4')" data-bs-toggle="modal" data-bs-target="#gallery">
+                    <img src="assets/images/gallery/research skills for success.png" alt="Gallery Image" data-original="assets/img/gallery/4.jpg">
+                </div>
+                <div class="title mb-30" (click)="getTitle('Title 4')" data-bs-toggle="modal" data-bs-target="#gallery">
+                    <i class="bi bi-play-btn-fill"></i> Skills For Success: Unlocking Your Phd Potential
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="single-gallery-item mb-0" (click)="getTitle('Title 5')" data-bs-toggle="modal" data-bs-target="#gallery">
+                    <img src="assets/images/gallery/5.jpg" alt="Gallery Image" data-original="assets/img/gallery/5.jpg">
+                </div>
+                <div class="title mb-30" (click)="getTitle('Title 5')" data-bs-toggle="modal" data-bs-target="#gallery" data-bs-toggle="modal" data-bs-target="#gallery">
+                    <i class="bi bi-play-btn-fill"></i> Choose a Meaningful And Impactful Research Title
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="single-gallery-item mb-0" (click)="getTitle('Title 6')" data-bs-toggle="modal" data-bs-target="#gallery">
+                    <img src="assets/images/gallery/6.jpg" alt="Gallery Image" data-original="assets/img/gallery/6.jpg">
+                </div>
+                <div class="title mb-30" (click)="getTitle('Title 6')"  data-bs-toggle="modal" data-bs-target="#gallery">
+                    <i class="bi bi-play-btn-fill"></i> How To Select Area Of Interest And Title In Research
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="single-gallery-item mb-0" (click)="getTitle('Title 7')" data-bs-toggle="modal" data-bs-target="#gallery">
+                    <img src="assets/images/gallery/7.jpg" alt="Gallery Image" data-original="assets/img/gallery/7.jpg">
+                </div>
+                <div class="title mb-30" (click)="getTitle('Title 7')"  data-bs-toggle="modal" data-bs-target="#gallery">
+                    <i class="bi bi-play-btn-fill"></i> Enhance Research Knowledge, Skills, And Competencies
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="single-gallery-item mb-0" (click)="getTitle('Title 8')" data-bs-toggle="modal" data-bs-target="#gallery">
+                    <img src="assets/images/gallery/8.jpg" alt="Gallery Image" data-original="assets/img/gallery/8.jpg">
+                </div>
+                <div class="title mb-30" (click)="getTitle('Title 8')"  data-bs-toggle="modal" data-bs-target="#gallery">
+                    <i class="bi bi-play-btn-fill"></i> Writing Effective Research Proposals
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="single-gallery-item mb-0" (click)="getTitle('Title 9')" data-bs-toggle="modal" data-bs-target="#gallery">
+                    <img src="assets/images/gallery/9.jpg" alt="Gallery Image" data-original="assets/img/gallery/9.jpg">
+                </div>
+                <div class="title mb-30" (click)="getTitle('Title 9')"  data-bs-toggle="modal" data-bs-target="#gallery">
+                    <i class="bi bi-play-btn-fill"></i> Choosing The Right Research Methodology
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="single-gallery-item mb-0" (click)="getTitle('Title 10')" data-bs-toggle="modal" data-bs-target="#gallery">
+                    <img src="assets/images/gallery/10.jpg" alt="Gallery Image" data-original="assets/img/gallery/9.jpg">
+                </div>
+                <div class="title mb-30" (click)="getTitle('Title 10')"  data-bs-toggle="modal" data-bs-target="#gallery">
+                    <i class="bi bi-play-btn-fill"></i> Developing Effective Research Questions
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="gallery" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <!-- <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">{{title}}</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div> -->
+        <div class="modal-body">
+            
+            <iframe *ngIf="vid1"  height="420" src="https://www.youtube.com/embed/0KcyctxWZh8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <iframe *ngIf="vid2"  height="420" src="https://www.youtube.com/embed/fKF6MtRsPUU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <iframe *ngIf="vid3"  height="420" src="https://www.youtube.com/embed/9vJJAaxk86s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <iframe *ngIf="vid4"  height="420" src="https://www.youtube.com/embed/_u-249K0IFY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <iframe *ngIf="vid5"  height="420" src="https://www.youtube.com/embed/b78sPVvrFHs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <iframe *ngIf="vid6"  height="420" src="https://www.youtube.com/embed/bdg2Ynqrh_8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <iframe *ngIf="vid7"  height="420" src="https://www.youtube.com/embed/j8OzYyQp-ws" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <iframe *ngIf="vid8"  height="420" src="https://www.youtube.com/embed/Zqwjv0T3teI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <iframe *ngIf="vid9"  height="420" src="https://www.youtube.com/embed/Ck-FJf7KwD8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <iframe *ngIf="vid10"  height="420" src="https://www.youtube.com/embed/LgR3CdSvLNs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        <!-- <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div> -->
+      </div>
+    </div>
+  </div>
+<!-- End Gallery Area -->
+
+
+
+
+<div class="video-wrapper">
+    <div class="video" id="video">
+
+    </div>
+</div>
+

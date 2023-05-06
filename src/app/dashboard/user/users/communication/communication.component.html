@@ -1,0 +1,65 @@
+<div class="container-fluid">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">
+                <a>
+                    Communication
+                </a>
+            </li>
+        </ol>
+        <ul>
+            <li>
+                <span>
+                    <a routerLink="/">Home </a>> <a routerLink="/user-dash/user-dashboard">Dashboard</a> > <a>Communication</a>
+                </span>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="left-right-btn">
+        <button><img src="assets/img/left.png" alt=""></button>
+        <button><img src="assets/img/right.png" alt=""></button>
+    </div>
+</div>
+<hr />
+<div class="container-fluid chatBox">
+
+    <div>
+        
+    </div>
+    <section class="chat_section" >
+        <div class="brand">
+            <img src="assets/img/anushram-chat.webp" alt="">
+            <!-- <i class="bi bi-chat-dots-fill"></i> -->
+
+            <h1>Ask your question?</h1>
+        </div>
+        <div class="message_area" id="message_area">
+            <ng-container *ngFor="let item of chatBox">
+               
+                <div class="message incomming" *ngIf="item.by=='user'">
+                    <h4><i class="bi bi-person"></i>{{item.name}}<span style="color:rgb(151, 150, 150)">{{item.date | date}}</span></h4> 
+                    <p>{{item.message}}</p>
+                </div>
+                <div class="outgoig-cnt" *ngIf="item.by=='admin'">
+                    <div class="message outgoing">
+                        
+                        <h4><i class="bi bi-person-workspace"></i>{{item.name}}<span style="color:rgb(151, 150, 150)">{{item.date | date}}</span></h4>
+                        <p>{{item.message}}</p>
+                    </div>
+                 
+                </div>
+            </ng-container>
+         
+    
+        </div>
+        <div class="text_section">
+            <form [formGroup]="messageForm">
+
+                <textarea name="" id="message" cols="30" rows="1" placeholder="Type here your question... " formControlName="message"></textarea>
+                <!-- <input type="file" class="custom-file-input"> -->
+                <button (click)="sendMsg()">Send</button>
+            </form>
+        </div>
+    </section>
+</div>

@@ -1,0 +1,137 @@
+
+<div class="container-fluid">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">FAQ's</li>
+        </ol>
+      </nav>
+</div>
+
+<section class="faq-area ptb-100">
+
+  <div class="tab faq-accordion-tab">
+    <ul class="tabs d-flex flex-wrap justify-content-center active">
+        <li class="current"><a href=""><i class="bx bx-flag"></i> <span>Getting Started</span></a></li>
+        
+        <li><a href=""><i class="bx bxs-badge-dollar"></i> <span>Pricing &amp; Planes</span></a></li>
+  
+        <li><a href=""><i class="bx bx-shopping-bag"></i> <span>Sales Question</span></a></li>
+  
+        <li><a href=""><i class="bx bx-book-open"></i> <span>Usage Guides</span></a></li>
+  
+        <li><a href=""><i class="bx bx-info-circle"></i> <span>General Guide</span></a></li>
+    </ul>
+  
+  </div>
+</section>
+
+
+<div class="container">
+
+    <h2>
+        FAQ's
+    </h2>
+    <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                <!-- How to do a PhD -->
+                {{data[0].ques}}
+            </button>
+          </h2>
+          <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+               <!-- <strong>Not sure what studying a PhD involves?</strong>  The questions in this section will help explain how PhDs work, what they involve and how you actually get one. -->
+            
+              {{data[0].ans}}
+              </div>
+          </div>
+        </div>
+
+
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingTwo">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                <!-- What is a PhD? -->
+                {{data[1].ques}}
+            </button>
+          </h2>
+          <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+                <!-- A PhD is a postgraduate doctoral degree, usually completed after an undergraduate Bachelors and / or a Masters degree. PhD students carry out independent research towards an original thesis in their subject and receive the title ‘Doctor’ upon successful completion of their degree. -->
+                {{data[1].ans}}
+            
+              </div>
+          </div>
+        </div>
+     
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingThree">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                <!-- What does PhD stand for? -->
+                {{data[2].ques}}
+            </button>
+          </h2>
+          <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+                <!-- PhD stands for Doctor of Philosophy. The term PhD come from the Latin: Philosophiae Doctor. It may also be written as Ph.D or DPhil. -->
+            
+                {{data[2].ans}}
+              </div>
+          </div>
+        </div>
+
+
+
+
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingFour">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+              PhD stipend in India?
+            
+            </button>
+          </h2>
+          <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+               <p>PhD stipend in India is not like PhD salary after doing PhD but stipend means a scholarship based money that is given monthly or anually to PhD pursuing students. Here is my detailed study about stipend for phd in India.</p>
+            
+                <p>The average PhD stipend in India is 15000-35000 INR per month. Only full-time PhD students are eligible to get a phd scholarship. All part-time PhD students will not get stipend because they have their own jobs and they don’t contribute to the univesity. Full-time PhD students are paid regulary every 30 days for the contribution and research they do in a particular university. In many universities, PhD students will submit a monthly research report that needs to get approved for getting a PhD stipend.</p>
+              </div>
+          </div>
+        </div>
+
+
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingFive">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+              What is the process of doing a PhD after qualifying for the UGC NET?
+            
+            </button>
+          </h2>
+          <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+               <h5 style="color:grey; font-weight: 300;">After qualifying for the UGC NET Exam there are a few steps to start your PhD:</h5>
+               <ol style="color:grey; font-weight: 300;">
+                <li>
+                  The student will have to apply to the universities of his/her choice. For some Universities, the student has to give entrance tests and few Universities exempt you from entrance tests.
+                </li>
+                <li>
+                  Depending upon the interest area of the student, he/she will have to meet and finalize his/her area of research and the supervisor beforehand.
+                </li>
+                <li>
+                  The admission to a course depends upon whether the selected supervisor has a slot available for taking up new scholars or not.
+                </li>
+                <li>
+                  In many cases, JRFs will get preference to non-JRF candidates with UGC-NET.
+                </li>
+               </ol>
+            
+          
+              </div>
+          </div>
+        </div>
+
+      </div>
+    
+</div>

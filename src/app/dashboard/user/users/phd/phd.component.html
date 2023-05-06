@@ -1,0 +1,37 @@
+<div class="container-fluid">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">
+                <a style="text-transform: uppercase;">
+                    {{title}}
+                </a>
+            </li>
+        </ol>
+        <ul>
+            <li>
+              
+                    <a >Home </a>>
+               
+            </li>
+            <li>
+                <a>Dashboard</a>>
+            </li>
+            <li>
+                <a>Ph.D</a>>
+            </li>
+            <li>
+                <a>{{title}}</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="left-right-btn">
+        <button><img src="assets/img/left.png" alt=""></button>
+        <button><img src="assets/img/right.png" alt=""></button>
+    </div>
+</div>
+<hr />
+
+<app-stage-one *ngIf="stageOne"></app-stage-one>
+<app-stage-two *ngIf="stageTwo"></app-stage-two>
+<app-stage-three *ngIf="stageThree"></app-stage-three>

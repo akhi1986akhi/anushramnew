@@ -1,0 +1,172 @@
+<div class="container-fluid">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">
+                <a>
+                    Jobs Stations
+                </a>
+            </li>
+        </ol>
+        <ul>
+            <li>
+                <span>
+                    <a>Home </a>> <a>Dashboard</a>
+                </span>
+            </li>
+            <li>
+                <span>
+                    > <a>Jobs Stations</a>
+                </span>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="left-right-btn">
+        <button><img src="assets/img/left.png" alt=""></button>
+        <button><img src="assets/img/right.png" alt=""></button>
+    </div>
+</div>
+<hr />
+
+<div class="searchBar">
+    <div class="input">
+        <input type="text" placeholder="Search Jobs here...">
+        <button>Serach &nbsp;<i class="bi bi-search"></i></button>
+    </div>
+</div>
+
+<div class="container">
+    <div class="card-container-wrapper">
+        <div class="card" *ngFor="let item of data">
+            <div class="content-section">
+                <div class="image-sec">
+                    <img src="assets/img/logo/Google__G__Logo.svg.webp" alt="">
+                </div>
+                <div class="content">
+                    <div class="sub-title">
+                        {{item?.companyName}}
+                    </div>
+                    <div class="title">
+                        <h3>{{item.posts[0]?.positionName}}</h3>
+                    </div>
+                    <div class="caption-section">
+                        <div class="caption" *ngFor="let p of item?.posts; let i=index;">
+                           <span *ngIf="i!=0">{{p?.positionName}},</span> 
+                        </div>
+                     
+                        <div class="caption" *ngIf="item?.posts.length > 1">
+                            <a href="">View More...</a>
+                        </div>
+                    </div>
+                    <div class="source">
+                        <div class="caption">
+                            <span><i class="bi bi-link-45deg"></i>&nbsp;Source: Times of India,</span>
+                            <span>&nbsp;Date: 12-06-2023</span> 
+                        </div>
+                      
+                    </div>
+                  
+                </div>
+            </div>
+            <div class="footer-section">
+                <div class="website">
+                        
+                        
+                    <ul>
+                        <li>
+                            <i class="bi bi-globe2"></i>&nbsp; {{item.website}}
+                        </li>
+                        <li>
+                            <i class="bi bi-geo-alt-fill"></i>&nbsp; {{item.city}}, {{item.state}}
+                        </li>
+                     
+                            
+                   
+                    </ul>
+                </div>
+                <button><i class="bi bi-box-arrow-in-right"></i>&nbsp;View Details</button>
+                <button><i class="bi bi-send"></i>&nbsp;Apply Now</button>
+            </div>
+        </div>
+        <!-- <div class="card">
+            <div class="content-section">
+                <div class="image-sec">
+                    <img src="../../../assets/img/logo/Google__G__Logo.svg.webp" alt="">
+                </div>
+                <div class="content">
+                    <div class="sub-title">
+                        Google
+                    </div>
+                    <div class="title">
+                        <h3>Sr.Software Developer</h3>
+                    </div>
+                    <div class="caption-section">
+                        <div class="caption">
+                            UI/UX
+                        </div>
+                        <div class="caption">
+                            NGINX
+                        </div>
+                        <div class="caption">
+                            GIT
+                        </div>
+                        <div class="caption">
+                            <a href="">View More...</a>
+                        </div>
+                    </div>
+                    <div class="source">
+                        <div class="caption">
+                            <span><i class="bi bi-link-45deg"></i>&nbsp;Source: Times of India,</span>
+                            <span>&nbsp;Date: 12-06-2023</span> 
+                        </div>
+                      
+                    </div>
+                </div>
+            </div>
+            <div class="footer-section">
+                <button><i class="bi bi-box-arrow-in-right"></i>&nbsp;View Details</button>
+                <button><i class="bi bi-send"></i>&nbsp;Apply Now</button>
+            </div>
+        </div>
+        <div class="card">
+            <div class="content-section">
+                <div class="image-sec">
+                    <img src="../../../assets/img/logo/Google__G__Logo.svg.webp" alt="">
+                </div>
+                <div class="content">
+                    <div class="sub-title">
+                        Google
+                    </div>
+                    <div class="title">
+                        <h3>Sr.Software Developer</h3>
+                    </div>
+                    <div class="caption-section">
+                        <div class="caption">
+                            UI/UX
+                        </div>
+                        <div class="caption">
+                            NGINX
+                        </div>
+                        <div class="caption">
+                            GIT
+                        </div>
+                        <div class="caption">
+                            <a href="">View More...</a>
+                        </div>
+                    </div>
+                    <div class="source">
+                        <div class="caption">
+                            <span><i class="bi bi-link-45deg"></i>&nbsp;Source: Times of India,</span>
+                            <span>&nbsp;Date: 12-06-2023</span> 
+                        </div>
+                      
+                    </div>
+                </div>
+            </div>
+            <div class="footer-section">
+                <button><i class="bi bi-box-arrow-in-right"></i>&nbsp;View Details</button>
+                <button><i class="bi bi-send"></i>&nbsp;Apply Now</button>
+            </div>
+        </div> -->
+    </div>
+</div>

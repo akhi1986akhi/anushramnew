@@ -1,0 +1,165 @@
+<div class="container-fluid">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">
+                <a>
+                    {{title}}
+                </a>
+            </li>
+        </ol>
+        <ul>
+            <li>
+                <span>
+                    <a routerLink="/">Home </a>> <a routerLink="/user-dash/user-dashboard">Dashboard</a> > <a routerLink="/user-dash/publication">Research
+                        Publication</a> > <a>{{title}}</a>
+                </span>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="left-right-btn">
+        <button><img src="assets/img/left.png" alt=""></button>
+        <button><img src="assets/img/right.png" alt=""></button>
+    </div>
+</div>
+<hr />
+
+<section class="blog-details-area ptb-70">
+    <div class="container">
+        <div class="row p-3">
+
+            <div class="col-lg-12 col-md-12">
+                <div class="blog-details-desc">
+                    <div class="article-image" style="height: 200px; overflow: hidden; border-radius: 5px;">
+                        <img src="{{researchData.thumbPath}}"  alt="image">
+                    </div>
+
+                    <div class="article-content">
+                        <div class="entry-meta">
+                            <ul>
+                                <li>
+                                    <i class="bx bx-folder-open"></i>
+                                    <span>Category</span>
+                                    <a href="">Design</a>
+                                </li>
+                                <li>
+                                    <i class="bx bx-group"></i>
+                                    <span>Students Enrolled</span>
+                                    <a href="">813,454</a>
+                                </li>
+                                <li>
+                                    <i class="bx bx-calendar"></i>
+                                    <span>Last Updated</span>
+                                    <a href="">01/14/2023</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <h3>{{researchData.title}}</h3>
+
+                        <p>{{researchData.description}}</p>
+
+                      
+                        <!-- <blockquote class="wp-block-quote">
+                            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+
+                            <cite>Tom Cruise</cite>
+                        </blockquote> -->
+
+                        <!-- <p>Quuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quia non numquam eius modi tempora incidunt ut labore et dolore magnam dolor sit amet, consectetur adipisicing.</p> -->
+
+                        <!-- <ul class="wp-block-gallery columns-3">
+                            <li class="blocks-gallery-item">
+                                <figure>
+                                    <img src="./Raque - Education Courses &amp; Online Training HTML Template_files/8.jpg" alt="image">
+                                </figure>
+                            </li>
+
+                            <li class="blocks-gallery-item">
+                                <figure>
+                                    <img src="./Raque - Education Courses &amp; Online Training HTML Template_files/7.jpg" alt="image">
+                                </figure>
+                            </li>
+
+                            <li class="blocks-gallery-item">
+                                <figure>
+                                    <img src="./Raque - Education Courses &amp; Online Training HTML Template_files/9.jpg" alt="image">
+                                </figure>
+                            </li>
+                        </ul> -->
+
+                        <h3 style="margin-bottom: 50px;">STEPS:</h3>
+
+                        <!-- <ul class="features-list">
+                            <li><i class="bx bx-check-double"></i> Scientific Skills For getting a better result</li>
+                            <li><i class="bx bx-check-double"></i> Communication Skills to getting in touch</li>
+                            <li><i class="bx bx-check-double"></i> A Career Overview opportunity Available</li>
+                            <li><i class="bx bx-check-double"></i> A good Work Environment For work</li>
+                        </ul> -->
+                        <div class="step-container" *ngFor="let item of researchData.steps; let i=index">
+                            <div class="icon">
+                                {{i+1}}
+                            </div>
+                            <div class="content">
+                                <h5>{{item.title}}</h5>
+                                <p>{{item.desc}}</p>
+                            </div>
+                            <button class="btn-add" (click)="getID(item._id)" data-bs-toggle="modal" data-bs-target="#researchPublication"><i class="bi bi-plus-square-fill"></i></button>
+                        </div>
+                        
+                    </div>
+
+                    <div class="article-footer">
+                        <div class="article-tags">
+                            <span><i class="bx bx-purchase-tag"></i></span>
+
+                            <a href="https://templates.envytheme.com/raque/default/single-blog.html#">Fashion</a>,
+                            <a href="https://templates.envytheme.com/raque/default/single-blog.html#">Games</a>,
+                            <a href="https://templates.envytheme.com/raque/default/single-blog.html#">Travel</a>
+                        </div>
+
+                        <div class="article-share">
+                            <ul class="social">
+                                <li><span>Share:</span></li>
+                                <li><a href="https://templates.envytheme.com/raque/default/single-blog.html#" class="facebook" target="_blank"><i class="bx bxl-facebook"></i></a></li>
+                                <li><a href="https://templates.envytheme.com/raque/default/single-blog.html#" class="twitter" target="_blank"><i class="bx bxl-twitter"></i></a></li>
+                                <li><a href="https://templates.envytheme.com/raque/default/single-blog.html#" class="linkedin" target="_blank"><i class="bx bxl-linkedin"></i></a></li>
+                                <li><a href="https://templates.envytheme.com/raque/default/single-blog.html#" class="instagram" target="_blank"><i class="bx bxl-instagram"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                
+
+                   
+
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="researchPublication" tabindex="-1" aria-labelledby="researchPublication" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" >
+      <div class="modal-content" style="border-top: solid 3px red;">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="researchPublicationLabel">{{stepTitle}}</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form action="">
+                <label for="">{{stepLabel}}</label>
+                <textarea name="" id=""  rows="10" style="width:100%"></textarea>
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,55 @@
+.single-categories-courses-box{
+    width:270px;
+    height: 320px;
+    overflow-anchor: auto;
+    h3{
+        font-weight: 350
+    }
+}
+.carousel-inner{
+    border-radius: 10px;
+}
+.carousel-item{
+    height: 350px;
+    background-color: #fff;
+    border-radius: 10px;
+    position: relative;
+    border: transparent;
+    h5{
+        // border-bottom: solid 2px lightgray;
+        display: inline;
+      
+    }
+    p{
+        font-weight: 500;
+        color: rgb(90, 89, 89);
+        padding-left: 25px;
+        margin-top: 30px;
+        text-align: justify;
+    }
+
+}
+.ovel{
+    position: absolute;
+    top:-30px;
+    left:-30px;
+    background: red;
+    width:80px;
+    height: 80px;
+    border-radius: 50%;
+}
+.carousel-dark .carousel-indicators [data-bs-target] {
+    background-color: #f52e2e;
+    padding: 5px;
+ 
+    height: 5px;
+    width:5px;
+    border-radius: 50%;
+    border:solid 2px rgb(207, 206, 206)
+}
+
+.icon{
+    img{
+        width: 80%;
+    }
+}

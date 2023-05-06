@@ -1,0 +1,108 @@
+<div class="container-fluid" *ngIf="mentor.length >0">
+
+    <div class="mentor-view">
+        <div class="row-r">
+            <div class="col-c"  style=" justify-content: flex-start;" >
+                <div class="image">
+                    <img src="assets/img/user/defaultUser.webp" alt="" onError="this.src='assets/img/user/defaultUser.webp'">
+                </div>
+                <div class="name">{{mentor[0].title}} {{mentor[0].fname}} {{mentor[0].lname}}</div>
+                <div class="designation">{{mentor[0].positionHold}}</div>
+
+                <hr/>
+                <ul>
+                    <li>
+                        <i class="bi bi-geo-alt-fill"></i>{{mentor[0].city}}
+                    </li>
+                    <li>
+                        <i class="bi bi-geo-alt-fill"></i>{{mentor[0].state}}
+                    </li>
+                    <li>
+                        <i class="bi bi-telephone-fill"></i>{{mentor[0].contact}}
+                    </li>
+                 
+                    <li>
+                        <i class="bi bi-envelope-fill"></i>{{mentor[0].email}}
+                    </li>
+                </ul>
+            </div>
+            <div class="col-c">
+                <div class="mentor-row">
+                 <div class="dx">
+                    <!-- <p></p> -->
+                    <h4>About</h4>
+                    <div style="font-weight: 500; font-size: 1em; margin: 20px; color: gray;">{{mentor[0].abtMentor}}</div>
+
+                    <h4>Experience</h4>
+                    <div class="card-container">
+                        <div class="card">
+                            <div class="icon">
+                                <i class="bi bi-patch-check"></i>
+                            </div>
+                            <div class="title">
+                                Research Experiance
+                            </div>
+                            <div class="caption">
+                                {{mentor[0].professional[0].researchExp}}
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="icon">
+                                <i class="bi bi-patch-check"></i>
+                            </div>
+                            <div class="title">
+                                Teaching Experiance
+                            </div>
+                            <div class="caption">
+                                {{mentor[0].professional[0].teachingExp}}
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="icon">
+                                <i class="bi bi-patch-check"></i>
+                            </div>
+                            <div class="title">
+                                Industry Experiance
+                            </div>
+                            <div class="caption">
+                                {{mentor[0].professional[0].industryExp}}
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="icon">
+                                <i class="bi bi-patch-check"></i>
+                            </div>
+                            <div class="title">
+                                No. of P.hD supervised
+                            </div>
+                            <div class="caption">
+                                {{mentor[0].professional[0].noOfstudentSupervised}}
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="icon">
+                                <i class="bi bi-patch-check"></i>
+                            </div>
+                            <div class="title">
+                                No. of Masters supervised
+                            </div>
+                            <div class="caption">
+                                {{mentor[0].professional[0].noOfMasterSupervised}}
+                            </div>
+                        </div>
+                    </div>
+
+                    <h4>Membership</h4>
+
+
+                    <h4>Affilation</h4>
+
+
+                    <h4>Research Area</h4>
+                 </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

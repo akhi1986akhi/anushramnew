@@ -1,0 +1,126 @@
+// *{
+//     margin: 0;
+//     padding: 0;
+//     box-sizing: border-box;
+// }
+
+.container-fluid{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-color: #d9e3fe33;
+    gap:15px;
+    user-select: none;
+    .card{
+        display: flex;
+        // justify-content: center;
+        align-items: center;
+        width: 30%;
+        height: 200px;
+        // background: rgba(242, 242, 244, 0.375);
+        background: radial-gradient(rgba(242, 242, 244, 0.375),rgba(190, 190, 192, 0.534));
+        padding: 10px;
+        transition: all 0.3s ease-in;
+        header{
+            .title{
+                color: #0D78BC;
+                text-transform: uppercase;
+                font-weight: 500;
+            }
+        }
+        main{
+            display: flex;
+            gap:10px;
+            align-items: center;
+            img{
+                width:100px;
+                height: auto;
+               
+            }
+            p{
+                line-height: 16px;
+                color: rgba(128, 128, 128, 0.872);
+                padding: 4px;
+                font-size: 0.9em;
+                a:hover{
+                    color: #0D78BC;
+                }
+            }
+        }
+        footer{
+            display: flex;
+            width:100%;
+            flex-direction: row-reverse;
+            button{
+                padding: 6px 20px;
+                outline: none;
+                border: solid 1px #0D78BC;
+                border-radius: 5px;
+                background:#0D78BC ;
+                color: aliceblue;
+                transition: all 0.3s ease-in;
+                box-shadow: 5px 10px 15px #0000002b;
+            }
+            button:hover{
+                opacity: 0.7;
+            }
+        }
+    }
+    .card:hover{
+       
+    }
+}
+form{
+    display: flex;
+    flex-direction: column;
+    padding: 0 40px;
+
+    .row{
+        margin-bottom: 10px;
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+    }
+
+}
+.col{
+    display: flex;
+    flex-direction: row;
+    flex-direction: column;
+    width:50%
+    
+}
+label{
+    letter-spacing: 1px;
+    color: #0D78BC;
+}
+input{
+    border: solid 1px rgb(207, 206, 206);
+    padding: 5px;
+}
+
+input::placeholder{
+    font-size: 0.9em;
+    font-style: italic;
+    color: grey;
+}
+
+.radio-group{
+    label{
+        color: grey;
+        font-size: 0.8em;
+    }
+}
+
+input:focus{
+    border: #0D78BC solid 1px ;
+}
+
+.modal-header{
+    h1{
+        color: #0D78BC;
+    }
+}

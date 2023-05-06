@@ -1,0 +1,41 @@
+.container-fluid{
+    display: flex;
+    background:linear-gradient(60deg,#167ce9 0%, #bc0a2c 100%);
+    background: -webkit-linear-gradient(left, #167ce9 0%, #bc0a2c 100%);
+    background: rgb(1, 1, 84);
+    align-items: center;
+    nav{
+        min-height: 100px;
+   
+        display: flex;
+        align-items: center;
+        .breadcrumb{
+            font-size: 1.2em;
+            color: #fff;
+            .breadcrumb-item{
+                font-size: 1.1em;
+                a{
+                    color: gray;
+
+                }
+                a:hover{
+                    color: #ffff;
+                }
+            }
+            .breadcrumb-item.active{
+                color: #fff;
+                font-size: 1em;
+            }
+        }
+    }
+}
+.container{
+    padding: 50px;
+    padding-top: 0;
+    h2{
+        font-size: 1.5em;
+    }
+    p{
+        margin-bottom: 50px;
+    }
+}

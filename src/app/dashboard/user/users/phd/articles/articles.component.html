@@ -1,0 +1,49 @@
+<div class="container-fluid">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">
+                <a style="text-transform: uppercase;">
+                    {{title}}
+                </a>
+            </li>
+        </ol>
+        <ul>
+            <li>
+              
+                    <a >Home </a>>
+               
+            </li>
+            <li>
+                <a>Dashboard</a>>
+            </li>
+            <li>
+                <a>Ph.D</a>>
+            </li>
+            <li>
+                <a>{{title}}</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="left-right-btn">
+        <button><img src="assets/img/left.png" alt=""></button>
+        <button><img src="assets/img/right.png" alt=""></button>
+    </div>
+</div>
+<hr />
+
+<div class="container-card-wrapper">
+
+  <div class="card" *ngFor="let item of data?.questions">
+
+        
+        <h6><img src="assets/img/bullet.png" alt="">{{item?.ques}}</h6>
+    <div class="content" innerHtml="{{item?.ans}}">
+
+        <!-- <p innerHtml="{{item?.ans}}"></p> -->
+    </div>
+    <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora quas voluptatum tenetur molestias, dicta obcaecati nobis minima laborum vitae. Vel nam reiciendis corrupti pariatur officia tenetur fugit quisquam voluptatem. Tempore.</p> -->
+    <p innnerText="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora quas voluptatum tenetur molestias, dicta obcaecati nobis minima laborum vitae. Vel nam reiciendis corrupti pariatur officia tenetur fugit quisquam voluptatem. Tempore."> </p>
+</div>
+
+</div>

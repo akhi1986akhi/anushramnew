@@ -1,0 +1,146 @@
+<ngx-spinner bdColor="rgba(51,51,51,0.9)" size="medium" color="#fff" type="ball-scale-multiple">
+    <p style="font-size: 20px; color: white">Login...</p>
+</ngx-spinner>
+
+<div class="container-fluid">
+    <div class="alert alert-success" role="alert" *ngIf="message=='Successfully Registered!'">
+        {{message}}
+    </div>
+    <div class="alert alert-danger" role="alert" *ngIf="message=='Email Already Exits!'">
+        {{message}}
+    </div>
+    <div class="login-message">
+        <div class="login-imgae">
+            <img src="assets/img/login/kindpng_2738804.png" alt="">
+        </div>
+    </div>
+    <div class="account">
+        <div class="account-nav">
+            <div class="login-btn" [style.background]="loginBg" (click)="loginSignup('login')">
+                Login
+            </div>
+            <div class="signup-btn" [style.background]="signUpBg" (click)="loginSignup('register')">
+                SignUp
+            </div>
+        </div>
+        <div class="login-section" *ngIf="SignIn">
+            <form [formGroup]="loginForm" (ngSubmit)="login()">
+                <div class="row">
+                    <div class="col">
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Email address</label>
+                        <input type="email" class="form-control" formControlName="email" placeholder="name@example.com">
+                    </div>
+                </div>
+            </div>
+            <div class="row pt-3">
+                <div class="col">
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" formControlName="password"  placeholder="Password">
+                    </div>
+                </div>
+            </div>
+            <div class="row pt-3">
+                <div class="col">
+                    <div class="mb-3">
+                        <button type="submit" class="btn btn-success">Login</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+            <div class="row" style="margin-top:0 ;padding-top:0;">
+                <div class="col" style="text-align: right;color:#000;margin-top: 0;padding-top: 0; font-size: 0.8em;">
+                    <a routerLink="/forget-password">
+                        Forget Password 
+                    </a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col" style="text-align:center ;">
+                    <span>or</span>
+                </div>
+            </div>
+            <!-- (click)="signInWithGoogle()" -->
+            <div class="row pt-3">
+                <div class="col">
+                    <div class="mb-3" style="display:flex ;flex-direction:column;gap:10px;">
+                        <button class="btn google" (click)="signInWithGoogle()">
+                            <img src="assets/img/logo/Google__G__Logo.svg.webp" alt="">
+                            Login with Google
+                        </button>
+                        <!-- (click)="signInWithFacebook()" -->
+                        <!-- <asl-google-signin-button></asl-google-signin-button> -->
+                        <button class="btn facebook" >
+
+                            <img src="assets/img/logo/facebook.png" alt="">
+                            Login with Facebook
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="login-section" *ngIf="signUp">
+            <form [formGroup]="registerForm">
+                <div class="row">
+                    <div class="col">
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">First Name</label>
+                            <input type="text" class="form-control" formControlName="fname" placeholder="First Name">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Last Name</label>
+                            <input type="text" class="form-control" formControlName="lname" placeholder="Last Name">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Email</label>
+                            <input type="email" class="form-control" formControlName="email" placeholder="name@example.com">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Contact No.</label>
+                            <input type="text" class="form-control" formControlName="contact" placeholder="Contact No.">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">City</label>
+                            <input type="text" class="form-control" formControlName="city" placeholder="City">
+                        </div>
+                    </div>
+                </div>
+                <div class="row pt-3">
+                    <div class="col">
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" formControlName="password" placeholder="Password">
+                        </div>
+                    </div>
+                </div>
+                <div class="row pt-3">
+                    <div class="col">
+                        <div class="mb-3">
+                            <button class="btn btn-success" (click)="register()">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>

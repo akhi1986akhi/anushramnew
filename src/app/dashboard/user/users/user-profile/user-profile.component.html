@@ -1,0 +1,715 @@
+<div class="container-fluid">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item active" aria-current="page">
+        <a>
+          Profile
+        </a>
+      </li>
+    </ol>
+    <ul>
+      <li>
+        <span>
+          <a routerLink="/">Home </a>> <a routerLink="/user-dash/user-dashboard">Dashboard</a> > <a>Profile</a>
+        </span>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="left-right-btn">
+    <button><img src="assets/img/left.png" alt=""></button>
+    <button><img src="assets/img/right.png" alt=""></button>
+  </div>
+</div>
+<hr />
+<div class="container-fluid main">
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button"
+        role="tab" aria-controls="home-tab-pane" aria-selected="true">Profile</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button"
+        role="tab" aria-controls="profile-tab-pane" aria-selected="false">Education</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button"
+        role="tab" aria-controls="contact-tab-pane" aria-selected="false">Employment</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="disabled-tab" data-bs-toggle="tab" data-bs-target="#disabled-tab-pane" type="button"
+        role="tab" aria-controls="disabled-tab-pane" aria-selected="false">About Me</button>
+    </li>
+  </ul>
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+
+      <div class="header text-info border-bottom border-info">
+        <div style="display: flex; width:fit-content;font-size:1.5em;justify-content:center;align-items:center;">
+
+          <i class="bi bi-person"></i>
+
+          Profile
+        </div>
+
+      </div>
+      <div class="container-fluid form">
+        <form [formGroup]="basicInfoForm" (ngSubmit)="submitForm('profile')">
+
+          <div class="row">
+            <span style="font-size:1.3em ; color: #ff1949;margin-bottom: 20px;">Basic Info</span>
+            <div class="col gap-3">
+
+
+              <div class="mb-3 w-25">
+                <label for="title" class="form-label">Title</label>
+                <!-- <input type="text" class="form-control" placeholder="Title"> -->
+                <select class="form-select" formControlName="title">
+                  <option selected value="Title">Title</option>
+                  <option value="Mr.">Mr.</option>
+                  <option value="Mrs.">Mrs.</option>
+                  <option value="Dr.">Dr.</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label for="firstName" class="form-label">First Name</label>
+                <input type="text" class="form-control" placeholder="Enter First Name" formControlName="firstName">
+              </div>
+
+
+
+
+              <div class="mb-3">
+                <label for="lastName" class="form-label">Last Name</label>
+                <input type="text" class="form-control" placeholder="Enter Last Name" formControlName="lastName">
+              </div>
+            </div>
+          </div>
+
+
+
+          <div class="row">
+            <div class="col gap-3">
+              <div class="mb-3 w-25">
+                <label for="dob" class="form-label">DOB</label>
+                <input type="date" class="form-control" placeholder="Enter DOB" formControlName="dob">
+              </div>
+              <div class="mb-3">
+                <label for="fatherName" class="form-label">Father's Name</label>
+                <input type="text" class="form-control" placeholder="Enter Father's Name" formControlName="fatherName">
+              </div>
+              <div class="mb-3">
+                <label for="motherName" class="form-label">Mother's Name</label>
+                <input type="text" class="form-control" placeholder="Enter Mother's Name" formControlName="motherName">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col gap-3">
+              <div class="mb-3">
+                <label for="email" class="form-label">E-mail</label>
+                <input type="email" class="form-control" placeholder="Enter E-mail" formControlName="email"
+                  autocomplete="off" readonly>
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label">Contact</label>
+                <input type="tel" class="form-control" placeholder="Enter Contact No." formControlName="contact"
+                  autocomplete="off">
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label">Alt. Contact no.</label>
+                <input type="tel" class="form-control" placeholder="Alternate Contact No." formControlName="altContact"
+                  autocomplete="off">
+              </div>
+            </div>
+          </div>
+          <div class="row gap-3">
+            <span style="font-size:1.3em ; color: #ff1949;margin-bottom: 20px;">Address</span>
+            <div class="col address">
+              <div class="addess-lable">Present Address</div>
+              <div class="row" style="flex-direction:column ; position: relative;">
+                <div class="col">
+                  <div class="mb-3">
+                    <label for="address" class="form-label">Address</label>
+                    <input type="text" class="form-control" placeholder="Address" formControlName="addressA">
+                  </div>
+
+                </div>
+
+
+                <div class="col gap-3">
+                  <div class="mb-3">
+                    <label for="city" class="form-label">City</label>
+                    <input type="text" class="form-control" placeholder="City" formControlName="cityA"
+                      autocomplete="off">
+                  </div>
+                  <div class="mb-3">
+                    <label for="state" class="form-label">State</label>
+                    <!-- <input type="text" class="form-control" placeholder="State"> -->
+                    <select class="form-select" aria-label="Default select example" formControlName="stateA">
+                      <option selected value="Select State">Select State</option>
+                      <option *ngFor="let item of stateList" value="{{item.stateName}}">{{item.stateName}}</option>
+
+                    </select>
+                  </div>
+                </div>
+
+
+                <div class="col gap-3">
+                  <div class="mb-3">
+                    <label for="city" class="form-label">Pin Code</label>
+                    <input type="text" class="form-control" placeholder="Pincode" formControlName="pincodeA">
+                  </div>
+                  <div class="mb-3">
+
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            <div class="col address">
+              <div class="addess-lable">
+                Permanent Address
+              </div>
+              <div class="row" style="flex-direction:column; position: relative;">
+                <div class="check-box">
+                  Copy Present Address &nbsp;
+                  <input class="" type="checkbox" value="copy" style="width:15px;" (click)="copyAddress()">
+                </div>
+                <!-- <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                  Default checkbox
+                </label>
+              </div> -->
+                <div class="col">
+                  <div class="mb-3">
+                    <label for="address" class="form-label">Address</label>
+                    <input type="text" class="form-control" placeholder="Address" formControlName="addressB">
+                  </div>
+                </div>
+
+                <div class="col gap-3">
+                  <div class="mb-3">
+                    <label for="city" class="form-label">City</label>
+                    <input type="text" class="form-control" placeholder="City" formControlName="cityB">
+                  </div>
+                  <div class="mb-3">
+                    <label for="state" class="form-label">State</label>
+                    <!-- <input type="text" class="form-control" placeholder="State"> -->
+                    <select class="form-select" aria-label="Default select example" formControlName="stateB">
+                      <option selected value="Select State">Select State</option>
+                      <option *ngFor="let item of stateList" value="{{item.stateName}}">{{item.stateName}}</option>
+
+                    </select>
+                  </div>
+                </div>
+                <div class="col gap-3">
+                  <div class="mb-3">
+                    <label for="city" class="form-label">Pin Code</label>
+                    <input type="text" class="form-control" placeholder="Pincode" formControlName="pincodeB">
+                  </div>
+                  <div class="mb-3">
+
+                  </div>
+                </div>
+
+
+              </div>
+            </div>
+          </div>
+
+
+          <div class="row">
+            <div class="col">
+              <div class="m-3">
+                <button type="submit" class="submit">Save</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+
+
+
+
+    </div>
+    <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+
+
+
+      <div class="header text-info border-bottom border-info">
+        <div style="display: flex; width:fit-content;font-size:1.5em;justify-content:center;align-items:center;">
+
+          <i class="bi bi-person"></i>
+
+          Education
+        </div>
+      </div>
+      <div class="edit-btn" *ngIf="!edu">
+        <button type="button" class="submit view" (click)="AddEducation()">Add+</button>
+      </div>
+
+      <div class="container-fluid form" *ngIf="edu">
+        <form [formGroup]="EducationForm">
+
+          <div class="row">
+            <span style="font-size:1.3em ; color: #ff1949;margin-bottom: 20px;">Education</span>
+            <div class="col gap-3">
+
+              <div class="mb-3">
+                <label for="firstName" class="form-label">Course</label>
+                <input type="text" class="form-control" placeholder="Course" formControlName="course">
+              </div>
+
+              <div class="mb-3">
+                <label for="lastName" class="form-label">Specialization</label>
+                <input type="text" class="form-control" placeholder="Specialization" formControlName="spec">
+              </div>
+              <div class="mb-3">
+                <label for="lastName" class="form-label">Max-Marks</label>
+                <input type="text" class="form-control" placeholder="Max-Marks" formControlName="maxMarks">
+              </div>
+              <div class="mb-3">
+                <label for="lastName" class="form-label">Obt-Marks</label>
+                <input type="text" class="form-control" placeholder="Obt-Marks" formControlName="obtMarks">
+              </div>
+
+            </div>
+          </div>
+          <div class="row">
+            <div class="col gap-3">
+              <div class="mb-3">
+                <label for="dob" class="form-label">Board/University</label>
+                <input type="text" class="form-control" placeholder="Board / University" formControlName="boUni">
+              </div>
+              <div class="mb-3">
+                <label for="fatherName" class="form-label">Year</label>
+                <!-- <input type="text" class="form-control" placeholder="Year" formControlName="year"> -->
+                <select class="form-select" formControlName="year" placeholder="Year">
+                  <option selected value="Select Year">Select Year</option>
+                  <option *ngFor="let item of year" value="{{item}}">{{item}}</option>
+
+                </select>
+              </div>
+              <div class="mb-3">
+                <label for="motherName" class="form-label">Location</label>
+                <input type="text" class="form-control" placeholder="Location" formControlName="location">
+              </div>
+              <div class="mb-3">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="m-3">
+                <ng-container *ngIf="updateBtn">
+                  <button type="button" class="submit" (click)="updateForm('education')">Update</button>
+                  &nbsp;
+                  &nbsp;
+                  &nbsp;
+                  &nbsp;
+                </ng-container>
+                <ng-container *ngIf="!updateBtn">
+                  <button type="button" class="submit" (click)="submitForm('education')">Save</button>
+                  &nbsp;
+                  &nbsp;
+                  &nbsp;
+                  &nbsp;
+                </ng-container>
+                <button type="button" class="submit view" (click)="close('edu-form')">Close</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <!-- EDUCATION VIEW SECTION START FROM HERE -->
+      <div class="container-fluid education-view" *ngIf="!edu">
+
+        <ul>
+          <li class="list heading">
+
+            <div class="list-item caption">Course</div>
+            <div class="list-item caption">Specilization</div>
+            <div class="list-item caption">maxMarks</div>
+            <div class="list-item caption">obtMarks</div>
+            <div class="list-item caption">Board/ University</div>
+            <div class="list-item caption">Year</div>
+            <div class="list-item caption">Location</div>
+            <div class="list-item caption">Action</div>
+          </li>
+          <li class="list" *ngFor="let item of educationData; let i=index;">
+
+            <div class="list-item content">{{item.course}}</div>
+            <div class="list-item content">{{item.spec}}</div>
+            <div class="list-item content">{{item.maxMarks}}</div>
+            <div class="list-item content">{{item.obtMarks}}</div>
+            <div class="list-item content" title="{{item.boUni}}">{{item?.boUni?.substring(0,15)}}...</div>
+            <div class="list-item content">{{item.year}}</div>
+            <div class="list-item content">{{item.location}}</div>
+            <div class="list-item content">
+              <a>
+                <!-- <i class="bi bi-trash" style="color:red; cursor: pointer;"></i> -->
+              </a>
+              <a (click)="edit('education',i)">
+                <i class="bi bi-pencil-square" style="color: seagreen;cursor: pointer;"></i>
+              </a>
+            </div>
+          </li>
+        </ul>
+
+
+        <!-- <table class="table">
+          <thead>
+            <tr>
+              <th>
+                #
+              </th>
+              <th>
+                Course
+              </th>
+              <th>Specilization</th>
+              <th>Max-Marks</th>
+              <th>Obt-Marks</th>
+              <th>Borad/University</th>
+              <th>Year</th>
+              <th>Location</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of educationData; let i=index;">
+              <td>
+                {{i+1}}
+              </td>
+              <td>{{item.course}}</td>
+              <td>{{item.spec}}</td>
+              <td>{{item.maxMarks}}</td>
+              <td>{{item.obtMarks}}</td>
+              <td>{{item.boUni}}</td>
+              <td>{{item.year}}</td>
+              <td>{{item.location}}</td>
+            </tr>
+          </tbody>
+        </table> -->
+      </div>
+
+
+      <!-- EDUCATION VIEW SECTION END FROM HERE -->
+
+
+
+
+
+    </div>
+    <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
+
+
+      <div class="header text-info border-bottom border-info">
+        <div style="display: flex; width:fit-content;font-size:1.5em;justify-content:center;align-items:center;">
+
+          <i class="bi bi-person"></i>
+          Employment
+        </div>
+
+      </div>
+
+      <div class="edit-btn" *ngIf="!emp">
+        <button type="button" class="submit view" (click)="AddEmployment()">Add+</button>
+      </div>
+      <div class="container-fluid form" *ngIf="emp">
+        <form [formGroup]="EmploymentForm">
+          <div class="row">
+            <span style="font-size:1.3em ; color: #ff1949;margin-bottom: 20px;">Employment</span>
+            <div class="col gap-3">
+              <div class="mb-3">
+                <label for="firstName" class="form-label">Organization</label>
+                <input type="text" class="form-control" placeholder="Organization" formControlName="organization">
+              </div>
+
+              <div class="mb-3">
+                <label for="lastName" class="form-label">Post</label>
+                <input type="text" class="form-control" placeholder="Post" formControlName="post">
+              </div>
+              <div class="mb-3">
+                <label for="lastName" class="form-label">Role</label>
+                <input type="text" class="form-control" placeholder="Role" formControlName="role">
+              </div>
+
+
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col gap-3">
+              <div class="mb-3">
+                <label for="lastName" class="form-label">Responsbility</label>
+                <input type="text" class="form-control" placeholder="Responsbility" formControlName="responsbility">
+              </div>
+              <div class="mb-3">
+                <label for="dob" class="form-label">Joining Date</label>
+                <input type="date" class="form-control" placeholder="Joining date" formControlName="joiningDate">
+              </div>
+              <div class="mb-3">
+
+
+                <div class="checkBox">
+                  <label for="fatherName" class="form-label" style="display: flex;">
+                    Last date
+                  </label>
+                  <div class="check">
+                    <input type="checkbox"> <label for="">Till-Now</label>
+                  </div>
+
+                </div>
+
+                <input type="date" class="form-control" placeholder="Last Date" formControlName="lastDate">
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="row">
+            <label for="">Description</label>
+            <textarea name="" id="" cols="150" rows="5" formControlName="description"></textarea>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="m-3">
+
+
+                <ng-container *ngIf="updateBtnEmp">
+                  <button type="button" class="submit" (click)="updateForm('employment')">Update</button>
+                  &nbsp;
+                  &nbsp;
+                  &nbsp;
+                  &nbsp;
+                </ng-container>
+                <ng-container *ngIf="!updateBtnEmp">
+                  <button type="button" class="submit" (click)="submitForm('employment')">Save</button>
+                  &nbsp;
+                  &nbsp;
+                  &nbsp;
+                  &nbsp;
+                </ng-container>
+                <button type="button" class="submit view" (click)="close('emp-form')">Close</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="container-fluid education-view" *ngIf="!emp">
+
+        <ul>
+          <li class="list heading">
+
+            <div class="list-item caption">Organization</div>
+            <div class="list-item caption">Post</div>
+            <div class="list-item caption">Role</div>
+            <div class="list-item caption">Responsbility</div>
+            <div class="list-item caption">Joining Date</div>
+            <div class="list-item caption">Last Date</div>
+            <div class="list-item caption">Description</div>
+            <div class="list-item caption">Action</div>
+          </li>
+          <li class="list" *ngFor="let item of employmentData; let i=index;">
+
+            <div class="list-item content">{{item.organization}}</div>
+            <div class="list-item content">{{item.post}}</div>
+            <div class="list-item content">{{item.role}}</div>
+            <div class="list-item content">{{item.responsbility}}</div>
+            <div class="list-item content">{{item?.joiningDate}}</div>
+            <div class="list-item content">{{item?.lastDate}}</div>
+            <div class="list-item content">{{item.description}}</div>
+            <div class="list-item content">
+              <a>
+                <!-- <i class="bi bi-trash" style="color:red;cursor: pointer;"></i> -->
+              </a>
+
+              <a (click)="edit('employment',i)">
+                <i class="bi bi-pencil-square" style="color:green; cursor: pointer;"></i>
+              </a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+
+    <div class="tab-pane fade" id="disabled-tab-pane" role="tabpanel" aria-labelledby="disabled-tab" tabindex="0">
+
+      <div class="header text-info border-bottom border-info">
+        <div style="display: flex; width:fit-content;font-size:1.5em;justify-content:center;align-items:center;">
+
+          <i class="bi bi-person"></i>
+
+          AboutUs
+        </div>
+
+      </div>
+
+      <div class="edit-btn" *ngIf="!abt">
+        <button type="button" class="submit view" (click)="AddAbt()">Edit</button>
+    
+        
+      </div>
+      <div class="container-fluid form" *ngIf="abt">
+        <form [formGroup]="aboutForm" (ngSubmit)="submitAbt()">
+          <div class="row">
+            <div class="col">
+              <div class="mb-3">
+                <label for="about-us" class="form-label">About Me</label>
+                <textarea class="form-control" name="" id="" cols="30" rows="5"
+                  placeholder="Write here about yourself..." formControlName="aboutme"></textarea>
+              </div>
+            </div>
+            <div class="about-research">
+              <div class="row">
+                <div class="col">
+                  <div class="mb-3">
+                    <label for="uiversityName" class="form-label">University Name</label>
+                    <input type="text" class="form-control" placeholder="University Name"
+                      formControlName="universityName">
+                  </div>
+                  <div class="mb-3">
+                    <label for="ResearchTitle" class="form-label">Research Title</label>
+                    <input type="text" class="form-control" placeholder="Research Title"
+                      formControlName="researchTitle">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <div class="mb-3">
+                    <label for="uiversityName" class="form-label">Department</label>
+                    <input type="text" class="form-control" placeholder="Department"
+                      formControlName="universityDepartment">
+                  </div>
+                  <div class="mb-3">
+                    <label for="uiversityName" class="form-label">Subject</label>
+                    <input type="text" class="form-control" placeholder="Subject" formControlName="subject">
+                  </div>
+                </div>
+              </div>
+              <div class="about-research-caption">
+                About Research
+              </div>
+            </div>
+
+            <div class="about-research">
+              <div class="row">
+                <div class="col">
+                  <div class="mb-3">
+                    <label for="uiversityName" class="form-label">Upload Resume</label>
+                    <input type="file" class="form-control" placeholder="University Name" (change)="uploadFile($event)">
+                  </div>
+             
+                </div>
+              </div>
+
+
+              <div class="about-research-caption">
+                Upload Resume
+              </div>
+            </div>
+          </div>
+
+
+
+          <div class="row">
+            <div class="col">
+              <div class="m-3">
+                <button type="submit" class="submit">Save</button>
+                &nbsp;
+                &nbsp;
+                &nbsp;
+                &nbsp;
+                <button *ngIf="userData?.about !=undefined" type="button" class="submit view"
+                  (click)="close('abt-form')">Close</button>
+              </div>
+            </div>
+          </div>
+          <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+        </form>
+      </div>
+      <div class="container-fluid form" *ngIf="!abt">
+        <form [formGroup]="aboutForm" (ngSubmit)="submitAbt()">
+
+          <div class="row">
+            <div class="col">
+              <div class="mb-3">
+                <label for="about-us" class="form-label">About Me</label>
+
+                <p>{{userData?.about?.aboutme}}</p>
+              </div>
+            </div>
+            <div class="about-research">
+
+              <div class="row">
+                <div class="col">
+                  <div class="mb-3">
+                    <label for="uiversityName" class="form-label">University Name</label>
+
+                    <span>{{userData?.about?.universityName}}</span>
+                  </div>
+                  <div class="mb-3">
+                    <label for="ResearchTitle" class="form-label">Research Title</label>
+
+                    <span>{{userData?.about?.researchTitle}}</span>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <div class="mb-3">
+                    <label for="uiversityName" class="form-label">Department</label>
+
+
+                    <span>{{userData?.about?.universityDepartment}}</span>
+
+                  </div>
+                  <div class="mb-3">
+                    <label for="uiversityName" class="form-label">Subject</label>
+
+                    <span>{{userData?.about?.subject}}</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="about-research-caption">
+                About Research
+              </div>
+            </div>
+
+            <div class="about-research" *ngIf="userData?.about?.resumePath != undefined">
+
+
+              <div class="btn-wrp">
+
+                <a  class="download-btn" href="{{userData?.about?.resumePath}}">
+  
+                  <button  class="btn" type="button">
+                    Download <i class="bi bi-download" style="margin-left:10px ; font-size: 1.5em;"></i>
+                  </button>
+                </a>
+              </div>
+
+              <div class="about-research-caption">
+                Resume
+              </div>
+            </div>
+          </div>
+
+
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

@@ -1,0 +1,255 @@
+<div class="container-fluid">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">
+                <a>
+                    Scholar Summary
+                </a>
+            </li>
+        </ol>
+        <ul>
+            <li>
+                <span>
+                    <a>Home </a>> <a>Dashboard</a>
+                </span>
+            </li>
+            <li>
+                <span>
+                    > <a>Scholar Summary</a>
+                </span>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="left-right-btn">
+        <button><img src="assets/img/left.png" alt=""></button>
+        <button><img src="assets/img/right.png" alt=""></button>
+    </div>
+</div>
+<hr />
+
+<div class="container-fluid summary">
+    <div class="btn-group-row">
+        <button (click)="makepdf()">Download&nbsp;<i class="bi bi-cloud-arrow-down"></i></button>
+        <button>Print&nbsp;<i class="bi bi-printer"></i></button>
+    </div>
+    <!-- download js pdf content -->
+    <div class="download-summary-container" #content *ngIf="true">
+        <div class="row">
+            <div class="header" *ngIf="true">
+                <div class="profile-image">
+                    <img src="assets/img/logo/default-user-logo.jpg" alt="">
+                    <!-- assets/img/logo/default-user-logo.jpg -->
+                </div>
+               <div class="profile-content">
+                    <h2>{{userData?.profile?.fname}} {{userData?.profile?.lname}}</h2>
+                    <div class="sub-heading">
+                        <span>{{userData?.about.universityDepartment}} - {{userData?.about.researchTitle}}</span>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="line-text">
+                                <span>
+                                    <i class="bi bi-geo-alt"></i>
+                                   
+                                </span>
+                                <span>{{userData?.profile?.addressA}}, {{userData?.profile?.cityA}},
+                                    {{userData?.profile?.stateA}}</span>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="line-text">
+                                <span><i class="bi bi-envelope"></i></span>
+                                <span>{{userData?.profile?.email}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="line-text">
+                                <span><i class="bi bi-telephone"></i></span>
+                                <span>{{userData?.profile?.contact}}</span>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="line-text">
+                                <span><i class="bi bi-globe"></i></span>
+                                <span>www.itsme.com</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="left-side">
+
+                <div class="box">
+                    <div class="title">Education</div>
+                    <div class="content" *ngFor="let item of userData?.education">
+
+                        <ul>
+                            <li *ngIf="item?.year !=''">
+                                <span></span>
+                                <span>{{item?.year}}</span>
+                            </li>
+                            <li>
+                                <span></span>
+                                <span>{{item?.course}}</span>
+                            </li>
+                            <li *ngIf="item?.boUni !='' && item?.boUni !=undefined ">
+                                <span></span>
+                                <span>{{item?.boUni}}</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="title">Experience</div>
+                    <div class="content" *ngFor="let item of userData?.employment">
+
+                        <ul>
+                            <li>
+                                <span></span>
+                                <span>{{item?.joiningDate | date}} - {{item?.lastDate | date}}</span>
+                            </li>
+                            <li>
+                                <span></span>
+                                <span>{{item?.organization}}</span>
+                            </li>
+                            <li>
+                                <span></span>
+                                <span>{{item?.post}}</span>
+                            </li>
+                            <li>
+                                <span></span>
+                                <span>{{item?.role}}</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="right-side">
+                
+              
+            </div>
+        </div>
+    </div>
+
+    <div class="summary-container" *ngIf="true">
+        
+        <div class="row">
+            <div class="header">
+                <div class="profile-image">
+                    <img src="{{photo}}" alt="">
+                    <!-- assets/img/logo/default-user-logo.jpg -->
+                </div>
+                <div class="profile-content">
+                    <h2>{{userData?.profile?.fname}} {{userData?.profile?.lname}}</h2>
+                    <div class="sub-heading">
+                        <span>{{userData?.about.universityDepartment}} - {{userData?.about.researchTitle}}</span>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="line-text">
+                                <span><i class="bi bi-geo-alt"></i></span>
+                                <span>{{userData?.profile?.addressA}}, {{userData?.profile?.cityA}},
+                                    {{userData?.profile?.stateA}}</span>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="line-text">
+                                <span><i class="bi bi-envelope"></i></span>
+                                <span>{{userData?.profile?.email}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="line-text">
+                                <span><i class="bi bi-telephone"></i></span>
+                                <span>{{userData?.profile?.contact}}</span>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="line-text">
+                                <span><i class="bi bi-globe"></i></span>
+                                <span>www.itsme.com</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="left-side">
+
+                <div class="box">
+                    <div class="title">Education</div>
+                    <div class="content" *ngFor="let item of userData?.education">
+
+                        <ul>
+                            <li *ngIf="item?.year !=''">
+                                <span></span>
+                                <span>{{item?.year}}</span>
+                            </li>
+                            <li>
+                                <span></span>
+                                <span>{{item?.course}}</span>
+                            </li>
+                            <li *ngIf="item?.boUni !='' && item?.boUni !=undefined ">
+                                <span></span>
+                                <span>{{item?.boUni}}</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="title">Experience</div>
+                    <div class="content" *ngFor="let item of userData?.employment">
+
+                        <ul>
+                            <li>
+                                <span></span>
+                                <span>{{item?.joiningDate | date}} - {{item?.lastDate | date}}</span>
+                            </li>
+                            <li>
+                                <span></span>
+                                <span>{{item?.organization}}</span>
+                            </li>
+                            <li>
+                                <span></span>
+                                <span>{{item?.post}}</span>
+                            </li>
+                            <li>
+                                <span></span>
+                                <span>{{item?.role}}</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="right-side">
+                <div class="content" *ngIf="userData?.excercise?.levelTwo?.literatureReview?.review.length >0">
+                    <div class="heading">
+                        <h5><i class="bi bi-briefcase-fill"></i>&nbsp;Literature Review</h5>
+                    </div>
+                    <ul>
+                        <li>
+                            <span class="li-h">Journal Name</span>
+                            <span class="li-h">Title</span>
+                            <span class="li-h">Author Name</span>
+                            <span class="li-h">Year</span>
+                            <span class="li-h">IISN</span>
+                        </li>
+                        <li *ngFor="let item of userData?.excercise?.levelTwo?.literatureReview?.review">
+                            <span>{{item.journalName}}</span>
+                            <span>{{item.title}}</span>
+                            <span>{{item.author}}</span>
+                            <span>{{item.year}}</span>
+                            <span>{{item.iisn}}</span>
+                        </li>
+                      
+                    </ul>
+                </div>
+              
+            </div>
+        </div>
+    </div>
+</div>

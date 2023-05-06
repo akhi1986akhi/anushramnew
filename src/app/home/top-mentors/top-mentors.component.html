@@ -1,0 +1,407 @@
+
+
+<div class="section-title text-left">
+    <span class="sub-title">EXPERTS</span>
+    <h2>Our Top Experts</h2>
+    <a routerLink="/experts" class="default-btn"><i class="bx bx-show-alt icon-arrow before"></i><span class="label">View All Mentors </span><i class="bx bx-show-alt icon-arrow after"></i></a>
+</div>
+<div id="mentor" class="carousel carousel-dark slide" data-bs-ride="carousel">
+    
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#mentor" data-bs-slide-to="0" class="active"
+            aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#mentor" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#mentor" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+        <div class="carousel-item active" data-bs-interval="10000" *ngIf="mentorData != undefined">
+
+            <!-- <img src="..." class="d-block w-100" alt="..."> -->
+         
+            <div class="testimonial-wrapper">
+
+                <div class="testimonial-card">
+
+                    <div class="mentor-profile-image">
+                        <div class="image">
+                            <img src="{{mentorData[0]?.profile?.photo}}" alt="" onError="this.src='assets/img/logo/default-user-logo.jpg'">
+                        
+                        </div>
+                        <div class="caption">
+                            <h5>{{mentorData[0]?.profile?.fname}}</h5>
+                            <h6>{{mentorData[0]?.employement[0]?.postDesignation}}</h6>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <div class="rating">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <div class="last-qualification">
+                            <!-- P.hD - Engineering -->
+                            {{mentorData[0]?.education[0]?.degree}} - {{mentorData[0]?.education[0]?.course}}
+                        </div>
+                        <div class="experience">
+                            Experience - 15+ Years
+                        </div>
+                        <div class="location" *ngIf="mentorData[0]?.profile?.city !=''">
+                           <!-- Location - Delhi -->
+                           Location - {{mentorData[0]?.profile?.city}}
+                        </div>
+                        <div class="button">
+                            <button class="view-btn">
+                                View Profile
+                            </button>
+
+                            <div class="share">
+                                <i class="bi bi-share-fill"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="testimonial-card">
+                    <div class="mentor-profile-image">
+                        <div class="image">
+                            <img src="{{mentorData[2]?.profile?.photo}}" alt="">
+                        </div>
+                        <div class="caption">
+                            <h5>{{mentorData[2]?.profile?.fname}}</h5>
+                            <h6>{{mentorData[2]?.employement[0]?.postDesignation}}</h6>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <div class="rating">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <div class="last-qualification">
+                            <!-- P.hD - Engineering -->
+                            {{mentorData[2]?.education[0].degree}} - {{mentorData[2]?.education[0]?.course}}
+                        </div>
+                        <div class="experience">
+                            Experience - 15+ Years
+                        </div>
+                        <div class="location" *ngIf="mentorData[2]?.profile?.city !=''">
+                            Location - {{mentorData[2]?.profile?.city}}
+                        </div>
+                        <div class="button">
+                            <button class="view-btn">
+                                View Profile
+                            </button>
+
+                            <div class="share">
+                                <i class="bi bi-share-fill"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="mentor-profile-image">
+                        <div class="image">
+                            <img src="{{mentorData[3]?.profile?.photo}}" alt="" onError="this.src='assets/img/logo/default-user-logo.jpg'">
+                        </div>
+                        <div class="caption">
+                            <h5>{{mentorData[3]?.profile?.fname}}</h5>
+                            <h6>{{mentorData[3]?.employement[0]?.postDesignation}}</h6>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <div class="rating">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <div class="last-qualification" *ngIf="mentorData[0]?.education !=0">
+                            {{mentorData[3]?.education[0].degree}} - {{mentorData[3]?.education[0]?.course}}
+                        </div>
+                        <div class="experience">
+                            Experience - 15+ Years
+                        </div>
+                        <div class="location" *ngIf="mentorData[3]?.profile?.city !=''">
+                            Location - {{mentorData[3]?.profile?.city}}
+                        </div>
+                        <div class="button">
+                            <button class="view-btn">
+                                View Profile
+                            </button>
+
+                            <div class="share">
+                                <i class="bi bi-share-fill"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="carousel-caption d-none d-md-block">
+                <h5>First slide label</h5>
+                <p>Some representative placeholder content for the first slide.</p>
+            </div> -->
+        </div>
+        <div class="carousel-item" data-bs-interval="2000" *ngIf="mentorData != undefined">
+            <!-- <img src="..." class="d-block w-100" alt="..."> -->
+            <div class="testimonial-wrapper">
+                <div class="testimonial-card">
+                    <div class="mentor-profile-image">
+                        <div class="image">
+                            <img src="{{mentorData[4]?.profile?.photo}}" alt="" onError="this.src='assets/img/logo/default-user-logo.jpg'">
+                        </div>
+                        <div class="caption">
+                            <h5>{{mentorData[4]?.profile?.fname}}</h5>
+                            <h6>{{mentorData[4]?.employement[0]?.postDesignation}}</h6>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <div class="rating">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <div class="last-qualification" *ngIf="mentorData[0]?.education !=0">
+                            {{mentorData[4]?.education[0].degree}} - {{mentorData[4]?.education[0]?.course}}
+                        </div>
+                        <div class="experience">
+                            Experience - 15+ Years
+                        </div>
+                        <div class="location" *ngIf="mentorData[4]?.profile?.city !=''">
+                            Location - {{mentorData[4]?.profile?.city}}
+                        </div>
+                        <div class="button">
+                            <button class="view-btn">
+                                View Profile
+                            </button>
+
+                            <div class="share">
+                                <i class="bi bi-share-fill"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="mentor-profile-image">
+                        <div class="image">
+                            <img src="{{mentorData[5]?.profile?.photo}}" alt="" onError="this.src='assets/img/logo/default-user-logo.jpg'">
+                        </div>
+                        <div class="caption">
+                            <h5>{{mentorData[5]?.profile?.fname}}</h5>
+                            <h6>{{mentorData[5]?.employement[0]?.postDesignation}}</h6>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <div class="rating">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <div class="last-qualification" *ngIf="mentorData[0]?.education !=0">
+                            {{mentorData[5]?.education[0].degree}} - {{mentorData[5]?.education[0]?.course}}
+                        </div>
+                        <div class="experience">
+                            Experience - 15+ Years
+                        </div>
+                        <div class="location" *ngIf="mentorData[5]?.profile?.city !=''">
+                            Location - {{mentorData[5]?.profile?.city}}
+                        </div>
+                        <div class="button">
+                            <button class="view-btn">
+                                View Profile
+                            </button>
+
+                            <div class="share">
+                                <i class="bi bi-share-fill"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="mentor-profile-image">
+                        <div class="image">
+                            <img src="{{mentorData[6]?.profile?.photo}}" alt="" onError="this.src='assets/img/logo/default-user-logo.jpg'">
+                        </div>
+                        <div class="caption">
+                            <h5>{{mentorData[6]?.profile?.fname}}</h5>
+                            <h6>{{mentorData[6]?.employement[0]?.postDesignation}}</h6>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <div class="rating">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <div class="last-qualification" *ngIf="mentorData[0]?.education !=0">
+                            {{mentorData[6]?.education[0].degree}} - {{mentorData[6]?.education[0]?.course}}
+                        </div>
+                        <div class="experience">
+                            Experience - 15+ Years
+                        </div>
+                        <div class="location" *ngIf="mentorData[6]?.profile?.city !=''">
+                            Location - {{mentorData[6]?.profile?.city}}
+                        </div>
+                        <div class="button">
+                            <button class="view-btn">
+                                View Profile
+                            </button>
+
+                            <div class="share">
+                                <i class="bi bi-share-fill"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="carousel-caption d-none d-md-block">
+                <h5>Second slide label</h5>
+                <p>Some representative placeholder content for the second slide.</p>
+            </div> -->
+        </div>
+        <div class="carousel-item" *ngIf="mentorData != undefined">
+            <!-- <img src="..." class="d-block w-100" alt="..."> -->
+            <div class="testimonial-wrapper">
+                <div class="testimonial-card">
+                    <div class="mentor-profile-image">
+                        <div class="image">
+                            <img src="{{mentorData[7]?.profile?.photo}}" alt="" onError="this.src='assets/img/logo/default-user-logo.jpg'">
+                        </div>
+                        <div class="caption">
+                            <h5>{{mentorData[7]?.profile?.fname}}</h5>
+                            <h6>{{mentorData[7]?.employement[0]?.postDesignation}}</h6>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <div class="rating">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <div class="last-qualification" *ngIf="mentorData[0]?.education !=0">
+                            {{mentorData[7]?.education[0].degree}} - {{mentorData[7]?.education[0]?.course}}
+                        </div>
+                        <div class="experience">
+                            Experience - 15+ Years
+                        </div>
+                        <div class="location" *ngIf="mentorData[7]?.profile?.city !=0">
+                            Location - {{mentorData[7]?.profile?.city}}
+                        </div>
+                        <div class="button">
+                            <button class="view-btn">
+                                View Profile
+                            </button>
+
+                            <div class="share">
+                                <i class="bi bi-share-fill"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="mentor-profile-image">
+                        <div class="image">
+                            <img src="{{mentorData[8]?.profile?.photo}}" alt="" onError="this.src='assets/img/logo/default-user-logo.jpg'">
+                        </div>
+                        <div class="caption">
+                            <h5>{{mentorData[8]?.profile?.fname}}</h5>
+                            <h6>{{mentorData[8]?.employement[0]?.postDesignation}}</h6>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <div class="rating">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <div class="last-qualification" *ngIf="mentorData[0]?.education !=0">
+                            {{mentorData[8]?.education[0].degree}} - {{mentorData[8]?.education[0]?.course}}
+                        </div>
+                        <div class="experience">
+                            Experience - 15+ Years
+                        </div>
+                        <div class="location" *ngIf="mentorData[8]?.profile?.city !=''">
+                            Location - {{mentorData[8]?.profile?.city}}
+                        </div>
+                        <div class="button">
+                            <button class="view-btn">
+                                View Profile
+                            </button>
+
+                            <div class="share">
+                                <i class="bi bi-share-fill"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="mentor-profile-image">
+                        <div class="image">
+                            <img src="{{mentorData[9]?.profile?.photo}}" alt="" onError="this.src='assets/img/logo/default-user-logo.jpg'">
+                        </div>
+                        <div class="caption">
+                            <h5>{{mentorData[9]?.profile?.fname}}</h5>
+                            <h6>{{mentorData[9]?.employement[0]?.postDesignation}}</h6>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <div class="rating">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <div class="last-qualification" *ngIf="mentorData[0]?.education !=0">
+                            {{mentorData[8]?.education[0].degree}} - {{mentorData[8]?.education[0]?.course}}
+                        </div>
+                        <div class="experience">
+                            Experience - 15+ Years
+                        </div>
+                        <div class="location" *ngIf="mentorData[9]?.profile?.city !=0">
+                            Location - {{mentorData[9]?.profile?.city}}
+                        </div>
+                        <div class="button">
+                            <button class="view-btn">
+                                View Profile
+                            </button>
+
+                            <div class="share">
+                                <i class="bi bi-share-fill"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="carousel-caption d-none d-md-block">
+                <h5>Third slide label</h5>
+                <p>Some representative placeholder content for the third slide.</p>
+            </div> -->
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#mentor" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#mentor" data-bs-slide="next" >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+<div style="background:#E7F0FD;height:100px; display: block; text-align: right;">
+    <a routerLink="/mentor-registration" class="default-btn"><i class="bx bx-show-alt icon-arrow before"></i><span class="label">Mentor Registration </span><i class="bx bx-show-alt icon-arrow after"></i></a>
+</div>

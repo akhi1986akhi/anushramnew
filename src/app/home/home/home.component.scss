@@ -1,0 +1,35 @@
+app-training-overview{
+    display: flex;
+    margin-top: -150px;
+}
+.carousel-dark .carousel-indicators [data-bs-target] {
+    background-color: #f90202;
+    height: 15px;
+    width:15px;
+    border: solid 3px rgb(248, 113, 162);
+    border-radius: 50%;
+}
+// .carousel-dark .carousel-indicators [data-bs-target] {
+//     background-color: #fa02027a;
+// }
+
+// .carousel-indicators [data-bs-target] {
+//     box-sizing: content-box;
+//     flex: 0 1 auto;
+//     width: 15px;
+//     height: 15px;
+//     padding: 0;
+//     margin-right: 3px;
+//     margin-left: 3px;
+//     text-indent: -999px;
+//     cursor: pointer;
+//     background-color: #fff;
+//     background-clip: padding-box;
+
+//     border-top: 10px solid transparent;
+//     border-bottom: 10px solid transparent;
+//     opacity: .5;
+//     transition: opacity .6s ease;
+//     border-radius: 50%;
+    
+// }

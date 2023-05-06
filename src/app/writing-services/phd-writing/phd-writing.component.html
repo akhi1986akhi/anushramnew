@@ -1,0 +1,419 @@
+<!-- Start Page Title Area -->
+<div class="page-title-area page-title-style-three item-bg3 jarallax" data-jarallax='{"speed": 0.3}'
+    style="height: 10vh;">
+    <div class="container">
+        <div class="page-title-content">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li>Research Assistance</li>
+            </ul>
+            <h2>Research Assistance</h2>
+        </div>
+    </div>
+</div>
+<!-- End Page Title Area -->
+
+<!-- Start Distance Learning Area -->
+<section class="distance-learning-area bg-e4feff pt-70 pb-70">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7 col-md-7">
+                <div class="distance-learning-content">
+                    <span class="sub-title">Research Assistance and Support</span>
+                    <h2>Ph.D Assistance and Services</h2>
+                    <p>We at <a routerLink="/">anushram.com</a>  take pride in providing research support and training. Anushram is the virtual platform that enables scholars to execute their research with swift action. We provide support from the identification of research area or title to the final defense of the thesis, with one-on-one expert mentoring and an inside-full approach to conducting research.</p>
+                    <!-- <p>Get the Ph.D./Research You Deserve - Expert Thesis Writing Services and Support.</p> -->
+              
+
+                       <ul class="features-list pt-3" >
+                           <li><span><i class="bi bi-check-circle-fill"></i>Ph.D Research Area Identification</span></li>
+                           <li><span><i class="bi bi-check-circle-fill"></i>Research Synopsis Assistance</span></li>
+                           <li><span><i class="bi bi-check-circle-fill"></i>Research Literature Survey</span>
+                           </li>
+                           <li><span><i class="bi bi-check-circle-fill"></i>Publication Support in Indeed Journals</span>
+                           </li>
+                           <li><span><i class="bi bi-check-circle-fill"></i>Plagiarism Checking & Removal Support</span></li>
+                           <li><span><i class="bi bi-check-circle-fill"></i>Theis writing Assistance</span></li>
+                           <li><span><i class="bi bi-check-circle-fill"></i>Proofreading & Editing</span></li>
+                           <li><span><i class="bi bi-check-circle-fill"></i>Review Service</span></li>
+                           
+                       </ul>
+                       
+            
+                    <p class="mt-3">No matter what stage you are in, our team of experts can provide the necessary help
+                        and guidance to make your research a success. We are dedicated to providing quality services and
+                        always strive to Deliver best.</p>
+                    <a class="default-btn" *ngIf="false">
+
+                        <i class="bi bi-send-fill icon-arrow before"></i><span class="label">Order now</span>
+
+                        <i class="bi bi-send-fill icon-arrow after"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-5 col-md-5">
+                <!-- <div class="distance-learning-image">
+                        <img src="img/distance-learning.png" alt="image">
+                    </div> -->
+                    <!-- <i class="bi bi-send-fill"></i> -->
+                <div class="thesis-form">
+                    <h3>Enquiry Here &nbsp; <img src="assets/images/certificate/28.webp"
+                            alt=""> </h3>
+                    <form id="thesisform" novalidate="true" [formGroup]="WEForm" (ngSubmit)="submitWEForm()">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6">
+                                <div class="form-group">
+                                    <input type="text" name="name" id="name" class="form-control" required=""
+                                        data-error="Please enter your name" placeholder="Enter Your Full Name"
+                                        formControlName="fullName">
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 col-md-6">
+                                <div class="form-group">
+                                    <input type="email" name="email" id="email" class="form-control" required=""
+                                        data-error="Please enter your email" placeholder="Your E-mail"
+                                        formControlName="email">
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 col-md-6">
+                                <div class="form-group">
+                                    <input type="text" name="phone_number" id="phone_number" required=""
+                                        data-error="Please enter your number" class="form-control"
+                                        placeholder="Your Phone" formControlName="contact">
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 col-md-6">
+                                <div class="form-group">
+                                    <input type="text" name="msg_subject" id="msg_subject" class="form-control"
+                                        required="" data-error="Please enter your subject" placeholder="Your Subject"
+                                        formControlName="subject">
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 col-md-6">
+                                <div class="form-group">
+                                    <div class="select-box">
+                                        <select class="form-control" formControlName="state">
+                                            <option>State</option>
+                                            <option *ngFor="let item of stateList" value="{{item.stateName}}">
+                                                {{item.stateName}}</option>
+
+                                        </select>
+                                        <div class="nice-select form-control" tabindex="0" style="display: none;">
+                                            <span class="current">State</span>
+                                            <ul class="list">
+                                                <li *ngFor="let item of stateList" data-value="{{item.stateName}}"
+                                                    class="option selected focus">{{item.stateName}}</li>
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 col-md-6">
+                                <div class="form-group">
+                                    <div class="select-box">
+                                        <select class="form-control" formControlName="service">
+                                            <option>Select Research Work</option>
+                                            <option>Topic Selection </option>
+                                            <option>Journal Article</option>
+                                            <option>Plagiarism Check/Removal</option>
+                                            <option>Thesis Editing & Proofreading</option>
+                                            <option>Thesis Services</option>
+                                            <option>Dissertation Assistance </option>
+                                            <option>Other</option>
+                                        </select>
+                                        <div class="nice-select form-control" tabindex="0" style="display: none;">
+                                            <span class="current">Select Research Work</span>
+                                            <ul class="list">
+                                                <li data-value="Select Research Work" class="option selected focus">
+                                                    Select Research Work</li>
+                                                <li data-value="Topic Selection" class="option">Topic Selection</li>
+                                                <li data-value="Journal Article" class="option">Journal Article</li>
+                                                <li data-value="Plagiarism Check/Removal" class="option">Plagiarism
+                                                    Check/Removal</li>
+                                                <li data-value="Thesis Editing & Proofreading" class="option">Thesis
+                                                    Editing & Proofreading</li>
+                                                <li data-value="Thesis Services" class="option">Thesis Services</li>
+                                                <li data-value="Dissertation Assistance" class="option">Dissertation
+                                                    Assistance</li>
+                                                <li data-value="Other Services" class="option">Other Services</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12 col-md-12">
+                                <div class="form-group">
+                                    <textarea name="message" class="form-control" id="message" cols="30" rows="5"
+                                        required="" data-error="Write your message" placeholder="Your Message"
+                                        formControlName="message"></textarea>
+                                    <div class="help-block with-errors"></div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12 col-md-12">
+                                <button type="submit" class="default-btn disabled"
+                                    style="pointer-events: all; cursor: pointer;"><i
+                                        class="bx bx-paper-plane icon-arrow before"></i><span
+                                        class="label">Submit</span><i
+                                        class="bx bx-paper-plane icon-arrow after"></i></button>
+                                <div id="msgSubmit" class="h3 text-center hidden"></div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- <button (click)="navigate()">click</button> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="business-shape4">
+        <!-- <img src="assets/img/writing/business.jpg" alt="image"> -->
+    </div>
+</section>
+<!-- End Distance Learning Area -->
+
+<section class="team-area ptb-70">
+    <div class="container">
+        <div class="section-title">
+            <span class="sub-title"> Our Services</span>
+            <h2>Elevate Research Writing to the Next Level…</h2>
+            <p>An unmatched research writing assistance from Topic selection, till Completion of Research with ethical
+                values.</p>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-6">
+                        <div class="single-instructor-member mb-30">
+                            <!-- <h4 class="text-center">
+                            <i class="bi bi-check-square-fill"></i>
+                        </h4> -->
+                            <div class="icon-cnt p-3">
+                                <div class="icon shadow">
+
+                                    <img src="assets/images/certificate/9.webp" alt="">
+                                </div>
+                            </div>
+                            <div class="member-content">
+                                <h3><a>Topic Selection</a></h3>
+                                <p>Selecting a research writing topic involves identifying an interesting and relevant
+                                    subject with adequate existing research to support your study. It is a critical step
+                                    in the research process that can significantly impact the success of your project.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-6">
+                        <div class="single-instructor-member mb-30">
+                            <!-- <h4 class="text-center"><i class="bi bi-check-square-fill"></i></h4> -->
+                            <div class="icon-cnt p-3">
+                                <div class="icon shadow">
+
+                                    <img src="assets/images/certificate/11.webp" alt="">
+                                </div>
+                            </div>
+                            <div class="member-content">
+                                <h3><a>Journal Article</a></h3>
+                                <p>A journal article is a piece of academic writing that is published in a scholarly
+                                    journal. It presents original research or scholarship in a particular field or
+                                    discipline and is written by experts or researchers in that field.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-6">
+                        <div class="single-instructor-member mb-30">
+                            <!-- <h4 class="text-center"><i class="bi bi-check-square-fill"></i></h4> -->
+                            <div class="icon-cnt p-3">
+                                <div class="icon shadow">
+
+                                    <img src="assets/images/certificate/19.webp" alt="">
+                                </div>
+                            </div>
+                            <div class="member-content">
+                                <h3><a>Plagiarism Check/Removal</a></h3>
+                                <p>We provide you with a plagiarism report as part of our check for plagiarism and
+                                    removal service, which also helps you determine the similarity rate.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-6">
+                        <div class="single-instructor-member mb-30">
+                            <!-- <h4 class="text-center"><i class="bi bi-check-square-fill"></i></h4> -->
+                            <div class="icon-cnt p-3">
+                                <div class="icon shadow">
+
+                                    <img src="assets/images/certificate/4.webp" alt="">
+                                </div>
+                            </div>
+                            <div class="member-content">
+                                <h3><a>Thesis Editing & Proofreading</a></h3>
+                                <p>There are various professional editing and proofreading services available that can
+                                    help you with your thesis from our team of experts.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-6">
+                        <div class="single-instructor-member mb-30">
+                            <!-- <h4 class="text-center"><i class="bi bi-check-square-fill"></i></h4> -->
+                            <div class="icon-cnt p-3">
+                                <div class="icon shadow">
+
+                                    <img src="assets/images/certificate/1.webp" alt="">
+                                </div>
+                            </div>
+                            <div class="member-content">
+                                <h3><a>Thesis Assistance</a></h3>
+                                <p>Thesis assistance writing services are professional services that provide support and
+                                    guidance to students who are working on their thesis or dissertation. These services
+                                    can help students with a wide range of tasks related to their thesis, including
+                                    research, writing, editing, formatting, and time management.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-6">
+                        <div class="single-instructor-member mb-30">
+                            <!-- <h4 class="text-center"><i class="bi bi-check-square-fill"></i></h4> -->
+                            <div class="icon-cnt p-3">
+                                <div class="icon shadow">
+
+                                    <img src="assets/images/certificate/2.webp" alt="">
+                                </div>
+                            </div>
+                            <div class="member-content">
+                                <h3><a>Dissertation Assistance </a></h3>
+                                <p>Dissertation assistance services are professional services that provide guidance and
+                                    support to students who are working on their dissertation. These services can help
+                                    students with various tasks related to their dissertation, including research,
+                                    writing, editing, formatting, and time management. These services are designed to
+                                    help students complete their dissertation successfully and on time, while also
+                                    ensuring that the work meets the high standards of academic writing.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="team-btn-box text-center">
+                        <a href="team-1.html" class="default-btn"><i class="bx bx-show-alt icon-arrow before"></i><span class="label">All Instructor</span><i class="bx bx-show-alt icon-arrow after"></i></a>
+                    </div>
+                </div> -->
+        </div>
+    </div>
+
+    <div id="particles-js-circle-bubble-3"><canvas class="particles-js-canvas-el" width="1349" height="892"
+            style="width: 100%; height: 100%;"></canvas></div>
+</section>
+
+<section class="story-area bg-f8e8e9 ptb-70">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-12">
+                <div class="section-title text-left">
+                    <h2>Thesis Writing </h2>
+                </div>
+                <img src="assets/images/certificate/23.webp" alt="">
+            </div>
+
+            <div class="col-lg-8 col-md-12">
+                <div class="story-content">
+                    <h3>Professional Assistance</h3>
+                    <p>PhD thesis writing services in India provide professional assistance from experienced experts who
+                        are well-versed in the field of research. They help you in formulating a research proposal and
+                        help you in designing the research methodology.</p>
+                    <h3>Research Topic Selection</h3>
+                    <p>We help you select the best thesis topic that is relevant to your area of study and research. Our
+                        experienced team of writers and editors will guide you to select the right topic and ensure that
+                        it is approved by your professor or department.</p>
+                    <h3>Research and Analysis</h3>
+                    <p>We carry out extensive research and analysis to generate original ideas for your thesis. This
+                        involves exploring relevant literature, gathering data, and conducting interviews.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Start Area -->
+<!-- <section class="faq-area ptb-70">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-12">
+                    <div class="faq-video">
+                        <img src="assets/img/writing/faq.jpg" alt="image">
+
+                        <a href="https://asthadigital.s3.ap-south-1.amazonaws.com/anushram2.0/video/shared/Anushram-Writing-services.mp4" class="video-btn popup-youtube"><i class="bi bi-play"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-12">
+                    <div class="faq-accordion faq-accordion-style-two">
+                        <ul class="accordion">
+                            <li class="accordion-item">
+                                <a class="accordion-title active" href="javascript:void(0)">
+                                    <i class='bx bx-chevron-down'></i>
+                                    What are the different types of undergraduate degrees?
+                                </a>
+
+                                <div class="accordion-content show">
+                                    <p>Associate: a two-year program that either leads to a specific vocation or transitions to a bachelor program. Bachelor: a four or five-year program where students earn credits in a wide variety of courses.</p>
+                                </div>
+                            </li>
+
+                            <li class="accordion-item">
+                                <a class="accordion-title" href="javascript:void(0)">
+                                    <i class='bx bx-chevron-down'></i>
+                                    What are the different types of  graduate degrees?
+                                </a>
+
+                                <div class="accordion-content">
+                                    <p>Associate: a two-year program that either leads to a specific vocation or transitions to a bachelor program. Bachelor: a four or five-year program where students earn credits in a wide variety of courses.</p>
+                                </div>
+                            </li>
+
+                            <li class="accordion-item">
+                                <a class="accordion-title" href="javascript:void(0)">
+                                    <i class='bx bx-chevron-down'></i>
+                                    Can you work while studying in the United States?
+                                </a>
+
+                                <div class="accordion-content">
+                                    <p>Associate: a two-year program that either leads to a specific vocation or transitions to a bachelor program. Bachelor: a four or five-year program where students earn credits in a wide variety of courses.</p>
+                                </div>
+                            </li>
+
+                            <li class="accordion-item">
+                                <a class="accordion-title" href="javascript:void(0)">
+                                    <i class='bx bx-chevron-down'></i>
+                                    What is distance education?
+                                </a>
+
+                                <div class="accordion-content">
+                                    <p>Associate: a two-year program that either leads to a specific vocation or transitions to a bachelor program. Bachelor: a four or five-year program where students earn credits in a wide variety of courses.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+<!-- End Area -->

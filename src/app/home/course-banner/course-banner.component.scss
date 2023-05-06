@@ -1,0 +1,62 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css");
+.training-course-banner-area {
+    background-image: url(../../../assets/img/training-course-banner-bg.jpg);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.btn-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+    gap:100px;
+    
+}
+.demo-video{
+
+    .play-btn{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: solid 1px rgba(255, 0, 0, 0.403);
+        padding: 4px 10px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        font-size: 1.7em;
+
+        cursor: pointer;
+
+        .bi-play{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.7em;
+            color: #fff;
+            background-color: red;
+            box-shadow: inset 3px 3px 10px rgba(0, 0, 0, 0.581),
+                        inset 6px 6px 20px rgba(0, 0, 0, 0.26);
+            border-radius: 50%;
+            border: red 1px solid;
+        }
+    }
+    .play-btn::before{
+        content: "";
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        width:100%;
+        height:100%;
+        background-color: rgba(255, 0, 0, 0.458);
+        bottom: 0;
+        left:0;
+        color: #fff;
+        z-index: -1;
+    }
+}

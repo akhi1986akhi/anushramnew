@@ -1,0 +1,104 @@
+
+<div class="container-fluid">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">
+                <a>
+                    Research Repository
+                </a>
+            </li>
+        </ol>
+        <ul>
+            <li>
+            
+                    <a>Home </a>> 
+             
+            </li>
+            <li><a>Dashboard</a>></li>
+            <li>
+          
+                <a>Ph.D Process Excercise</a>>
+             
+            </li>
+            <li>
+                <a>Research Repository</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="left-right-btn">
+        <button><img src="assets/img/left.png" alt=""></button>
+        <button><img src="assets/img/right.png" alt=""></button>
+    </div>
+</div>
+<hr />
+
+<div class="container" *ngIf="false">
+    <ul *ngFor="let item of dataList" style="margin-bottom: 50px;">
+        <h5>{{item?.title}}</h5>
+        <p style="margin-bottom: 20px;">{{item?.caption}}</p>
+        <li *ngFor="let list of item.repo" class="list" style="margin-left: 20px;">
+            
+            <i class="bi bi-link-45deg"></i>
+            <a href="{{list?.link}}" target="_blank">
+                <div class="title">
+                    {{list?.name}}
+                </div>
+                - 
+                <div class="link">
+                    {{list?.link}}
+                </div>
+            </a>
+        </li>
+
+
+    </ul>
+</div>
+
+
+
+<div class="container" *ngIf="true">
+    <div class="play">
+
+        <a routerLink="/user-dash/video/644384a7fc0a36a23953e2be">
+
+            <i class="bi bi-play-fill"></i>
+        </a>
+    </div>
+    <div class="card" *ngFor="let item of dataList">
+        <h5>
+        
+
+                <i class="bi bi-link"></i>&nbsp;{{item?.title}} 
+       
+        
+
+            
+    
+        </h5>
+        <p style="margin-bottom: 20px; padding-left: 50px;">{{item?.caption}}</p>
+        <!-- <div class="list-item" *ngFor="let list of item.repo">
+            <i class="bi bi-link-45deg"></i>
+            <a href="{{list?.link}}" target="_blank">
+                <div class="title">
+                    {{list?.name}}
+                </div>
+                - 
+                <div class="link">
+                    {{list?.link}}
+                </div>
+            </a>
+        </div> -->
+
+        <ul class="repo-link">
+            <li *ngFor="let list of item.repo">
+                <span class="name">  <i class="bi bi-link-45deg"></i>&nbsp;
+                    <a href="{{list?.link}}" target="_blank">
+                        {{list?.name}}
+                    </a>
+                </span>
+                <span class="caption">{{list?.link}}</span>
+            </li>
+        </ul>
+    </div>
+</div>

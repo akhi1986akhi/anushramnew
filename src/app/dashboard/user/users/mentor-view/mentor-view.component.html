@@ -1,0 +1,34 @@
+<ngx-spinner bdColor="rgba(51,51,51,0.9)" size="medium" color="#fff" type="ball-scale-multiple">
+  <p style="font-size: 20px; color: white">Loading...</p>
+</ngx-spinner>
+
+<div class="container-fluid">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">
+          <a>
+            Mentor
+          </a>
+        </li>
+      </ol>
+      <ul>
+        <li>
+          <span>
+            <a routerLink="/">Home </a>> <a routerLink="/user-dash/user-dashboard">Dashboard</a> > <a>Mentor</a>
+          </span>
+        </li>
+      </ul>
+    </nav>
+  
+    <div class="left-right-btn">
+      <button><img src="assets/img/left.png" alt=""></button>
+      <button><img src="assets/img/right.png" alt=""></button>
+    </div>
+  </div>
+  <hr />
+
+<app-mentor-view-card-subscribe *ngIf="mentor?.length <=0"></app-mentor-view-card-subscribe>
+<app-mentor-view-card *ngIf="mentor?.length>0"></app-mentor-view-card>
+
+
+

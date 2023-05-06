@@ -1,0 +1,36 @@
+<!-- <div class="container-fluid">
+    <ul>
+        <li *ngFor="let item of data">
+
+            {{item.title}}
+        </li>
+    </ul>
+</div> -->
+
+<div class="container-fluid">
+    <div class="card" *ngFor="let item of data">
+        <header>
+            <div class="title">
+                {{item.title}}
+            </div>
+      
+          
+        </header>
+        <main>
+       
+                <img routerLink="/user-dash/video/{{item._id}}" src="assets/img/anushram-play.webp" alt="anushram-phd">
+         
+            <p>
+                {{item.description.substring(0,80)}}
+            
+                <span *ngIf="item.description.length>40">...
+                    <a routerLink="/user-dash/phd-articles/{{item._id}}">Read More</a>
+                </span>
+            </p>
+        </main>
+        <footer>
+            <button type="button" routerLink="/user-dash/phd-articles/{{item._id}}">View</button>
+        </footer>
+    </div>
+  
+</div>

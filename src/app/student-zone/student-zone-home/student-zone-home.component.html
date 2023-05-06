@@ -1,0 +1,244 @@
+<div class="container-fluid">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">
+                <a>
+                    Student Zone
+                </a>
+            </li>
+        </ol>
+        <ul>
+            <li>
+                <span>
+                    <a routerLink="/">Home </a>> <a routerLink="/user-dash/user-dashboard">Dashboard</a>
+                </span>
+            </li>
+            <li>
+                <span>
+                    > <a>Student Zone</a>
+                </span>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="left-right-btn">
+        <button><img src="assets/img/left.png" alt=""></button>
+        <button><img src="assets/img/right.png" alt=""></button>
+    </div>
+</div>
+<hr />
+
+
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button"
+            role="tab" aria-controls="home-tab-pane" aria-selected="true">Video</button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button"
+            role="tab" aria-controls="profile-tab-pane" aria-selected="false">Documents</button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button"
+            role="tab" aria-controls="contact-tab-pane" aria-selected="false">Anushram Excercise</button>
+    </li>
+    <!-- <li class="nav-item" role="presentation">
+      <button class="nav-link" id="disabled-tab" data-bs-toggle="tab" data-bs-target="#disabled-tab-pane" type="button"
+        role="tab" aria-controls="disabled-tab-pane" aria-selected="false">About Us</button>
+    </li> -->
+</ul>
+<div class="tab-content" id="myTabContent" (contextmenu)="onRightClick()">
+    <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+
+
+        <div class="d-flex justify-content-end p-3">
+            <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
+                data-bs-target="#studentVideo">Add+</button>
+        </div>
+      
+     <div class="video-wrapper">
+        <div class="video-card" id="video-card" *ngFor="let item of VideoList;">        
+         
+                <video controls controlsList="nodownload" width="340" height="200" (contextmenu)="onRightClick()">
+                  <source [src]="item.path" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+          
+              <div class="date">{{item.date | date}}</div>
+           <div class="caption">
+            <div class="title">
+                {{item.title}}
+            </div>
+           </div>
+        </div>
+     </div>
+     <div class="spinner-over-lay" *ngIf="upload">
+
+         <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+     </div>
+
+    </div>
+    <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+
+
+        <div class="d-flex justify-content-end p-3">
+            <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
+                data-bs-target="#studentDoc">Add+</button>
+        </div>
+
+
+
+       <div class="card-wrapper">
+        <div class="card" *ngFor="let item of docList">
+   
+            <a href="{{item.path}}" target="_blank">
+                <img src="../../../assets/images/doc-icon.webp" alt="">
+                <i class="bi bi-download"></i>
+            </a>
+            <div class="date">{{item?.date | date}}</div>
+            <div class="title">
+                {{item.title}}
+            </div>
+        </div>
+       </div>
+
+       <div class="spinner-over-lay" *ngIf="upload">
+
+        <div class="spinner-border text-primary" role="status">
+           <span class="visually-hidden">Loading...</span>
+       </div>
+    </div>
+
+
+
+
+
+
+
+
+    </div>
+    <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
+
+
+
+        <div class="card-wrapper">
+            <ng-container *ngFor="let item of notiList">
+
+                <div class="card" *ngIf="item.category =='Anushram Excercise'">
+           
+                    <a href="{{item.file}}" target="_blank">
+                        <img src="assets/images/doc-icon.webp" alt="">
+                        <i class="bi bi-download"></i>
+                    </a>
+                    <div class="date">{{item?.date | date}}</div>
+                    <div class="title">
+                        {{item.title}}
+                    </div>
+                </div>
+            </ng-container>
+           </div>
+
+
+    </div>
+
+
+
+</div>
+
+
+
+
+
+<!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#studentVideo">
+    Launch static backdrop modal
+  </button> -->
+
+<!-- Modal -->
+<div class="modal fade" id="studentVideo" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Upload Video</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="uploadVideoForm">
+                    <div class="row mb-3">
+                        <div class="col d-flex flex-column">
+
+                            <label for="">Video Title</label>
+                            <input type="text" formControlName="title">
+
+                        </div>
+                     
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col d-flex flex-column">
+
+                            <label for="">Upload Video File</label>
+                            <input type="file" (change)="uploadFile($event)">
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" (click)="submit('video')" data-bs-dismiss="modal">Upload</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- Button trigger modal documents-->
+<!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#studentDoc">
+    Launch static backdrop modal
+  </button> -->
+
+<!-- Modal -->
+<div class="modal fade" id="studentDoc" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Upload Documents</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="uploadDocForm">
+                    <div class="row mb-3">
+                        <div class="col d-flex flex-column">
+
+                            <label for="">Document Title</label>
+                            <input type="text" formControlName="title">
+
+                        </div>
+                     
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col d-flex flex-column">
+
+                            <label for="">Upload Document File</label>
+                            <input type="file" (change)="uploadFile($event)">
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" (click)="submit('document')" data-bs-dismiss="modal">Upload</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+   

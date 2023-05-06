@@ -1,0 +1,65 @@
+<div class="container-fluid">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">
+                <a>
+                    Research Write & Publication
+                </a>
+            </li>
+        </ol>
+        <ul>
+            <li>
+                <span>
+                    <a routerLink="/">Home </a>> <a routerLink="/user-dash/user-dashboard">Dashboard</a> > <a>Research Write & Publication</a>
+                </span>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="left-right-btn">
+        <button><img src="assets/img/left.png" alt=""></button>
+        <button><img src="assets/img/right.png" alt=""></button>
+    </div>
+</div>
+<hr />
+
+        <!-- Start Events Area -->
+        <section class="events-area pt-70 pb-70">
+            <div class="container">
+                <div class="single-events-box mb-30" *ngFor="let item of ListData; let i=index">
+                    <div class="events-box">
+                        <div class="events-image">
+                            <div class="image bg{{i+1}}">
+                                <img src="{{item.thumbPath}}" alt="image">
+                            </div>
+                        </div>
+
+                        <div class="events-content">
+                            <div class="content">
+                                <h3><a routerLink="/user-dash/publication/{{item._id}}">{{item.title}}</a></h3>
+                                <p>{{item.description}}</p>
+                                <span class="location"><i class="bx bx-map"></i> 120 G-35 Spinsovila Sc, USA</span>
+                                <a routerLink="/user-dash/publication/{{item._id}}" class="join-now-btn">Start Now</a>
+                            </div>
+                        </div>
+
+                        <!-- <div class="events-date">
+                            <div class="date">
+                                <div class="d-table">
+                                    <div class="d-table-cell">
+                                        <span>01</span>
+                                        <h3>23 October</h3>
+                                        <p>7:30 PM</p>
+                                        <i class="bx bx-calendar"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+
+             
+            </div>
+        </section>
+        <!-- End Events Area -->
+

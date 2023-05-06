@@ -1,0 +1,40 @@
+.container-fluid{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // background-color: pink;
+    // height:50vh;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    .box{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        img{
+            width:200px;
+            margin: 50px;
+        }
+        .mx{
+            padding: 15px 35px;
+            // background-color: red;
+            border-top-right-radius: 20px;
+            border-bottom-right-radius: 30px;
+            border-radius: 40px;
+            border: solid 3px rgb(255, 202, 202);
+            // border: solid 3px #fff;
+            font-weight: 600;
+            font-size: 1.3em;
+            color:gray;
+            letter-spacing: 1px;
+            box-shadow: 5px 15px 30px rgba(0, 0, 0, 0.196);
+            a{
+                color: red;
+                font-weight: 500;
+                cursor: pointer;
+            }
+           
+        }
+    }
+}

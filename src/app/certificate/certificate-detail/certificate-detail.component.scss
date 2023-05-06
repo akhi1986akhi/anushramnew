@@ -1,0 +1,15 @@
+
+
+.accordion-header{
+    .accordion-button{
+        outline: none;
+        transition: all 0.4s ease-in;
+    }
+
+    .accordion-button:hover{
+        background: #FF1949;
+        color: #fff;
+
+    }
+ 
+}

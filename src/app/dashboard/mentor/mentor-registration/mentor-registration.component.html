@@ -1,0 +1,67 @@
+<div class="container-fluid">
+    <div class="section-title text-left">
+        <span class="sub-title">MENTOR REGISTRATION</span>
+        <h2>Registration</h2>
+        <!-- <a href="#" class="default-btn"><i class="bx bx-show-alt icon-arrow before"></i><span class="label">View All Mentors </span><i class="bx bx-show-alt icon-arrow after"></i></a> -->
+    
+        <div class="container-form">
+            <div class="box">
+                <img src="assets/img/registration.png" alt="">
+                <div class="caption">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, voluptas! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eaque, mollitia.</div>
+            </div>
+            <div class="box">
+                <ng-container *ngIf="msg=='Email Already Exits'">
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="msg!=undefined ">
+                        {{msg}}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                </ng-container>
+                <ng-container *ngIf="msg=='Thank You! Registration Successfull'">
+                    <div class="alert alert-success alert-dismissible fade show" role="alert" *ngIf="msg!=undefined ">
+                        {{msg}}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                </ng-container>
+                <form [formGroup]="mentorRegistrationForm" (ngSubmit)="Submit()">
+                    <div class="mb-3 d-flex w-100 gap-3">
+                        <div class="col">
+                            <label for="firstName" class="form-label">First Name<sup>*</sup></label>
+                            <input type="text" class="form-control" placeholder="First Name" formControlName="fname">
+                        </div>
+                        <div class="col">
+                            <label for="lastName" class="form-label">Last Name<sup>*</sup></label>
+                            <input type="text" class="form-control" placeholder="Last Name" formControlName="lname">
+                        </div>
+                    </div>
+                    <div class="mb-3 d-flex w-100 gap-3">
+                        <div class="col">
+                            <label for="email" class="form-label">E-mail<sup>*</sup></label>
+                            <input type="email" class="form-control" placeholder="E-mail" formControlName="email">
+                        </div>
+                        <div class="col">
+                            <label for="contact" class="form-label">Contact<sup>*</sup></label>
+                            <input type="tel" class="form-control" placeholder="Contact" formControlName="contact">
+                        </div>
+                    </div>
+                    <div class="mb-3 d-flex w-100 gap-3">
+                        <div class="col">
+                            <label for="password" class="form-label">Password<sup>*</sup></label>
+                            <input type="password" class="form-control" placeholder="password" formControlName="password">
+                        </div>
+                        <div class="col">
+                            <label for="confirmPassword" class="form-label">Confirm Password<sup>*</sup></label>
+                            <input type="password" class="form-control" placeholder="Confirm Password" formControlName="confirmPassword">
+                        </div>
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1"> <a href="#"> Accept terms </a>& <a href="#">Condition</a></label>
+                      </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </form>
+            </div>
+        </div>
+    
+    </div>
+ 
+</div>

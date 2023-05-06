@@ -1,0 +1,416 @@
+<div class="container-fluid">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">
+                <a>
+                    {{title}}
+                </a>
+            </li>
+        </ol>
+        <ul>
+            <li>
+                <span>
+                    <a>Home </a>> <a>Dashboard</a>
+                </span>
+            </li>
+            <li>
+                <span>
+                    > <a>Ph.D Process Excercise</a>
+                </span>
+            </li>
+            <li>
+                <span>
+                    > <a>{{title}}</a>
+                </span>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="left-right-btn">
+        <button><img src="assets/img/left.png" alt=""></button>
+        <button><img src="assets/img/right.png" alt=""></button>
+    </div>
+</div>
+<hr />
+
+
+<div class="container-fluid assessment" *ngIf="dash">
+    <div class="content-sec">
+        <h4>Assessment</h4>
+        <div class="Box">
+            <div class="icon" style="background-color: tomato;">
+                <i class="bi bi-bookmark"></i>
+            </div>
+            <div class="cont">
+                <div class="title" style="color: tomato;">
+                    Research Methodology
+                </div>
+                <div class="desc">
+                    Assignment Syllabus
+                </div>
+            </div>
+        </div>
+
+        <div class="Box">
+            <div class="icon" style="background-color: seagreen;">
+                <i class="bi bi-bookmark"></i>
+            </div>
+            <div class="cont">
+                <div class="title" style="color: seagreen;">
+                    Research & Publication Ethics
+                </div>
+                <div class="desc">
+                    Assignment Syllabus
+                </div>
+            </div>
+        </div>
+
+        <div class="Box">
+            <div class="icon" style="background-color: navy;">
+                <i class="bi bi-bookmark"></i>
+            </div>
+            <div class="cont">
+                <div class="title" style="color: navy;">
+                    Computer Application in Research
+                </div>
+                <div class="desc">
+                    Assignment Syllabus
+                </div>
+            </div>
+        </div>
+
+        <div class="Box">
+            <div class="icon" style="background-color: rgb(2, 181, 252);">
+                <i class="bi bi-bookmark"></i>
+            </div>
+            <div class="cont">
+                <div class="title" style="color: rgb(2, 181, 252);">
+                    Review of Literature
+                </div>
+                <div class="desc">
+                    Assignment Syllabus
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="container">
+
+        <button (click)="mcqStart('start')">Start MCQ</button>
+    </div>
+
+</div>
+
+<div class="assessment-selection" *ngIf="assSelection">
+    <button class="back" (click)="back('assSelection')"><i class="bi bi-reply-all-fill"></i></button>
+    <h4>Assesment selection</h4>
+    <div class="quizBoxChoice">
+
+
+        <div class="choiceCnt" id="choiceID">
+            <div class="choice">
+                <div class="icon" style="color:tomato;" (click)="getSubject('CW01')">
+                    <!-- <div class="check">
+
+                    </div> -->
+                    <i class="bi bi-clipboard2-data-fill"></i>
+                </div>
+                <div class="title" id="subOne" style="color: tomato;">
+                    Research Methodology
+                </div>
+                <div class="h-b" [class.show]="rm"></div>
+            </div>
+            <div class="choice">
+                <div class="icon" style="color:rgb(112, 246, 112);" (click)="getSubject('CW02')">
+                    <!-- <div class="check">
+                        
+                    </div> -->
+                    <i class="bi bi-clipboard2-data-fill"></i>
+                </div>
+                <div class="title" style="color: seagreen;">
+                    Research & Publication Ethics
+                </div>
+                <div class="h-b" [class.show]="rpe"></div>
+            </div>
+            <div class="choice">
+                <div class="icon" style="color:gold;" (click)="getSubject('CW03')">
+                    <!-- <div class="check">
+                        
+                    </div> -->
+
+                    <i class="bi bi-clipboard2-data-fill"></i>
+                </div>
+                <div class="title" style="color: navy;">
+                    Computer Application in Research
+                </div>
+                <div class="h-b" [class.show]="car"></div>
+            </div>
+            <!-- <div class="choice">
+                <div class="icon" style="color:rgb(115, 94, 250);">
+                   
+                    <mat-icon>support</mat-icon>
+                </div>
+                <div class="title">
+                    Review of Literature
+                </div>
+            </div> -->
+
+        </div>
+
+    </div>
+    <div class="next-btn">
+
+        <button class="next" (click)="mcqStart('assSelection')">Next</button>
+    </div>
+</div>
+<div class="assessment-selection" *ngIf="paperSelection">
+    <button class="back" (click)="back('paperSelection')"><i class="bi bi-reply-all-fill"></i></button>
+    <!-- <h4> {{SelectedSubject.subjectName}}</h4> -->
+
+    <div class="quizContainer">
+        <div class="heading">
+            <h2>
+                {{SelectedSubject.subjectName}}
+            </h2>
+        </div>
+        <div class="subHeading">
+            <p>{{SelectedSubject.description}}</p>
+        </div>
+        <div class="set-container">
+            <div class="setBox" *ngFor="let item of paperSet">
+                <span class="setCheck" *ngIf="item.paperSetCode==checkTrue"
+                    style="position:absolute ;top:0;right:0;background:transparent; box-shadow: none;z-index: +1; color: rgb(7, 252, 7); font-size: 2em;">
+                    <i class="bi bi-check2-square"></i>
+                </span>
+                <span (click)="getSet(item.paperSetCode)">
+                    <i class="bi bi-card-checklist"></i>
+                </span>
+                {{item.paperSetName}}
+            </div>
+        </div>
+
+
+
+
+      
+    </div>
+
+
+    <div class="next-btn">
+
+        <button class="next" (click)="mcqStart('paperSelection')">Next</button>
+    </div>
+</div>
+
+
+<div class="assessment-selection" *ngIf="quizSelection">
+    <button class="back" (click)="back('quizSelection')"><i class="bi bi-reply-all-fill"></i></button>
+    
+    <!-- <h2>MCQ START</h2> -->
+    <div class="quizOptionContainer start" *ngIf="isStartQuiz">
+        <div class="header">
+            <h3>Instruction</h3>
+        </div>
+        <div class="content">
+            <ul>
+                <li><i class="bi bi-check2-circle"></i>&nbsp;Attempt all questions.</li>
+                <li><i class="bi bi-check2-circle"></i>&nbsp;Questions are of objective type with and each question has one correct answer.</li>
+                <li><i class="bi bi-check2-circle"></i>&nbsp;Total time allotted for attempting a test is 10 minutes after that test will auto submitted. </li>
+                <li><i class="bi bi-check2-circle"></i>&nbsp;Keep your Mobile / Laptop / Tab fully charged OR on Continuous charging.</li>
+                <li><i class="bi bi-check2-circle"></i>&nbsp;Remain in that Area / Room where Internet Connectivity is stronger.</li>
+                <li><i class="bi bi-check2-circle"></i>&nbsp;Clear all history of Chrome Browser.</li>
+                <li><i class="bi bi-check2-circle"></i>&nbsp;Next set for MCQ test will active only after 100% result of previous test. </li>
+                <li><i class="bi bi-check2-circle"></i>&nbsp;Option for learn and improvement available in each test.</li>
+            </ul>
+        </div>
+        <button (click)="startQuiz();mcqStart('resultSelection')">Start</button>
+    </div>
+</div>
+
+
+
+<div class="assessment-selection" *ngIf="resultSelection">
+
+
+    <div class="quizOptionContainer quiz">
+        <div class="box">
+            <div class="subBox" *ngIf="isQuizShow">
+
+
+                <div class="header">
+                    <span>{{loadSubject.paperName}}</span>
+                    <div class="timeQues">
+                        <div>
+                            <!-- <mat-icon style="color: rgba(255, 255, 255, 0.393);">query_builder</mat-icon> -->
+                            00:{{quesTimer}}
+                        </div>
+                    </div>
+                </div>
+                <div class="progressBar">
+
+                    <div class="grb" [style.width]="progressStr">
+
+                    </div>
+                
+                </div>
+                <div class="mainBodyQuiz">
+                    <ul>
+                        <li>
+                      
+                            <span>{{loadQuizQuestion[counter].question}}</span>
+                        </li>
+
+                        <form [formGroup]="mcqTestForm" (ngSubmit)="sb()">
+                    
+                        <div class="form-check m-3" *ngFor="let item of loadSubject.questions[counter].options; let i=index;">
+                            <input #id 
+                            class="form-check-input" 
+                            type="radio" 
+                            name="flexRadioDefault"
+                           
+                            value="{{i}}"
+                            (click)="getValue(id.value,loadSubject.questions[counter].question)"
+                            
+                            >
+                            <label class="form-check-label" for="flexRadioDefault1">
+                                {{item.option}}
+                            </label>
+                          </div>
+                       
+                    </form>
+                    </ul>
+                </div>
+                <div class="footer">
+                    <button class="btn next" [style.background]="active" (click)="next()">NEXT</button>
+                    <button class="btn submit" (click)="SubmitQuiz()">SUBMIT</button>
+                    <!-- <button (click)="stopTimer()">Stop</button> -->
+                    <button class="btn exit" (click)="exit()">Exit</button>
+                </div>
+            </div>
+            <div class="subBox congrat-wdgt" *ngIf="congratWdgt">
+                <div class="congHeader">
+                    <h2>Congratulation<span style="color:gold ; font-size: 2em;">!</span></h2>
+                </div>
+                <div class="badge">
+                    <img src="assets/img/assesment/badge.webp" alt="">
+                </div>
+              
+                <div class="congMessage">
+                    <p>
+
+                        Thank You!
+
+                        Successfully Completed your Assesment
+                    </p>
+                    <div class="congResSum">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="box">
+            <div class="boxInfo time">
+                <!-- <mat-icon>query_builder</mat-icon> -->
+                <div class="timmer">{{mmStr}}:{{quizTimer}}</div>
+                <div class="caption" style="padding: 2px 10px;">
+                    Time
+                </div>
+            </div>
+            <div class="boxInfo">
+                <div class="caption">
+                    Question
+                </div>
+                <div class="BoxRes" *ngFor="let item of loadSubject.questions"
+                    (click)="getQuestionID(item.questionID)">
+                    <span>
+                        {{item.questionID}}
+                        <ng-container *ngFor="let rns of rightAnswer">
+                            <span *ngIf="rns.questionID == item.questionID && quizSubmit"
+                                style="color:green ;  position: absolute;top:0px;left:0px;background: lightgreen;width:100%;height:100%;display: flex;justify-content: center;align-items: center;border-radius: 50%;">
+                                {{item.questionID}}
+                            </span>
+                            <!-- <mat-icon *ngIf="rns.questionID == item.questionID && quizSubmit" style="color:green ; font-size:1em; position: absolute;top:-10px;left:3px;font-weight: 400;">check</mat-icon> -->
+                        </ng-container>
+                        <ng-container *ngFor="let val of reAssment">
+                            <span *ngIf="val.questionID == item.questionID && quizSubmit"
+                                style="color:red ;  position: absolute;top:0px;left:0px;background: lightpink;width:100%;height:100%;display: flex;justify-content: center;align-items: center;border-radius: 50%;">
+                                {{item.questionID}}
+                            </span>
+                            <!-- <mat-icon *ngIf="val.questionID == item.questionID && quizSubmit" style="color:red ; font-size:1em; position: absolute;top:-10px;left:6px;font-weight: 400;">cancel</mat-icon> -->
+                        </ng-container>
+                    </span>
+                    <!-- <span class="rm"> <mat-icon style="color:green ; font-size:0.9em">check</mat-icon></span> -->
+
+                </div>
+            
+            </div>
+            <div class="boxInfo" *ngIf="isShowTestScore">
+                <div class="caption">
+                    Test Score
+                </div>
+                <div class="resultPercent">
+                    <div class="resultCaption">
+                        Result
+                    </div>
+                    <div class="resultBar">
+                        <div class="resultFill" [style.width]="resultPercentStr">
+
+                        </div>
+                    </div>
+                    <div class="content">
+                        {{resultPercent.toFixed(1)}}%
+                    </div>
+                </div>
+                <div class="resultPercent">
+                    <div class="answer wrong">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Attempt
+                                    </th>
+                                    <th>
+                                        Right        
+                                    </th>
+                                    <th>
+                                        Wrong
+                                    </th>
+                                    <th style="text-align:center ;">
+                                        %
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of attempt;let i=index">
+                                    
+                                    <td>
+                                        <span class="attemptCount">{{i+1}}</span>
+                                    </td>
+                                    <td>
+                                        <span class="right">{{item.rightAnswer}}</span>
+                                    </td>
+                                    <td>
+                                        <span class="wrong">{{item.wrongAnswer}}</span>
+                                    </td>
+                                    <td>
+                                        <span class="percent">{{(item.rightAnswer*100/item.totalQuestion).toFixed(1)}}%</span>
+                                    </td>
+                                    
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="resultPercent" style="padding-top:10px ;padding-bottom:10px;">
+                    <div class="answer wrong" style="width:100%; justify-content: center;">
+                        <button class="btn learn" (click)="showLearnBlock()">Improve Your Score</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+   
+</div>

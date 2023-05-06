@@ -1,0 +1,59 @@
+.container-fluid{
+    padding: 50px;
+    // background-image: url('../../../../assets/img/start-free-trial-bg.jpg');
+}
+
+.container-form{
+    display: flex;
+    gap:20px;
+    .box{
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        .alert{
+            text-align: center;
+        }
+        img{
+            width:500px;
+        }
+        .caption{
+            font-size: 1.2em;
+            padding: 20px;
+        }
+        form{
+            display: flex;
+            width: 100%;
+            background-color: rgba(197, 195, 195, 0.3);
+            flex-direction: column;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: inset 10px 20px 40px rgba(0, 0, 0, 0.056),
+                                5px 15px 30px rgba(0, 0, 0, 0.051);
+
+            label{
+                font-weight: 500;
+                color: rgba(67, 65, 65, 0.86);
+            }
+            button{
+                background: linear-gradient(to top, #bc0a2c,#ff1949);
+                outline: none;
+                border: none;
+                font-weight: 600;
+                transition: all 0.3s ease-in;
+            }
+
+         
+            button:hover{
+                transition: all 0.3s ease-in;
+                opacity: 0.8;
+            }
+        }
+    }
+}
+
+
+@media (max-width:991px){
+    .container-form{
+        flex-direction: column-reverse;
+    }
+}

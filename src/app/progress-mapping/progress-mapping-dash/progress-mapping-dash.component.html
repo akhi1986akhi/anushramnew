@@ -1,0 +1,200 @@
+<div class="container-fluid">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">
+                <a>
+                    Ph.D Progress Mapping
+                </a>
+            </li>
+        </ol>
+        <ul>
+            <li>
+                <span>
+                    <a>Home </a>> <a>Dashboard</a>
+                </span>
+            </li>
+            <li>
+                <span>
+                    > <a>Ph.D Progress Mapping</a>
+                </span>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="left-right-btn">
+        <button><img src="assets/img/left.png" alt=""></button>
+        <button><img src="assets/img/right.png" alt=""></button>
+    </div>
+</div>
+<hr />
+
+<div class="container">
+    <div class="card-wrapper">
+        <ng-container *ngFor="let item of stagePlanner">
+
+            <h5>{{item.stageName}}</h5>
+            <div class="card" *ngFor="let data of item.stages">
+
+                <div class="titlex">
+                    {{data.name}}
+                </div>
+
+                <main>
+                    <div class="content">
+                        Status: <span style="color:seagreen; font-weight: 500;"> {{data.status}}</span> &nbsp; &nbsp; &nbsp;<span *ngIf="data.status =='Complete'" style="color:seagreen; font-weight: 500; font-size: 1.4em;"><i class="bi bi-check2-circle"></i></span>
+                    </div>
+                </main>
+                <footer>
+                    <button *ngIf="data.status != 'Complete'" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                        (click)="openDiaolog(data.name, item.stageName)">Add</button>
+                    <button *ngIf="data.status == 'Complete'">View</button>
+                </footer>
+
+                <div class="circle">
+
+                </div>
+            </div>
+        </ng-container>
+        <!-- <div class="card">
+
+            <div class="titlex">
+                Entrance Test
+            </div>
+
+            <main>
+                <div class="content">
+                    Status
+                </div>
+            </main>
+            <footer>
+                <button>Add</button>
+            </footer>
+            <div class="circle">
+
+            </div>
+        </div>
+        <div class="card">
+
+            <div class="titlex">
+                Personal Interview
+            </div>
+
+            <main>
+                <div class="content">
+                    Status
+                </div>
+            </main>
+            <footer>
+                <button>Add</button>
+            </footer>
+            <div class="circle">
+
+            </div>
+        </div>
+        <div class="card">
+
+            <div class="titlex">
+                Merit List
+            </div>
+
+            <main>
+                <div class="content">
+                    Status
+                </div>
+            </main>
+            <footer>
+                <button>Add</button>
+            </footer>
+            <div class="circle">
+
+            </div>
+        </div>
+        <div class="card">
+
+            <div class="titlex">
+                Admission Confirmation Letter
+            </div>
+
+            <main>
+                <div class="content">
+                    Status
+                </div>
+            </main>
+            <footer>
+                <button>Add</button>
+            </footer>
+            <div class="circle">
+
+            </div>
+        </div> -->
+    </div>
+
+
+
+</div>
+
+
+<!-- model open button -->
+
+<!-- <button data-bs-toggle="modal" data-bs-target="#exampleModal">OPEN</button> -->
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <form [formGroup]="progressMapForm">
+
+
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-dash-square"></i>&nbsp;{{dialogTitle}}</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+          
+                    <div class="row">
+                        <div class="col">
+                            <label for="">Start Date</label>
+                            <input type="date" formControlName="startDate">
+                        </div>
+                        <div class="col">
+                            <label for="">End Date</label>
+                            <input type="date" formControlName="endDate">
+                        </div>
+                        <div class="col">
+                            <label for="">Status</label>
+                            <select name="" id="" formControlName="status">
+                                <option value="">Select</option>
+                                <option value="Complete">Complete</option>
+                                <option value="Inprocess">Inprocess</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label for="">Result</label>
+                            <input type="text" formControlName="result" placeholder="Result">
+                        </div>
+                     
+                        <div class="col">
+                            <label for=""><i class="bi bi-paperclip"></i>&nbsp;Attachment</label>
+                            <input type="file" multiple (change)="uploadFile($event)">
+                            <ul>
+                                <li *ngFor="let item of uploadList"><i class="bi bi-check-all"></i>&nbsp;{{item.name}}</li>
+                              
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                           <angular-editor formControlName="htmlContent" [config]="editorConfig"></angular-editor>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" (click)="submitDialogForm()" data-bs-dismiss="modal">Submit</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div> 

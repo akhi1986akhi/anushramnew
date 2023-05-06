@@ -1,0 +1,122 @@
+<div class="container-fluid">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">
+                <a>
+                    Experts
+                </a>
+            </li>
+        </ol>
+        <ul>
+            <li>
+                <span>
+                    <a>Home </a>> <a>Experts</a>
+                </span>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="left-right-btn">
+        <button><img src="assets/img/left.png" alt=""></button>
+        <button><img src="assets/img/right.png" alt=""></button>
+    </div>
+</div>
+
+<div class="container-fluid card-wrapper">
+    <div class="title">
+        <div>
+
+            <span class="sub-title">EXPERTS</span>
+            <h2>
+                Our Top Experts
+                
+                
+            </h2>
+        </div>
+        <div>
+            <div class="searchBox">
+                <input type="text" placeholder="Search by Keyword ">
+                <i class="bi bi-search"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="filterHeader">
+        <label for="">Filter By - </label>
+        <div class="filter">
+            <select #state (change)="filter(state.value,'state')" >
+                <option value="">Select State</option>
+                <option *ngFor="let item of stateList" value="{{item}}">{{item}}</option>
+            </select>
+        </div>
+        <div class="filter">
+            <select >
+                <option value="">Select City</option>
+                <option *ngFor="let item of cityList" value="{{item}}">{{item}}</option>
+            </select>
+        </div>
+        <div class="filter">
+            <select >
+                <option value="">Select Department</option>
+                <option *ngFor="let item of departmentList" value="{{item}}">{{item}}</option>
+            </select>
+          
+        </div>
+        <div class="filter">
+            <select >
+                <option value="">Select Branch</option>
+            </select>
+        </div>
+        <button>Search</button>
+    </div>
+    <div class="expert-card-wrapper">
+
+
+        <div class="testimonial-card" *ngFor="let item of expertsList">
+            <div class="mentor-profile-image">
+                <div class="image">
+                    <img src="{{item?.profile?.photo}}" onError="this.src='assets/img/logo/default-user-logo.jpg'">
+                </div>
+                <div class="caption">
+                    <h5>{{item?.profile?.fname}}</h5>
+                    <!-- <h5>{{mentorData[6]?.profile?.fullname}}</h5>-->
+                <h6>{{item?.employement[0]?.postDesignation}}</h6> 
+                </div>
+            </div>
+            <div class="content">
+                <div class="rating">
+                   <i class="bi bi-star-fill"></i>
+                   <i class="bi bi-star-fill"></i>
+                   <i class="bi bi-star-fill"></i>
+                   <i class="bi bi-star-fill"></i>
+                   <i class="bi bi-star-fill"></i>
+                </div>
+                <div class="last-qualification">
+                    <!-- {{mentorData[6]?.education[0].degree}} - {{mentorData[6]?.education[0]?.course}} -->
+
+                    {{item?.profile?.department}}
+                </div>
+                <div class="experience">
+                    Experience - 15+ Years
+                </div>
+                <div class="location">
+                    <span>
+                        City - {{item?.profile?.city}}
+                    </span>
+                    <span>
+                        State - {{item?.profile?.state}}
+                    </span>
+                </div>
+                <div class="button">
+                    <button class="view-btn">
+                        View Profile
+                    </button>
+                    <button class="view-btn">
+                        Select
+                    </button>
+              
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

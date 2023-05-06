@@ -1,0 +1,211 @@
+<div class="side-nav-container">
+    <div class="nav">
+        <div class="profile-Image">
+            <button type="button" class="btn btn-primary position-relative mb-3 mt-3"  data-bs-toggle="modal" data-bs-target="#notification">
+                <i class="bi bi-bell"></i>Notification
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                   {{unreadLength}}
+                  <span class="visually-hidden">unread messages</span>
+                </span>
+            </button>
+            <!-- <div class="bell-icon">
+                
+            </div> -->
+            <div class="image">
+                <img src="{{photo}}" alt="" onError="this.src='assets/img/user/defaultUser.webp'">
+                <!-- assets/img/user/defaultUser.webp -->
+                <input type="file" placeholder="Subject" value="" (change)="uploadFile($event)"
+                         style="width:100px; font-size:10px;">
+            </div>
+            <div class="title">
+                {{userData.fname}} {{userData.lname}}
+            </div>
+        </div>
+        <h5 routerLink="/user-dash/user-dashboard" routerLinkActive="active">
+            <i class="bi bi-grid-fill"></i>
+            DASHBOARD
+        </h5>
+        <ul>
+
+            <li routerLink="/user-dash/user-profile" routerLinkActive="active">
+                    <i class="bi bi-person-fill"></i>
+                    Profile
+                </li>
+        
+            <a routerLink="/user-dash/user-summary" routerLinkActive="active">
+            <li>
+                    <i class="bi bi-person-vcard-fill"></i>
+                    Scholar Summary
+                </li>
+            </a>
+            <a routerLink="/user-dash/progress-mapping/dash" routerLinkActive="active">
+            <li >
+                    <i class="bi bi-mortarboard-fill"></i>
+                    Ph.D Progress Mapping
+                </li>
+            </a>
+        
+
+             <li>
+                 <!-- <a routerLink="/user-dash/process-excercise/dash">
+                     <i class="bi bi-mortarboard-fill"></i>
+                     Ph.D Process Exercise
+                 </a> -->
+                 <div class="accordion" id="accordionPanelsStayOpenExample" >
+                     <div class="accordion-item">
+                       <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                         <button class="accordion-button collapsed" 
+                         type="button" 
+                         data-bs-toggle="collapse" 
+                         data-bs-target="#panelsStayOpen-collapseOne" 
+                         aria-expanded="true" 
+                         aria-controls="panelsStayOpen-collapseOne"
+                         style=" padding-left: 0;"
+                         
+                         >
+                             <a style="text-align: left; margin-left: 0;">
+                                <i class="bi bi-easel-fill"></i>Ph.D Process Excercise
+                             </a>
+                         </button>
+                       </h2>
+                       <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingOne">
+                         <div class="accordion-body">
+                           <ul>
+                             <li style="border: none;">
+                                 <a  routerLink="/user-dash/process-excercise/research-course-work">Research Course Work - 1<sup>st</sup></a>
+                             </li>
+                             <li style="border: none;">
+                                 <a  routerLink="/user-dash/process-excercise/research-launcher">Research Launcher - 2<sup>nd</sup></a>
+                             </li>
+                             <li style="border: none;">
+                                 <a routerLink="/user-dash/process-excercise/research-execution">Research Execution - 3<sup>rd</sup></a>
+                             </li>
+                             <li style="border: none;">
+                                 <a routerLink="/user-dash/process-excercise/research-defence">Research Defence - 4<sup>th</sup></a>
+                             </li>
+                           </ul>
+                         </div>
+                       </div>
+                     </div>
+                  
+                 </div>
+             </li>
+     
+       
+            <a>
+            <li>
+                    <i class="bi bi-bag-fill"></i>
+                    Digital Career Studio
+                </li>
+            </a>
+
+            <a routerLink="/user-dash/process-excercise/excercise/Research Repository" routerLinkActive="active">
+                <li>
+                        <i class="bi bi-people-fill"></i>
+                        Research Repository
+                    </li>
+                </a>
+            <a routerLink="/user-dash/publication" routerLinkActive="active">
+            <li>
+                    <i class="bi bi-people-fill"></i>
+                    Research Publication
+                </li>
+            </a>
+            <a routerLink="/user-dash/research-navigation" routerLinkActive="active">
+                <li>
+                    <i class="bi bi-boxes"></i>
+                        Research Navigation
+                    </li>
+                </a>
+
+            <a routerLink="/user-dash/user-messaging" routerLinkActive="active">
+            <li >
+                    <i class="bi bi-chat-left-dots-fill"></i>
+                    Communication Box
+                </li>
+            </a>
+            <a routerLink="/user-dash/student-zone" routerLinkActive="active">
+            <li>
+                    <i class="bi bi-patch-check-fill"></i>
+                    Student Zone
+                </li>
+            </a>
+            <a routerLink="/user-dash/jobs-station" routerLinkActive="active">
+            <li>
+                    <i class="bi bi-app-indicator"></i>
+                    Job Station
+                </li>
+            </a>
+         
+            <a routerLink="/user-dash/mentor-view" routerLinkActive="active">
+            <li>
+                    <i class="bi bi-people-fill"></i>
+                    Mentor
+                </li>
+            </a>
+            
+            <a routerLink="/user-dash/mcq/home" routerLinkActive="active">
+            <li>
+                    <i class="bi bi-bookmark-check-fill"></i>
+                    MCQ'S
+                </li>
+            </a>
+            <a routerLink="/user-dash/feedback/home" routerLinkActive="active">
+                <li>
+                    <i class="bi bi-chat-left-dots-fill"></i>
+                        Feedback
+                    </li>
+                </a>
+            <a>
+            <li routerLink="/user-dash/user-account" routerLinkActive="active">
+                    <i class="bi bi-gear-fill"></i>
+                    Account
+                </li>
+            </a>
+        </ul>
+    </div>
+</div>
+
+
+
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="notification" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header bg-secondary bg-gradient">
+          <h1 class="modal-title fs-5 text-light" id="staticBackdropLabel">Notifications</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <ul class="notification-wrapper">
+                <div class="alert alert-info alert-dismissible fade show" role="alert" *ngIf="notificationMsg.length>0">
+                    <!-- A simple info alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like. -->
+                    
+                    {{notificationMsg}}
+                    
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                <li *ngFor="let item of notiList;">
+                    <span class="bullet bg-secondary bg-gradient">
+
+                    </span>
+                    <span>
+                        {{item.title}}
+                    </span>
+                    <span style="font-weight: 600;">
+                        {{item.date | date: 'dd-MM-YYYY'}}
+                    </span>
+                    <h6><span class="badge bg-secondary" (click)="getNotificationMSG(item.descrition)">View</span></h6>
+                </li>
+             
+            </ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary bg-gradient" data-bs-dismiss="modal">Close</button>
+          <!-- <button type="button" class="btn btn-success bg-gradient">Download</button> -->
+        </div>
+      </div>
+    </div>
+  </div>

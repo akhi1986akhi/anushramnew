@@ -1,0 +1,176 @@
+.thesis-form {
+  background-color: #ffffff;
+  -webkit-box-shadow: 0px 8px 16px 0px rgba(146, 184, 255, 0.2);
+  box-shadow: 0px 8px 16px 0px rgba(146, 184, 255, 0.2);
+  border-radius: 5px;
+  padding: 1.5em;
+}
+
+.thesis-form h3 {
+  border-bottom: 1px dashed #e6e9fc;
+  padding-bottom: 0.7em;
+  margin-bottom: 1em;
+  font-size: 25px;
+  font-weight: 700;
+}
+
+#thesisform .form-group {
+  margin-bottom: 15px;
+}
+
+#thesisform .form-group .form-control {
+  height: 50px;
+  border-radius: 5px;
+}
+
+#thesisform .form-group .form-control::-webkit-input-placeholder {
+  color: #727695;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+#thesisform .form-group .form-control:-ms-input-placeholder {
+  color: #727695;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+#thesisform .form-group .form-control::-ms-input-placeholder {
+  color: #727695;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+#thesisform .form-group .form-control::placeholder {
+  color: #727695;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+#thesisform .form-group .form-control:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+
+#thesisform .form-group .form-control:focus:-ms-input-placeholder {
+  color: transparent;
+}
+
+#thesisform .form-group .form-control:focus::-ms-input-placeholder {
+  color: transparent;
+}
+
+#thesisform .form-group .form-control:focus::placeholder {
+  color: transparent;
+}
+
+#thesisform .form-group textarea.form-control {
+  height: auto;
+}
+
+#thesisform .form-group .help-block.with-errors ul {
+  color: red;
+  margin-bottom: 0;
+  margin-top: 10px;
+}
+
+#thesisform .default-btn {
+  border-radius: 30px;
+  margin-top: 10px;
+  -webkit-box-shadow: 0 5px 28.5px 1.5px rgba(255, 25, 73, 0.2);
+  box-shadow: 0 5px 28.5px 1.5px rgba(255, 25, 73, 0.2);
+}
+
+#thesisform .default-btn:hover,
+#thesisform .default-btn:focus {
+  -webkit-box-shadow: 0 5px 28.5px 1.5px rgba(14, 181, 130, 0.2);
+  box-shadow: 0 5px 28.5px 1.5px rgba(14, 181, 130, 0.2);
+}
+
+#thesisform #msgSubmit {
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+#thesisform #msgSubmit.text-danger,
+#thesisform #msgSubmit.text-success {
+  margin-top: 15px;
+}
+
+#thesisform .form-group .nice-select {
+  float: unset;
+  line-height: 48px;
+  color: #727695;
+  font-weight: normal;
+  font-size: 15px;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.distance-learning-content h2 {}
+
+.thesis-form {
+  h3 {
+    color: rgb(4, 180, 249);
+    img{
+      width:60px;
+    }
+  }
+
+  .bi-send-fill {
+    color: rgb(4, 180, 249);
+  }
+}
+
+.icon-cnt {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .icon {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(154, 216, 252);
+    background-color: navy;
+    background: linear-gradient(60deg, navy,rgb(1, 98, 195));
+    border-radius: 50%;
+    img {
+      width: 60px;
+    }
+  }
+}
+
+.member-content{
+  p{
+    text-align: justify;
+  }
+}
+
+
+.single-instructor-member{
+  background-color: rgb(215, 211, 211);
+  min-height: 400px;
+ 
+}
+
+.story-content{
+  p{
+    padding-left: 30px;
+  }
+}
+
+
+  .features-list{
+
+
+    li{
+      span{
+  
+        color: grey;
+        font-weight: 450;
+      }
+    }
+  
+}

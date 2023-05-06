@@ -1,0 +1,534 @@
+<div class="container-fluid">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">
+                <a>
+                    {{title}}
+                </a>
+            </li>
+        </ol>
+        <ul>
+            <li>
+                <span>
+                    <a>Home </a>> <a>Dashboard</a>
+                </span>
+            </li>
+            <li>
+                <span>
+                    > <a>Ph.D Process Excercise</a>
+                </span>
+            </li>
+            <li>
+                <span>
+                    > <a>{{title}}</a>
+                </span>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="left-right-btn">
+        <button><img src="assets/img/left.png" alt=""></button>
+        <button><img src="assets/img/right.png" alt=""></button>
+    </div>
+</div>
+<hr />
+
+<div class="sub-nav-bar">
+    <div class="nav-icon">
+        <a href="https://www.youtube.com/watch?v=Vqlp9toDjME" target="_blank">
+            <img src="assets/img/anushram-playa.webp" alt="">
+        </a>
+    </div>
+    <div class="nav-icon">
+        <img src="assets/img/anushram-info.png" alt="ANUSHRAM DEMO VIDEO">
+    </div>
+</div>
+
+
+<div class="container-fluid">
+    <div class="container">
+        <div class="alert-container" *ngIf="message.length >0">
+            <div class="alert alert-success w-50 text-center" role="alert">
+
+                {{message}}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </div>
+
+        <div class="card" *ngFor="let item of levelOne.topics;">
+            <div class="card-inner">
+
+                <div class="header">
+                    <span>
+                        {{item.title}}
+                    </span>
+                    <!-- <div class="nav-icon">
+                        <a routerLink="/user-dash/video/641025b9bd4bdc7cfb65f0c0">
+                            <img src="assets/img/anushram-info.png" alt="ANUSHRAM DEMO VIDEO">
+                        </a>
+                    </div> -->
+                    <button *ngIf="item.addBtn" (click)="getBtnID(item.btnID)">Add+</button>
+          
+                    <!-- <button  class="btn"><i class="bi bi-eye"></i></button> -->
+                   
+                </div>
+
+                <div class="content">
+                    <ul>
+                        <li *ngFor="let data of item?.form; let i=index">
+
+                         
+                            <span *ngIf="data?.route">
+                                <a routerLink="{{data?.route}}">
+                                    <i class="bi bi-check2-square"></i>&nbsp;{{data.label}}
+                                </a>
+                            </span>
+                            <span *ngIf="!data?.route">
+                                <i class="bi bi-check2-square"></i>&nbsp;
+                                {{data?.label}}
+                            </span>
+                            <span *ngIf="data.btn">
+                                <a class="preview-btn" (click)="preview(i,data.label)" data-bs-toggle="modal" data-bs-target="#preview" >
+                                    <i *ngIf="!item.addBtn" class="bi bi-download"></i>
+                                </a>
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <i class="bi bi-plus-square-fill" (click)="getID(data.id)"
+                                    data-bs-toggle="modal" data-bs-target="#exampleModal"></i>
+                                </span>
+
+
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+            <div class="icon"><i class="bi bi-bookmark-star-fill"></i></div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container-fluid" *ngIf="false">
+    <div class="container">
+        <div class="card-wrapp" *ngFor="let item of excerciseStage">
+            <div class="card">
+                <div class="title">
+                    {{item.title}}
+                </div>
+                <div class="image">
+                    <img src="{{item.image}}" alt="">
+                </div>
+
+            </div>
+            <div class="item">
+                <ul>
+                    <li *ngFor="let list of item.topics; let i=index">
+                        <span>
+                            <a routerLink="/user-dash/process-excercise/excercise/{{list.title}}">
+                                {{list.title}}
+                            </a>
+
+                        </span>
+                        <span>
+                            <i class="bi bi-play-btn-fill"></i>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- Button trigger modal -->
+<button *ngIf="false" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content" *ngIf="coverPageDialog">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-dash-square"></i>&nbsp;Cover Page
+                </h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="coverPageForm">
+                    <div class="row">
+                        <div class="col">
+                            <label for="">Full Name</label>
+                            <input type="text" placeholder="Enter your fullname" formControlName="fullName">
+                        </div>
+                        <div class="col">
+                            <label for="">Enrollment</label>
+                            <input type="text" placeholder="Enter your Enrollment" formControlName="enrollment">
+                        </div>
+                        <div class="col">
+                            <label for="">Name of University</label>
+                            <input type="text" placeholder="Name of University" formControlName="university">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label for="">Logo of University</label>
+                            <input type="file" placeholder="Logo of University" formControlName="logo"
+                                (change)="uploadFile($event)" accept="image/*">
+                        </div>
+                        <div class="col">
+                            <label for="">Address of University</label>
+                            <input type="text" placeholder="Address of University" formContrlName="address">
+                        </div>
+                        <div class="col">
+                            <label for="">Month of Exam</label>
+                            <input type="date" placeholder="Month of Exam" formControlName="date">
+                        </div>
+                        <div class="col">
+                            <label for="">Year of Exam</label>
+                            <input type="text" placeholder="Year of Exam" formControlName="year">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label for="">Title Of Literature Review</label>
+                            <input type="text" placeholder="Title Of Literature Review" formControlName="title">
+                        </div>
+                        <div class="col">
+                            <label for="">Subject</label>
+                            <input type="text" placeholder="Title Of Literature Review" formControlName="subject">
+                        </div>
+                        <div class="col">
+                            <label for="">Name of faculty</label>
+                            <input type="text" placeholder="Name of faculty" formControlName="faculty">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" (click)="submit('coverpage')"
+                    data-bs-dismiss="modal">Submit</button>
+            </div>
+        </div>
+        <div class="modal-content" *ngIf="introductionDialog">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-dash-square"></i>&nbsp;Introduction
+                </h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="introductionForm">
+                    <div class="row">
+                        <div class="col">
+                            <label for="">Summary of Research Area(75-150 words)</label>
+
+                            <textarea name="" id="" cols="30" rows="5" formControlName="summary"
+                                placeholder="Write here summary of research..."></textarea>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label for="">Why this area is important for research?(75-150 words)</label>
+                            <textarea name="" id="" cols="30" rows="5" formControlName="importance"
+                                placeholder="Write here importance of research..."></textarea>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label for="">What is the Scope of research in this area?(75-150 words)</label>
+                            <textarea name="" id="" cols="30" rows="5" formControlName="scope"
+                                placeholder="Write here scope of research..."></textarea>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" (click)="submit('introduction')"
+                    data-bs-dismiss="modal">Submit</button>
+            </div>
+        </div>
+
+        <div class="modal-content" *ngIf="literatureReviewDialog">
+
+            <ng-container *ngIf="!literatureReviewEdit">
+
+           
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-dash-square"></i>&nbsp;Literature
+                    Review</h1>
+
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+                
+                <form [formGroup]="literatureReviewForm">
+                    <div class="row">
+                        <div class="col">
+                            <label for="">Name of Author</label>
+                            <input type="text" placeholder="Name of Author" formControlName="nameAuthor">
+                        </div>
+                        <div class="col">
+                            <label for="">Title</label>
+                            <input type="text" placeholder="Title" formControlName="title">
+                        </div>
+                        <div class="col">
+                            <label for="">Year of Publication</label>
+                            <select name="" id="" formControlName="year">
+                                <option value="Year">Year</option>
+                                <option value="2014">2014</option>
+                                <option value="2015">2015</option>
+                                <option value="2016">2016</option>
+                                <option value="2017">2017</option>
+                                <option value="2018">2018</option>
+                                <option value="2019">2019</option>
+                                <option value="2020">2020</option>
+                                <option value="2021">2021</option>
+                                <option value="2022">2022</option>
+                                <option value="2023">2023</option>
+                                <option value="2024">2024</option>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <label for="">Type</label>
+                            <select name="" id="" formControlName="type">
+                                <option value="Select">Select</option>
+                                <option value="Journal">Journal</option>
+                                <option value="Book Chapter">Book Chapter</option>
+                                <option value="Book">Book</option>
+                                <option value="Conference">Conference</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label for="">Journal/ Book/Conf. Name</label>
+                            <input type="text" placeholder="Journal/ Book/Conf. Name" formControlName="journal">
+                        </div>
+                        <div class="col">
+                            <label for="">ISSN/ISBN</label>
+                            <input type="text" placeholder="ISSN/ISBN" formControlName="issn">
+                        </div>
+                        <div class="col">
+                            <label for="">Vol</label>
+                            <input type="text" placeholder="Vol" formControlName="vol">
+                        </div>
+                        <div class="col">
+                            <label for="">Page No.</label>
+                            <input type="text" placeholder="Page No." formControlName="pageNo">
+                        </div>
+                    </div>
+
+                </form>
+            
+            </div>
+            <div class="btn-cn">
+                <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+                <button type="button" class="btn btn-success" (click)="submit('literatureReview')"
+                   >
+                   ADD+
+                </button>
+            </div>
+
+            
+
+           
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-list-task"></i>&nbsp;Literature
+                    Review List</h1>
+               
+            </div>
+            <div class="modal-body">
+              <table class="table table-striped table-hover border-primary">
+                <thead class="table-light">
+                    <tr>
+                        <th>#</th>
+                        <th>Author</th>
+                        <th>Title</th>
+                        <th>Year</th>
+                        <th>ISSN</th>
+                        <th style="text-align: right;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor=" let item of literatureReviewList; let i=index;">
+                        <td>
+                            {{i+1}}
+                        </td>
+                        <td>
+                            {{item.ath}}
+                        </td>
+                        <td>
+                            {{item.titles}}
+                        </td>
+                        <td>
+                            {{item.year}}
+                        </td>
+                        <td>
+                            {{item.issn}}
+                        </td>
+                        <td style="text-align: right;">
+                            <i class="bi bi-pencil-square" style="color:seagreen; cursor: pointer;" (click)="editLiterature(item._id)"></i>&nbsp;
+                            <i class="bi bi-trash3-fill" style="color:red;cursor: pointer;"></i>&nbsp;
+                        </td>
+                       
+                    </tr>
+                </tbody>
+              </table>
+            </div>
+
+            </ng-container>
+
+
+            <ng-container *ngIf="literatureReviewEdit">
+                <div class="modal-header">
+                    
+
+
+                    <h1 class="modal-title fs-5" id="exampleModalLabel" style="color:navy">
+                        <i class="bi bi-reply-fill" style="color:navy; cursor: pointer;" (click)="litReviewBack()"></i>
+                        &nbsp;
+                        Edit Literature Review - <span style="font-size: 0.8em; font-weight: 300;">{{editData?.titles}} - {{editData?.year}}</span> 
+                    </h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div  class="progress rounded-0" role="progressbar" aria-label="Animated striped example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated"  [style.width]="progressStr" ></div>
+                  </div>
+                <div class="modal-body">
+                    <form [formGroup]="literatureReviewForm">
+                       <div class="row" *ngIf="index ==0">
+                        <div class="col">
+                            <label class="label" for="">What type of Research presented in the article?</label>
+                            <textarea class="form-control" name="" id="" cols="30" rows="7" placeholder="Write here your literature review" formControlName="ans0"></textarea>
+                        </div>
+                       </div>
+                       <div class="row" *ngIf="index==1">
+                        <div class="col">
+                            <label class="label" for="">How many sources were cited in the article?</label>
+                            <textarea class="form-control" name="" id="" cols="30" rows="7" placeholder="Write here your literature review" formControlName="ans1"></textarea>
+                        </div>
+                       </div>
+                       <div class="row" *ngIf="index==2">
+                        <div class="col">
+                            <label class="label" for="">Explain the methodology use in the research.</label>
+                            <textarea class="form-control" name="" id="" cols="30" rows="7" placeholder="Write here your literature review" formControlName="ans2"></textarea>
+                        </div>
+                       </div>
+                       <div class="row" *ngIf="index==3">
+                        <div class="col">
+                            <label class="label" for="">Key finding presented in the article.</label>
+                            <textarea class="form-control" name="" id="" cols="30" rows="7" placeholder="Write here your literature review" formControlName="ans3"></textarea>
+                        </div>
+                       </div>
+                       <div class="row" *ngIf="index==4">
+                        <div class="col">
+                            <label class="label" for="">Is data presented article is use full in yours research how?</label>
+                            <textarea class="form-control" name="" id="" cols="30" rows="7" placeholder="Write here your literature review" formControlName="ans4"></textarea>
+                        </div>
+                       </div>
+                       <div class="btn-cn">
+                        <button class="btn btn-outline-secondary" (click)="previous()">Previous</button> &nbsp;&nbsp;
+                        <button class="btn btn-outline-success"  (click)="next()">
+                            <span >
+                                Save 
+                            </span>
+                            <span *ngIf="progress!=100">
+                                & Next
+                            </span>
+                        </button>
+
+                       </div>
+                    </form>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- preview modal -->
+
+
+
+<!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#preview">
+    Launch static backdrop modal
+  </button> -->
+  
+  <!-- Modal -->
+  <div class="modal fade" id="preview" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header bg-secondary bg-gradient">
+          <h1 class="modal-title fs-5 text-light" id="staticBackdropLabel">Preview - {{previewTitle}}</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <ng-container *ngIf="prevIndex==0">
+
+            <!-- <h1>CoverPage</h1> -->
+
+            <!-- <h2>Title</h2>
+            <h3>Subject</h3>
+            <h3>name of faculty</h3>
+            <h3>University Name</h3> -->
+
+            <ul class="cover-page-preview border border-primary-subtle p-3 w-100 rounded-1 shadow-sm">
+                <li>
+
+                    <div class="caption">
+                        [TITLE]
+                    </div>
+
+                </li>
+                <li>
+
+                    <div class="caption">
+                        [SUBJECT]
+                    </div>
+
+                </li>
+                <li>
+                   
+                    <div class="caption">
+                        [FACULTY]
+                    </div>
+
+                </li>
+                <li>
+
+                    <div class="caption">
+                        [UNIVERSITY NAME]
+                    </div>
+
+                </li>
+                <li>
+                    <div class="caption">
+                        [TITLE]
+                    </div>
+
+                </li>
+            </ul>
+          </ng-container>
+          <ng-container *ngIf="prevIndex==1">
+            <h1>Introduction</h1>
+          </ng-container>
+          <ng-container *ngIf="prevIndex==2">
+            <h1>Literature List Review</h1>
+          </ng-container>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary bg-gradient" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-success bg-gradient">Download</button>
+        </div>
+      </div>
+    </div>
+  </div>

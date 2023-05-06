@@ -1,0 +1,167 @@
+<div class="container-fluid">
+    <div class="card" *ngFor="let item of services">
+        <header>
+            <div class="title">
+                {{item.title}}
+            </div>
+      
+          
+        </header>
+        <main>
+            <img src="{{item.image}}" alt="">
+            <p>
+                {{item.description.substring(0,40)}}
+                <span *ngIf="item.description.length>40">...
+                    <a href="">Read More</a>
+                </span>
+            </p>
+        </main>
+        <footer>
+            <button type="button" *ngIf="item.btn" (click)="getID(item.title)" data-bs-toggle="modal" data-bs-target="#request">Request</button>
+        </footer>
+    </div>
+  
+</div>
+
+
+
+
+<!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#request">
+    Launch demo modal
+</button> -->
+  
+  <!-- Modal -->
+  <div class="modal fade" id="request" tabindex="-1" aria-labelledby="requestLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content" *ngIf="Mentoring">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-send-fill" style="font-size: 1.5em;"></i>&nbsp;Mentoring Form</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form [formGroup]="MentorRequestForm">
+                <div class="row">
+                    <div class="col">
+                        <label for="">Name</label>
+                        <input type="text" placeholder="Enter Your Name" formControlName="name">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label for="">E-mail</label>
+                        <input type="email" placeholder="Enter Your Email" formControlName="email">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label for="">Contact</label>
+                        <input type="tel" placeholder="Enter Your Contact" formControlName="contact">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label for="">Subject</label>
+                        <input type="text" formControlName="subject" placeholder="Enter Here Your Subject Name">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label for="">Appointment Date</label>
+                        <input type="date" formControlName="date">
+                    </div>
+                    <div class="col">
+                        <label for="">Time Slot</label>
+                       
+                        <div class="radio-group">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="timeSlot" id="time1" #time1 value="11:00AM - 12:30PM" (click)="getTimeSlot(time1.value)">
+                                <label class="form-check-label" for="flexRadioDefault1" >
+                                    11:00AM - 12:30PM
+                                </label>
+                              </div>
+                              <div class="form-check">
+                                <input class="form-check-input" type="radio" name="timeSlot" value="02:30PM - 4:00PM" id="time2" #time2 checked (click)="getTimeSlot(time2.value)">
+                                <label class="form-check-label" for="flexRadioDefault2">
+                                    02:30PM - 4:00PM
+                                </label>
+                              </div>
+                        </div>
+                    </div>
+                </div>
+              </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" (click)="submit('mentor')" data-bs-dismiss="modal">Submit</button>
+        </div>
+      </div>
+
+
+
+      <!-- MOCK VIVA -->
+
+      <div class="modal-content" *ngIf="MockViva">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-send-fill" style="font-size: 1.5em;"></i>&nbsp;Mock-Viva</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="mockVivaForm">
+            <div class="row">
+                <div class="col">
+                    <label for="">Name</label>
+                    <input type="text" placeholder="Enter Your Name" formControlName="name">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="">E-mail</label>
+                    <input type="email" placeholder="Enter Your Email" formControlName="email">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="">Contact</label>
+                    <input type="tel" placeholder="Enter Your Contact" formControlName="contact">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="">Subject</label>
+                    <input type="text" formControlName="subject" placeholder="Enter Here Your Subject Name">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="">Appointment Date</label>
+                    <input type="date" formControlName="date">
+                </div>
+                <div class="col">
+                    <label for="">Time Slot</label>
+                   
+                    <div class="radio-group">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="timeSlot" id="time1" #time1 value="11:00AM - 12:30PM" (click)="getTimeSlot(time1.value)">
+                            <label class="form-check-label" for="flexRadioDefault1" >
+                                11:00AM - 12:30PM
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="timeSlot" value="02:30PM - 4:00PM" id="time2" #time2 checked (click)="getTimeSlot(time2.value)">
+                            <label class="form-check-label" for="flexRadioDefault2">
+                                02:30PM - 4:00PM
+                            </label>
+                          </div>
+                    </div>
+                </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary" (click)="submit('mock')" data-bs-dismiss="modal">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>

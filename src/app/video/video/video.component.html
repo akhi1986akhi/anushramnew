@@ -1,0 +1,40 @@
+<div class="container-fluid">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">
+                <a>
+                    {{videoTitle}}
+                </a>
+            </li>
+        </ol>
+        <ul>
+            <li>
+                <span>
+                    <a>Home </a>> <a>Dashboard</a>
+                </span>
+            </li>
+            <li>
+                <span>
+                    > <a>Video</a>
+                </span>
+            </li>
+            <li>
+                <span>
+                    > <a>{{videoTitle}}</a>
+                </span>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="left-right-btn">
+        <button><img src="assets/img/left.png" alt=""></button>
+        <button><img src="assets/img/right.png" alt=""></button>
+    </div>
+</div>
+<hr />
+
+<div class="container">
+    <video #video id="video" controls muted controlsList="nodownload" (contextmenu)="onRightClick()" src="{{videoUrl}}" type="video/mp4">
+        
+    </video>
+</div>

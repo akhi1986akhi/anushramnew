@@ -1,0 +1,13 @@
+.container-fluid{
+    display: flex;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color:rgb(250, 250, 250);
+
+    .content-container{
+        display: block;
+        width:100%;
+        // background-color: pink;
+    }
+}

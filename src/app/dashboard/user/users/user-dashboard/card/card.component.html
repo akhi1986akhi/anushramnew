@@ -1,0 +1,115 @@
+
+
+<div class="card-container">
+    <div class="card-wrapper">
+
+        <div class="card">
+            <div class="title">
+                <i class="bi bi-1-circle-fill"></i> Ph.D Admission
+            </div>
+            <div class="icon">
+                <img src="assets/img/dashboard/stage1.png" alt="">
+            </div>
+            <button class="btn" *ngIf="!stageOne" data-bs-toggle="modal" data-bs-target="#exampleModal">Subscribe</button>
+            <button class="btn" *ngIf="stageOne" (click)="navigateToStage('stageOne')"> View More</button>
+        </div>
+        <div class="card">
+            <div class="title">
+                <i class="bi bi-2-circle-fill"></i> Advanced Learning
+            </div>
+            <div class="icon">
+                <img src="assets/img/dashboard/stage2.png" alt="">
+            </div>
+            <button class="btn" *ngIf="!stageTwo" data-bs-toggle="modal" data-bs-target="#exampleModal">Subscribe</button>
+            <button class="btn" *ngIf="stageTwo" (click)="navigateToStage('stageTwo')"> View More</button>
+        </div>
+        <div class="card">
+            <div class="title">
+                
+                <i class="bi bi-3-circle-fill"></i> RESEARCH & EXECUTE PH.D.
+            </div>
+            <div class="icon">
+                <img src="assets/img/dashboard/stage3.png" alt="">
+            </div>
+            <button class="btn" *ngIf="!stageThree" data-bs-toggle="modal" data-bs-target="#exampleModal">Subscribe</button>
+            <button class="btn" *ngIf="stageThree" (click)="navigateToStage('stageThree')"> View More</button>
+        </div>
+    </div>
+    
+</div>
+
+<!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Launch demo modal
+</button> -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+
+        <form [formGroup]="packageForm" (ngSubmit)="submitForm()">
+
+      
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Subscribe Package</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <div class="info">
+
+        
+        <div class="row">
+            <div class="col">
+                <label for="">First Name</label>
+                <input type="text" placeholder="First Name" formControlName="firstName" readonly>
+            </div>
+            <div class="col">
+                <label for="">Last Name</label>
+                <input type="text" placeholder="Last Name" formControlName="lastName" readonly>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label for="">E-mail</label>
+                <input type="email" placeholder="Email" formControlName="email" readonly>
+            </div>
+            <div class="col">
+                <label for="">Contact</label>
+                <input type="text" placeholder="Contact" formControlName="contact">
+            </div>
+        </div>
+    </div>
+        <div class="row">
+            <div class="col">
+                <ul>
+                    <li>
+                        <i class="bi bi-check2-square" style="color:seagreen"></i>
+                        <span>Annual Portal Charges- 799</span>
+                    </li>
+                    <li>
+                        <input type="checkbox" checked (click)="checkOption($event, 'stageOne')"> <span>State I - 2500</span>
+                    </li>
+                    <li>
+                        <input type="checkbox" checked (click)="checkOption($event, 'stageTwo')"> <span>State II - 2500</span>
+                    </li>
+                    <li>
+                        <input type="checkbox" checked (click)="checkOption($event, 'stageThree')"> <span>State III - 2500</span>
+                    </li>
+                    <span class="disc-caption"><i class="bi bi-bookmark-star"></i>&nbsp;25% discount applied on subscribe stage I , satge II & stage III</span>
+                    <li>
+                       &nbsp;&nbsp;&nbsp; <span>{{Total}}</span> <span> Grand Total -</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
+      </div>
+    </form>
+    </div>
+  </div>
+</div>

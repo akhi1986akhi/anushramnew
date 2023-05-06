@@ -1,0 +1,2897 @@
+<div class="container-fluid">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">
+                <a>
+                    {{title}}
+                </a>
+            </li>
+        </ol>
+        <ul>
+            <li>
+                <span>
+                    <a>Home </a>> <a>Dashboard</a>
+                </span>
+            </li>
+            <li>
+                <span>
+                    > <a>Ph.D Process Excercise</a>
+                </span>
+            </li>
+            <li>
+                <span>
+                    > <a>{{title}}</a>
+                </span>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="left-right-btn">
+        <button><img src="assets/img/left.png" alt=""></button>
+        <button><img src="assets/img/right.png" alt=""></button>
+    </div>
+</div>
+<hr />
+<div class="container-fluid" *ngIf="false">
+    <div class="container">
+        <div class="alert-container" *ngIf="message.length >0">
+            <div class="alert alert-success w-50 text-center" role="alert">
+
+                {{message}}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </div>
+
+
+        <div class="card" *ngFor="let item of levelTwo.topics">
+            <div class="card-inner">
+
+                <div class="header">
+                    <span style="font-weight: 500;">
+                        {{item.title}}
+                    </span>
+                    <div class="nav-icon">
+                        <a routerLink="/user-dash/video/{{item.video}}">
+                            <img src="assets/img/anushram-info.png" alt="ANUSHRAM DEMO VIDEO">
+                        </a>
+                    </div>
+                    <button *ngIf="item.addBtn" (click)="getBtnID(item.btnID)" data-bs-toggle="modal"
+                        data-bs-target="#levelTwo">Add+</button>
+
+                </div>
+
+                <div class="content">
+                    <ul>
+                        <li *ngFor="let data of item?.form">
+
+                            <span>
+                                <i class="bi bi-check2-square" *ngIf="!item.updated"></i>
+                                <i class="bi bi-check-square-fill" style="color:seagreen" *ngIf="item.updated"></i>
+
+                                <a (click)="navigateTo(data.link)" style="font-weight: 500;">
+                                    &nbsp;{{data.label}}
+                                </a>
+                                <button *ngIf="data.label=='Research Repository Source'" class="btn-view">
+                                    <a (click)="navigateTo(data.link)">
+
+                                        View
+                                    </a>
+                                </button>
+                            </span>
+
+                            <ul style="margin-top: 10px; margin-bottom: 20px">
+                                <li *ngFor="let subData of data.subForm" style="margin-bottom: 10px;">
+                                    <span>
+
+                                        <i class="bi bi-check2-square"></i>
+                                        {{subData.label}}
+                                    </span>
+                                    <i *ngIf="subData.btn" (click)="getBtnID(subData.btnID)" data-bs-toggle="modal"
+                                        data-bs-target="#levelTwo" class="bi bi-plus-circle-fill"></i>
+                                </li>
+
+                            </ul>
+
+                        </li>
+                        <!-- <li>
+                            <span>
+                                <i class="bi bi-check2-square"></i>&nbsp;list two
+                            </span>
+                            <span>
+                                <i class="bi bi-plus-square-fill"></i>
+                            </span>
+                        </li>
+                        <li>
+                            <span>
+                                <i class="bi bi-check2-square"></i>&nbsp;list Three
+                            </span>
+                            <span>
+                                <i class="bi bi-plus-square-fill"></i>
+                            </span>
+                        </li> -->
+                    </ul>
+                </div>
+            </div>
+            <div class="icon"><i class="bi bi-bookmark-star-fill"></i></div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal fade" id="levelTwo" tabindex="-1" aria-labelledby="title" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+
+
+    <!-- AREA OF INTEREST & TITLE OF RESEARCH DIALOG FORM START FROM HERE -->
+        <!-- BACHELOR FORM -->
+
+    <div class="modal-content" *ngIf="branchBachelorDialog">
+        <form [formGroup]="titleResearchForm" (ngSubmit)="submitForm('titleBachelor')">
+
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-dash-square"></i>&nbsp; What is your subject or branch as per your academic record?</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+                <div class="row">
+                    <div class="col">
+                        <label for="">Subject/ Branch in Bachelor Degree</label>
+                        <textarea name="" id="" cols="30" rows="1" formControlName="titleBachelor"
+                            placeholder="Enter Here Your Subject/ Branch in Bachelor Degree..."></textarea>
+
+                    </div>
+                </div>
+             
+              
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
+            </div>
+
+        </form>
+    </div>
+
+<!-- MASTER FORM -->
+<div class="modal-content" *ngIf="branchMasterDialog">
+    <form [formGroup]="titleResearchForm" (ngSubmit)="submitForm('titleMaster')">
+
+        <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-dash-square"></i>&nbsp; What is your subject or branch as per your academic record?</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+            <div class="row">
+                <div class="col">
+                    <label for="">Subject/ Branch in Master's Degree</label>
+                    <textarea name="" id="" cols="30" rows="1" formControlName="titleMaster"
+                        placeholder="Enter Here Your Subject/ Branch in Master's Degree..."></textarea>
+
+                </div>
+            </div>
+         
+          
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
+        </div>
+
+    </form>
+</div>
+     <!-- AREA OF INTEREST & TITLE OF RESEARCH DIALOG FORM END FROM HERE -->
+
+
+    <!--  Favourite Subject dialog form start from here -->
+
+    <div class="modal-content" *ngIf="fauriteSubjectDialog">
+        <form [formGroup]="titleResearchForm" (ngSubmit)="submitForm('favouriteArea')">
+    
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-dash-square"></i>&nbsp; Which subject you understand most and find most suitable for your research?</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+    
+                <div class="row">
+                    <div class="col">
+                        <label for=""> Favourite Subject</label>
+                        <textarea name="" id="" cols="30" rows="1" formControlName="favouriteArea"
+                            placeholder="Enter Here Your Favourite Subject..."></textarea>
+    
+                    </div>
+                </div>
+             
+              
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
+            </div>
+    
+        </form>
+    </div>
+
+    <!--  Favourite Subject dialog form end from here -->
+
+
+       <!--  Sub Area or topic dialog form start from here -->
+
+       <div class="modal-content" *ngIf="subareaTopicDialog">
+        <form [formGroup]="titleResearchForm" (ngSubmit)="submitForm('subAreaTopic')">
+    
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-dash-square"></i>&nbsp; Which subject you understand most and find most suitable for your research?</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+    
+                <div class="row">
+                    <div class="col">
+                        <label for=""> Sub Area or topic</label>
+                        <textarea name="" id="" cols="30" rows="1" formControlName="subAreaTopic"
+                            placeholder="Enter Here Your Sub Area or topic..."></textarea>
+    
+                    </div>
+                </div>
+             
+              
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
+            </div>
+    
+        </form>
+    </div>
+
+    <!--  Sub Area or topic dialog form end from here -->
+
+
+        <!--  Sub Area or topic dialog form start from here -->
+
+        <div class="modal-content" *ngIf="whyYouFeelDialog">
+            <form [formGroup]="titleResearchForm" (ngSubmit)="submitForm('whyYouFeel')">
+        
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-dash-square"></i>&nbsp; Which subject you understand most and find most suitable for your research?</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+        
+                    <div class="row">
+                        <div class="col">
+                            <label for=""> Why you feel it is favourite to you?</label>
+                            <textarea name="" id="" cols="30" rows="1" formControlName="whyYouFeel"
+                                placeholder="Enter Here Why you feel it is favourite to you..."></textarea>
+        
+                        </div>
+                    </div>
+                 
+                  
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
+                </div>
+        
+            </form>
+        </div>
+    
+        <!--  Sub Area or topic dialog form end from here -->
+
+<!-- Who will be get benefited  form start from here -->
+
+<div class="modal-content" *ngIf="getBenefitedDialog">
+    <form [formGroup]="titleResearchForm" (ngSubmit)="submitForm('whyYouFeel')">
+
+        <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-dash-square"></i>&nbsp; What will be the possible advantages & significance of your research?</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+            <div class="row">
+                <div class="col">
+                    <label for=""> Who will be get benefited from your research?</label>
+                    <textarea name="" id="" cols="30" rows="1" formControlName="whyYouFeel"
+                        placeholder="Enter Here Who will be get benefited from your research?..."></textarea>
+
+                </div>
+            </div>
+         
+          
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
+        </div>
+
+    </form>
+</div>
+
+
+
+<div class="modal-content" *ngIf="novelConceptDialog">
+    <form [formGroup]="titleResearchForm" (ngSubmit)="submitForm('whyYouFeel')">
+
+        <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-dash-square"></i>&nbsp; What will be the possible advantages & significance of your research?</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+            <div class="row">
+                <div class="col">
+                    <label for=""> How your research brings a novel concept?</label>
+                    <textarea name="" id="" cols="30" rows="1" formControlName="whyYouFeel"
+                        placeholder="Enter Here How your research brings a novel concept?..."></textarea>
+
+                </div>
+            </div>
+         
+          
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
+        </div>
+
+    </form>
+</div>
+
+<div class="modal-content" *ngIf="readSomewhereDialog">
+    <form [formGroup]="titleResearchForm" (ngSubmit)="submitForm('whyYouFeel')">
+
+        <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-dash-square"></i>&nbsp; Start by introducing your area of interest</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+            <div class="row">
+                <div class="col">
+                    <label for=""> What drew you to it. This could be a personal experience, a hobby, or something you've studied in school or in college or you have read somewhere</label>
+                    <textarea name="" id="" cols="30" rows="1" formControlName="whyYouFeel"
+                        placeholder="Enter Here How your research brings a novel concept?..."></textarea>
+
+                </div>
+            </div>
+         
+          
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
+        </div>
+
+    </form>
+</div>
+
+<div class="modal-content" *ngIf="perspectiveContextDialog">
+    <form [formGroup]="titleResearchForm" (ngSubmit)="submitForm('whyYouFeel')">
+
+        <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-dash-square"></i>&nbsp; Background</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+            <div class="row">
+                <div class="col">
+                    <label for=""> Provide some context, perspective for your area of interest.</label>
+                    <textarea name="" id="" cols="30" rows="3" formControlName="whyYouFeel"
+                        placeholder="Enter Here Provide some context, perspective for your area of interest.
+                        ..."></textarea>
+
+                </div>
+            </div>
+         
+          
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
+        </div>
+
+    </form>
+</div>
+<div class="modal-content" *ngIf="discussHistoryDialog">
+    <form [formGroup]="titleResearchForm" (ngSubmit)="submitForm('whyYouFeel')">
+
+        <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-dash-square"></i>&nbsp; Background</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+            <div class="row">
+                <div class="col">
+                    <label for=""> Discuss its history</label>
+                    <textarea name="" id="" cols="30" rows="5" formControlName="whyYouFeel"
+                        placeholder="Enter Here Discuss its history.
+                        ..."></textarea>
+
+                </div>
+            </div>
+         
+          
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
+        </div>
+
+    </form>
+</div>
+<div class="modal-content" *ngIf="significancePlayersDialog">
+    <form [formGroup]="titleResearchForm" (ngSubmit)="submitForm('whyYouFeel')">
+
+        <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-dash-square"></i>&nbsp; Background</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+            <div class="row">
+                <div class="col">
+                    <label for=""> Significance, and any major players or theories involved.</label>
+                    <textarea name="" id="" cols="30" rows="3" formControlName="whyYouFeel"
+                        placeholder="Enter Here Significance, and any major players or theories involved...
+                        ..."></textarea>
+
+                </div>
+            </div>
+         
+          
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
+        </div>
+
+    </form>
+</div>
+
+
+<div class="modal-content" *ngIf="establishThroughResearchDialog">
+    <form [formGroup]="titleResearchForm" (ngSubmit)="submitForm('whyYouFeel')">
+
+        <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-dash-square"></i>&nbsp; Develop a research question</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+            <div class="row">
+                <div class="col">
+                    <label for=""> Explain what exactly you want establish through research.</label>
+                    <textarea name="" id="" cols="30" rows="5" formControlName="whyYouFeel"
+                        placeholder="Enter Here Explain what exactly you want establish through research...
+                        ..."></textarea>
+
+                </div>
+            </div>
+         
+          
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
+        </div>
+
+    </form>
+</div>
+
+<div class="modal-content" *ngIf="needOfResearchDialog">
+    <form [formGroup]="titleResearchForm" (ngSubmit)="submitForm('whyYouFeel')">
+
+        <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-dash-square"></i>&nbsp; Develop a research question</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+            <div class="row">
+                <div class="col">
+                    <label for=""> Pin point explanation about need of research.</label>
+                    <textarea name="" id="" cols="30" rows="5" formControlName="whyYouFeel"
+                        placeholder="Enter Here Pin point explanation about need of research...
+                        "></textarea>
+
+                </div>
+            </div>
+         
+          
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
+        </div>
+
+    </form>
+</div>
+<div class="modal-content" *ngIf="explanationDialog">
+    <form [formGroup]="titleResearchForm" (ngSubmit)="submitForm('whyYouFeel')">
+
+        <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-dash-square"></i>&nbsp; Develop a research question</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+            <div class="row">
+                <div class="col">
+                    <label for=""> Key factors and their explanation that to be analysed through the research</label>
+                    <textarea name="" id="" cols="30" rows="5" formControlName="whyYouFeel"
+                        placeholder="Enter Here Key factors and their explanation that to be analysed through the research
+                        ..."></textarea>
+
+                </div>
+            </div>
+         
+          
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
+        </div>
+
+    </form>
+</div>
+
+<div class="modal-content" *ngIf="currentStatusDialog">
+    <form [formGroup]="titleResearchForm" (ngSubmit)="submitForm('whyYouFeel')">
+
+        <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-dash-square"></i>&nbsp; Develop a research question</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+            <div class="row">
+                <div class="col">
+                    <label for=""> What is the current status of research in the area and how it is differ from your research?</label>
+                    <textarea name="" id="" cols="30" rows="5" formControlName="whyYouFeel"
+                        placeholder="Enter Here  What is the current status of research in the area and how it is differ from your research?
+                        ..."></textarea>
+
+                </div>
+            </div>
+         
+          
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
+        </div>
+
+    </form>
+</div>
+<div class="modal-content" *ngIf="problemStatusDialog">
+    <form [formGroup]="titleResearchForm" (ngSubmit)="submitForm('whyYouFeel')">
+
+        <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-dash-square"></i>&nbsp; Develop a research question</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+            <div class="row">
+                <div class="col">
+                    <label for=""> Conduct full scale literature Survey & review to identified the problem status, and probable solution.</label>
+                    <textarea name="" id="" cols="30" rows="5" formControlName="whyYouFeel"
+                        placeholder="Enter Here  Conduct full scale literature Survey & review to identified the problem status, and probable solution..."></textarea>
+
+                </div>
+            </div>
+         
+          
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
+        </div>
+
+    </form>
+</div>
+
+<div class="modal-content" *ngIf="stateofresearchDialog">
+    <form [formGroup]="titleResearchForm" (ngSubmit)="submitForm('whyYouFeel')">
+
+        <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-dash-square"></i>&nbsp; Current State</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+            <div class="row">
+                <div class="col">
+                    <label for=""> Describe the current state of research, innovation, or developments in your area of interest.</label>
+                    <textarea name="" id="" cols="30" rows="5" formControlName="whyYouFeel"
+                        placeholder="Enter Here  Describe the current state of research, innovation, or developments in your area of interest..."></textarea>
+
+                </div>
+            </div>
+         
+          
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
+        </div>
+
+    </form>
+</div>
+<div class="modal-content" *ngIf="includeTechnologiesDialog">
+    <form [formGroup]="titleResearchForm" (ngSubmit)="submitForm('whyYouFeel')">
+
+        <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-dash-square"></i>&nbsp; Current State</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+            <div class="row">
+                <div class="col">
+                    <label for=""> This could include new technologies, emerging trends, or relevant news articles.</label>
+                    <textarea name="" id="" cols="30" rows="5" formControlName="whyYouFeel"
+                        placeholder="Enter Here  This could include new technologies, emerging trends, or relevant news articles..."></textarea>
+
+                </div>
+            </div>
+         
+          
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
+        </div>
+
+    </form>
+</div>
+
+
+<div class="modal-content" *ngIf="importanceAreaIntrestDialog">
+    <form [formGroup]="titleResearchForm" (ngSubmit)="submitForm('whyYouFeel')">
+
+        <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-dash-square"></i>&nbsp; Importance</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+            <div class="row">
+                <div class="col">
+                    <label for=""> Explain why your area of interest is important.</label>
+                    <textarea name="" id="" cols="30" rows="5" formControlName="whyYouFeel"
+                        placeholder="Enter Here  Explain why your area of interest is important...."></textarea>
+
+                </div>
+            </div>
+         
+          
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
+        </div>
+
+    </form>
+</div>
+
+
+<div class="modal-content" *ngIf="importanceFutureDevelopmentDialog">
+    <form [formGroup]="titleResearchForm" (ngSubmit)="submitForm('whyYouFeel')">
+
+        <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-dash-square"></i>&nbsp; Importance</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+            <div class="row">
+                <div class="col">
+                    <label for=""> Its potential for future developments, or its relevance to current issues.</label>
+                    <textarea name="" id="" cols="30" rows="5" formControlName="whyYouFeel"
+                        placeholder="Enter Here  Its potential for future developments, or its relevance to current issues....."></textarea>
+
+                </div>
+            </div>
+         
+          
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
+        </div>
+
+    </form>
+</div>
+
+<div class="modal-content" *ngIf="challangesObstaclesDialog">
+    <form [formGroup]="titleResearchForm" (ngSubmit)="submitForm('whyYouFeel')">
+
+        <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-dash-square"></i>&nbsp; Challenges</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+            <div class="row">
+                <div class="col">
+                    <label for=""> Discuss the challenges or obstacles facing your area of interest.</label>
+                    <textarea name="" id="" cols="30" rows="5" formControlName="whyYouFeel"
+                        placeholder="Enter Here  Discuss the challenges or obstacles facing your area of interest..."></textarea>
+
+                </div>
+            </div>
+         
+          
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
+        </div>
+
+    </form>
+</div>
+
+<div class="modal-content" *ngIf="challangesPoliticalDialog">
+    <form [formGroup]="titleResearchForm" (ngSubmit)="submitForm('whyYouFeel')">
+
+        <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-dash-square"></i>&nbsp; Challenges</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+            <div class="row">
+                <div class="col">
+                    <label for=""> This could include political, economic, or technological challenges, as well as social or ethical concerns.
+                    </label>
+                    <textarea name="" id="" cols="30" rows="5" formControlName="whyYouFeel"
+                        placeholder="Enter Here This could include political, economic, or technological challenges, as well as social or ethical concerns..."></textarea>
+
+                </div>
+            </div>
+         
+          
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
+        </div>
+
+    </form>
+</div>
+
+
+<div class="modal-content" *ngIf="personalPerspectiveAreaDialog">
+    <form [formGroup]="titleResearchForm" (ngSubmit)="submitForm('whyYouFeel')">
+
+        <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-dash-square"></i>&nbsp; Personal Perspective</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+            <div class="row">
+                <div class="col">
+                    <label for=""> Share your personal perspective on your area of interest.
+                    </label>
+                    <textarea name="" id="" cols="30" rows="5" formControlName="whyYouFeel"
+                        placeholder="Enter Here Share your personal perspective on your area of interest..."></textarea>
+
+                </div>
+            </div>
+         
+          
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
+        </div>
+
+    </form>
+</div>
+<div class="modal-content" *ngIf="personalPerspectiveInterestDialog">
+    <form [formGroup]="titleResearchForm" (ngSubmit)="submitForm('whyYouFeel')">
+
+        <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-dash-square"></i>&nbsp; Personal Perspective</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+            <div class="row">
+                <div class="col">
+                    <label for=""> What interests you about it?
+                    </label>
+                    <textarea name="" id="" cols="30" rows="5" formControlName="whyYouFeel"
+                        placeholder="Enter Here What interests you about it?..."></textarea>
+
+                </div>
+            </div>
+         
+          
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
+        </div>
+
+    </form>
+</div>
+
+<div class="modal-content" *ngIf="personalPerspectiveContributeDialog">
+    <form [formGroup]="titleResearchForm" (ngSubmit)="submitForm('whyYouFeel')">
+
+        <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-dash-square"></i>&nbsp; Personal Perspective</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+            <div class="row">
+                <div class="col">
+                    <label for=""> What do you hope to contribute to it in the future?
+                    </label>
+                    <textarea name="" id="" cols="30" rows="5" formControlName="whyYouFeel"
+                        placeholder="Enter Here What do you hope to contribute to it in the future?..."></textarea>
+
+                </div>
+            </div>
+         
+          
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
+        </div>
+
+    </form>
+</div>
+
+<div class="modal-content" *ngIf="futureAreaDialog">
+    <form [formGroup]="titleResearchForm" (ngSubmit)="submitForm('whyYouFeel')">
+
+        <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-dash-square"></i>&nbsp; Future directions</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+            <div class="row">
+                <div class="col">
+                    <label for=""> Explore the future of your area of interest.
+                    </label>
+                    <textarea name="" id="" cols="30" rows="5" formControlName="whyYouFeel"
+                        placeholder="Enter Here Explore the future of your area of interest..."></textarea>
+
+                </div>
+            </div>
+         
+          
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
+        </div>
+
+    </form>
+</div>
+
+<div class="modal-content" *ngIf="futurePotentialsDialog">
+    <form [formGroup]="titleResearchForm" (ngSubmit)="submitForm('whyYouFeel')">
+
+        <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-dash-square"></i>&nbsp; Future directions</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+            <div class="row">
+                <div class="col">
+                    <label for=""> What potential developments or breakthroughs do you see on the horizon?
+                    </label>
+                    <textarea name="" id="" cols="30" rows="5" formControlName="whyYouFeel"
+                        placeholder="Enter Here What potential developments or breakthroughs do you see on the horizon?..."></textarea>
+
+                </div>
+            </div>
+         
+          
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
+        </div>
+
+    </form>
+</div>
+
+<div class="modal-content" *ngIf="futureResearchDialog">
+    <form [formGroup]="titleResearchForm" (ngSubmit)="submitForm('whyYouFeel')">
+
+        <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-dash-square"></i>&nbsp; Future directions</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+            <div class="row">
+                <div class="col">
+                    <label for=""> What areas of research or innovation are particularly promising?
+                    </label>
+                    <textarea name="" id="" cols="30" rows="5" formControlName="whyYouFeel"
+                        placeholder="Enter Here What areas of research or innovation are particularly promising?..."></textarea>
+
+                </div>
+            </div>
+         
+          
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
+        </div>
+
+    </form>
+</div>
+<!-- Who will be get benefited  form end from here -->
+
+
+
+
+
+
+        <!-- Type of research dialog form start from here -->
+
+        <div class="modal-content" *ngIf="typeOfResearchesDialog">
+            <form [formGroup]="researchAreaofInterestForm" (ngSubmit)="submitForm('researchAreaofInterest')">
+        
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-dash-square"></i>&nbsp; What is your preferred area in which you feel more research may be carried out and you also have capabilities to contribute significantly in the field through your research?</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+        
+                    <div class="row">
+                        <div class="col">
+                            <label for=""> Type of research that may be carry out in your field of interest</label>
+                            <textarea name="" id="" cols="30" rows="1" formControlName="interestInSubject"
+                                placeholder="Enter Here Type of research that may be carry out in your field of interest..."></textarea>
+        
+                        </div>
+                    </div>
+                 
+                  
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
+                </div>
+        
+            </form>
+        </div>
+
+         <!-- Type of research dialog form end from here -->
+
+
+         <!--  List key researches dialog form start from here -->
+
+         <div class="modal-content" *ngIf="listKeyResearchesDialog">
+            <form [formGroup]="researchAreaofInterestForm" (ngSubmit)="submitForm('researchAreaofInterest')">
+        
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-dash-square"></i>&nbsp; What is your preferred area in which you feel more research may be carried out and you also have capabilities to contribute significantly in the field through your research?</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+        
+                    <div class="row">
+                        <div class="col">
+                            <label for="">List key researches in the field with proper citation</label>
+                            <textarea name="" id="" cols="30" rows="1" formControlName="interestInSubject"
+                                placeholder="Enter Here List key researches in the field with proper citation..."></textarea>
+        
+                        </div>
+                    </div>
+                 
+                  
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
+                </div>
+        
+            </form>
+        </div>
+
+         <!--  List key researches dialog form end from here -->
+
+
+
+           <!--  Type of resources dialog form start from here -->
+
+           <div class="modal-content" *ngIf="typeOfResourcesDialog">
+            <form [formGroup]="researchAreaofInterestForm" (ngSubmit)="submitForm('researchAreaofInterest')">
+        
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-dash-square"></i>&nbsp; What is your preferred area in which you feel more research may be carried out and you also have capabilities to contribute significantly in the field through your research?</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+        
+                    <div class="row">
+                        <div class="col">
+                            <label for="">Type of resources that is available with you for the research</label>
+                            <textarea name="" id="" cols="30" rows="1" formControlName="interestInSubject"
+                                placeholder="Enter Here Type of resources that is available with you for the research..."></textarea>
+        
+                        </div>
+                    </div>
+                 
+                  
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
+                </div>
+        
+            </form>
+        </div>
+
+         <!--  Type of resources dialog form end from here -->
+
+
+        <!-- RESEARCH AREA OF INTREST DIALOG FORM -->
+
+        <div class="modal-content" *ngIf="researchAreaofInterestDialog">
+            <form [formGroup]="researchAreaofInterestForm" (ngSubmit)="submitForm('researchAreaofInterest')">
+
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-dash-square"></i>&nbsp; Research
+                        Area of Interest in Subject</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="row">
+                        <div class="col">
+                            <label for="">Area of Interest in Subject</label>
+                            <textarea name="" id="" cols="30" rows="1" formControlName="interestInSubject"
+                                placeholder="Enter Here Your Research Area of Interest in Subject..."></textarea>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label for="">Scope of research in the area</label>
+                            <textarea name="" id="" cols="30" rows="3" formControlName="scopeOfResearch"
+                                placeholder="Enter Here Your Scope of research in the area..."></textarea>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label for="">Significance of the research</label>
+                            <textarea name="" id="" cols="30" rows="3" formControlName="significanceOfresearch"
+                                placeholder="Enter Here Your Significant of the Research..."></textarea>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
+                </div>
+
+            </form>
+        </div>
+
+        <!-- RESEARCH AREA OF INTEREST DIALOG FORM END -->
+
+
+        <!-- APPROVED TITLE FORM  -->
+
+        <div class="modal-content" *ngIf="titleDialog">
+            <form [formGroup]="approvedTitleForm" (ngSubmit)="submitForm('approvedTitle')">
+
+
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-dash-square"></i>&nbsp;Approved
+                        Title</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="row">
+                        <div class="col">
+                            <label for="">Title</label>
+                            <textarea name="" id="" cols="30" rows="3" formControlName="title"
+                                placeholder="Enter Here Your Approved Research Title..."></textarea>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
+                </div>
+
+            </form>
+        </div>
+
+        <!-- APPROVED TITLE FORM END  -->
+
+        <!-- LITERATURE REVIEW FORM HERE -->
+
+        <div class="modal-content" *ngIf="literatureviewDialog">
+            <form [formGroup]="literatureReviewForm" (ngSubmit)="submitForm('literatureReview')">
+
+
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel"><i
+                            class="bi bi-dash-square"></i>&nbsp;Literature Review</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="row">
+                        <div class="col">
+                            <label for="">Journal Name</label>
+                            <input type="text" formControlName="journalName"
+                                placeholder="Enter Here Your Journal Name...">
+                        </div>
+
+
+                        <div class="col">
+                            <label for="">Title</label>
+                            <input type="text" formControlName="title" placeholder="Enter Here Your Title...">
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label for="">Author Name</label>
+                            <input type="text" formControlName="author" placeholder="Enter Here Your Author Name...">
+                        </div>
+                        <div class="col">
+                            <label for="">Year of Publication</label>
+                            <input type="text" formControlName="year"
+                                placeholder="Enter Here Your Year of Publication...">
+                        </div>
+                        <div class="col">
+                            <label for="">ISSN</label>
+                            <input type="text" formControlName="iisn" placeholder="Enter Here Your Research ISSN...">
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <label for="">What type of Research presented in the article.</label>
+
+                            <textarea name="" id="" cols="30" rows="3" formControlName="whatTypeOfResearchPresented"
+                                placeholder="Write Review and Relevancy of your Research area from the Literature Review ( Max. 75 - 100 Words)"></textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label for="">How many sources were cited in the article.</label>
+
+                            <textarea name="" id="" cols="30" rows="3" formControlName="howManySource"
+                                placeholder="How many sources were cited in the article"></textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label for="">Explain the methodology use in the research.</label>
+
+                            <textarea name="" id="" cols="30" rows="3" formControlName="explainMethodologyUse"
+                                placeholder="Explain the methodology use in the research."></textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label for="">Key finding presented in the article</label>
+
+                            <textarea name="" id="" cols="30" rows="3" formControlName="keyFindingPresented"
+                                placeholder="Key finding presented in the article"></textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label for="">Is data presented article is use full in yours research how?</label>
+
+                            <textarea name="" id="" cols="30" rows="3" formControlName="dataPresented"
+                                placeholder="Is data presented article is use full in yours research how?"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
+                </div>
+
+            </form>
+        </div>
+        <!-- LITERATURE REVIEW FORM END HERE -->
+        <!-- PRIMARY DATA SURVEY DETAILS FORM  -->
+
+
+
+        <div class="modal-content" *ngIf="surveyDetailsDialog">
+            <form [formGroup]="surveyDetailsForm" (ngSubmit)="submitForm('surveyDetails')">
+
+
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-dash-square"></i>&nbsp;Survey
+                        Details</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="row">
+                        <div class="col">
+                            <label for="">Title of the Survey</label>
+                            <input type="text" formControlName="title"
+                                placeholder="Enter Here Your Title of the Survey...">
+                        </div>
+                        <div class="col">
+                            <label for="">Target Audience</label>
+                            <input type="text" formControlName="targetAudience"
+                                placeholder="Enter Here Your Target Audience details...">
+                        </div>
+                    </div>
+
+                    <label for="">Demographic Details</label>
+                    <div class="row">
+                        <ul>
+                            <li>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked"
+                                        checked>
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                        Name
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked"
+                                        checked>
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                        City
+                                    </label>
+                                </div>
+
+
+                            </li>
+
+                            <li>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked"
+                                        checked>
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                        State
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked"
+                                        checked>
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                        Age
+                                    </label>
+                                </div>
+
+                            </li>
+                            <li>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked"
+                                        checked>
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                        Gender
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked"
+                                        checked>
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                        Ethnicity
+                                    </label>
+                                </div>
+
+                            </li>
+                            <li>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked"
+                                        checked>
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                        Religion
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked"
+                                        checked>
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                        Education
+                                    </label>
+                                </div>
+
+                            </li>
+                            <li>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked"
+                                        checked>
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                        Occuption
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked"
+                                        checked>
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                        Income Group
+                                    </label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked"
+                                        checked>
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                        Phone No.
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked"
+                                        checked>
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                        E-mail
+                                    </label>
+                                </div>
+                            </li>
+                        </ul>
+
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
+                </div>
+
+            </form>
+        </div>
+
+
+        <!-- PRIMARY DATA SURVEY DETAILS FORM END -->
+
+        <!-- DESIGN SURVEY QUESTION FORM -->
+
+
+        <div class="modal-content" *ngIf="surveyQuestionDialog">
+            <form [formGroup]="surveyDetailsForm" (ngSubmit)="submitForm('surveyQuestion')">
+
+
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-dash-square"></i>&nbsp;Design
+                        Your Survey Questions</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="row">
+                        <div class="col">
+                            <label for="">Question</label>
+                            <input type="text" formControlName="question"
+                                placeholder="Enter Here Your Surevy Question...">
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="radio-group">
+                            <label for="">Type of Response:</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                    id="flexRadioDefault1" (click)="getRadioValue('Open Ended')">
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                    Open Ended
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                    id="flexRadioDefault2" (click)="getRadioValue('Closed Ended')">
+                                <label class="form-check-label" for="flexRadioDefault2">
+                                    Closed Ended
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" *ngIf="openEnded">
+                        <label for="">Open Ended</label>
+                        <div class="col">
+                            <textarea name="" id="" cols="30" rows="5"></textarea>
+                        </div>
+                    </div>
+                    <div class="row" *ngIf="closedEnded">
+                        <label for="">Closed Ended</label>
+                        <div class="radio-group">
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                    id="flexRadioDefault1">
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                    Option 1
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                    id="flexRadioDefault1">
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                    Option 2
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                    id="flexRadioDefault1">
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                    Option 3
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                    id="flexRadioDefault1">
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                    Option 4
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                    id="flexRadioDefault1">
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                    Option 5
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
+                </div>
+
+            </form>
+        </div>
+
+        <!-- DESIGN SURVEY QUESTION FORM END HERE -->
+
+
+        <!-- SURVEY ANALAYSIS METHOD NAME FORM -->
+
+
+        <div class="modal-content" *ngIf="surveyAnalysisMethodDialog">
+            <form [formGroup]="surveyDetailsForm" (ngSubmit)="submitForm('surveyAnalysisMethod')">
+
+
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-dash-square"></i>&nbsp;Survey
+                        Analysis Method Name</h1>
+
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="row">
+                        <div class="col">
+                            <label for="">Survey Analysis Method</label>
+                            <input type="text" formControlName="question"
+                                placeholder="Enter Here Your Survey Analysis Method Name...">
+                        </div>
+
+                    </div>
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
+                </div>
+
+            </form>
+        </div>
+
+        <!-- SURVEY ANALAYSIS METHOD NAME FORM END HERE -->
+
+
+
+        <!-- SURVEY ANALAYSIS METHOD DESCRIPTION FORM-->
+        <div class="modal-content" *ngIf="surveyAnalysisDescriptionDialog">
+            <form [formGroup]="surveyDetailsForm" (ngSubmit)="submitForm('surveyAnalysisDescription')">
+
+
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-dash-square"></i>&nbsp;Survey
+                        Analysis Method Description</h1>
+
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="row">
+                        <div class="col">
+                            <label for="">Survey Analysis Method Description</label>
+
+                            <textarea name="" id="" cols="30" rows="10"
+                                placeholder="Enter Here Your Survey Analysis Method Description..."></textarea>
+                        </div>
+
+                    </div>
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
+                </div>
+
+            </form>
+        </div>
+
+        <!-- SURVEY ANALAYSIS METHOD DESCRIPTION FORM END HERE -->
+
+
+        <!-- SURVEY VALIDATION DESCRIPTION -->
+
+        <div class="modal-content" *ngIf="surveyValidationDescriptionDialog">
+            <form [formGroup]="surveyDetailsForm" (ngSubmit)="submitForm('surveyAnalysisDescription')">
+
+
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-dash-square"></i>&nbsp;Survey
+                        Validation Method Description</h1>
+
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="row">
+                        <div class="col">
+                            <label for="">Survey Validation Method Description</label>
+
+                            <textarea name="" id="" cols="30" rows="10"
+                                placeholder="Enter Here Your Survey Validation Method Description..."></textarea>
+                        </div>
+
+                    </div>
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
+                </div>
+
+            </form>
+        </div>
+
+        <!-- SURVEY VALIDATION DESCRIPTION END HERE -->
+
+
+
+
+        <!-- RESEARCH METHODOLOGY -->
+
+        <!-- METHOD OR DESIGN OF RESEARCH FORM -->
+
+        <div class="modal-content" *ngIf="designResearchDialog">
+            <form [formGroup]="designResearchForm">
+
+
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-dash-square"></i>&nbsp;Method or
+                        Design of Research </h1>
+
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="row">
+                        <div class="col">
+                            <label for="">Method or Design of Research</label>
+
+                            <textarea name="" id="" cols="30" rows="10" formControlName="designResearch"
+                                placeholder="Enter Here Your Method or Design of Research..."></textarea>
+                        </div>
+
+                    </div>
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" (click)="submitForm('designResearch')" class="btn btn-primary"
+                        data-bs-dismiss="modal">Submit</button>
+                </div>
+
+            </form>
+        </div>
+
+
+        <!-- METHOD OR DESIGN OF RESEARCH FORM END HERE-->
+
+
+        <!-- TOOLS AND TECHNIQUES FORM -->
+
+
+        <div class="modal-content" *ngIf="toolsTeechniquesDialog">
+            <form [formGroup]="toolsTechniqueForm">
+
+
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-dash-square"></i>&nbsp;Tools and
+                        Tehniques</h1>
+
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="row">
+                        <div class="col">
+                            <label for="">Tools and Techniques</label>
+
+                            <textarea name="" id="" cols="30" rows="10" formControlName="toolsTechniques"
+                                placeholder="Enter Here Your Tools and Techniques..."></textarea>
+                        </div>
+
+                    </div>
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" (click)="submitForm('toolsTechnique')" class="btn btn-primary"
+                        data-bs-dismiss="modal">Submit</button>
+                </div>
+
+            </form>
+        </div>
+
+
+        <!-- TOOLS AND TECHNIQUES FORM END HERE -->
+
+
+        <!-- TOOLS DETAILS FORM HERE -->
+
+        <div class="modal-content" *ngIf="toolsDetailsDialog">
+            <form [formGroup]="toolsDetailsForm">
+
+
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-dash-square"></i>&nbsp;Tools
+                        Details Upload</h1>
+
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="row">
+                        <div class="col">
+                            <label for="">Tools Details Upload</label>
+
+                            <textarea name="" id="" cols="30" rows="2" formControlName="tools"
+                                placeholder="Enter Here Your Tools Details..."></textarea>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <label for="">Upload File</label>
+                            <input type="file" (change)="uploadFile($event)">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" (click)="submitForm('toolsDetails')" class="btn btn-primary"
+                        data-bs-dismiss="modal">Submit</button>
+                </div>
+
+            </form>
+        </div>
+
+        <!-- TOOLS DETAILS FORM END HERE -->
+
+
+        <!-- Objective of Survey FORM START HERE -->
+
+        <div class="modal-content" *ngIf="objectiveofsurveyDialog">
+            <form [formGroup]="surveyObjectiveForm">
+
+
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-dash-square"></i>&nbsp;What is the objective of survey?</h1>
+
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="row">
+                        <div class="col">
+                            <label for="">What is the objective of survey?</label>
+
+                            <textarea name="" id="" cols="30" rows="7" formControlName="objectiveSurvey"
+                                placeholder="Enter Here Your Objective Survey..."></textarea>
+                        </div>
+
+                    </div>
+
+                  
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" (click)="submitForm('objectiveofsurvey')" class="btn btn-primary"
+                        data-bs-dismiss="modal">Submit</button>
+                </div>
+
+            </form>
+        </div>
+
+
+        <!-- Objective of Survey FORM START HERE -->
+
+        <!-- KEY INFORMATION DIALOG FORM START FROM HERE -->
+
+
+
+
+        <div class="modal-content" *ngIf="keyInformationDialog">
+            <form [formGroup]="keyInformationForm">
+
+
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-dash-square"></i>
+                        &nbsp;What Key information Required to be collected through survey?</h1>
+
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="row">
+                        <div class="col">
+                            <label for="">What Key information Required to be collected through survey</label>
+
+                            <textarea name="" id="" cols="30" rows="7" formControlName="keyInformation"
+                                placeholder="Enter Here Your Required Key Information..."></textarea>
+                        </div>
+
+                    </div>
+
+                  
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" (click)="submitForm('keyInformation')" class="btn btn-primary"
+                        data-bs-dismiss="modal">Submit</button>
+                </div>
+
+            </form>
+        </div>
+
+
+        <!-- KEY INFORMATION FORM END HERE -->
+
+        <!-- UNIVERSE FORM START HERE -->
+
+        <div class="modal-content" *ngIf="universeDialog">
+            <form [formGroup]="universeForm">
+
+
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-dash-square"></i>
+                        &nbsp;What is the universe?</h1>
+
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="row">
+                        <div class="col">
+                            <label for="">What is the universe?</label>
+
+                            <textarea name="" id="" cols="30" rows="7" formControlName="universe"
+                                placeholder="Enter Here Your Universe..."></textarea>
+                        </div>
+
+                    </div>
+
+                  
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" (click)="submitForm('universe')" class="btn btn-primary"
+                        data-bs-dismiss="modal">Submit</button>
+                </div>
+
+            </form>
+        </div>
+
+        <!-- UNIVERSIE FORM END HERE -->
+
+        <!-- SEARCH FORM START FROM HERE -->
+
+        <div class="modal-content" *ngIf="searchDialog">
+            <form [formGroup]="searchForm">
+
+
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-dash-square"></i>
+                        &nbsp;How to search the response?</h1>
+
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="row">
+                        <div class="col">
+                            <label for="">How to search the response?</label>
+
+                            <textarea name="" id="" cols="30" rows="7" formControlName="search"
+                                placeholder="Enter Here Your Search Response..."></textarea>
+                        </div>
+
+                    </div>
+
+                  
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" (click)="submitForm('search')" class="btn btn-primary"
+                        data-bs-dismiss="modal">Submit</button>
+                </div>
+
+            </form>
+        </div>
+        
+
+        <!-- SERAC FORM END HERE -->
+
+
+        <!-- SAMPLE SIZE FORM START FROM HERE -->
+
+        <div class="modal-content" *ngIf="sampleDialog">
+            <form [formGroup]="sampleForm">
+
+
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-dash-square"></i>
+                        &nbsp;Sample Size</h1>
+
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="row">
+                        <div class="col">
+                            <label for="">Sample Size</label>
+
+                            <textarea name="" id="" cols="30" rows="7" formControlName="sample"
+                                placeholder="Enter Here Your Sample Size..."></textarea>
+                        </div>
+
+                    </div>
+
+                  
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" (click)="submitForm('sample')" class="btn btn-primary"
+                        data-bs-dismiss="modal">Submit</button>
+                </div>
+
+            </form>
+        </div>
+
+
+        <!-- SAMPLE SIZE FORM END HERE -->
+        <!-- type of data form here -->
+
+        <div class="modal-content" *ngIf="typeofDataDialog">
+            <form [formGroup]="surveyDetailsForm" (ngSubmit)="submitForm('surveyAnalysisDescription')">
+
+
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-dash-square"></i>&nbsp;Type of
+                        Data</h1>
+
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="row">
+                        <div class="col">
+                            <label for="">Tools Details Upload</label>
+
+                            <textarea name="" id="" cols="30" rows="2"
+                                placeholder="Enter Here Your Tools Details..."></textarea>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <label for="">Upload File</label>
+                            <input type="file">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
+                </div>
+
+            </form>
+        </div>
+
+
+        <!-- type of data form end here -->
+
+        <!-- size of data form start here -->
+        <div class="modal-content" *ngIf="sizeofDataDialog">
+            <form [formGroup]="surveyDetailsForm" (ngSubmit)="submitForm('surveyAnalysisDescription')">
+
+
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-dash-square"></i>&nbsp;Size of
+                        Data</h1>
+
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="row">
+                        <div class="col">
+                            <label for="">Size of Data</label>
+
+                            <textarea name="" id="" cols="30" rows="5"
+                                placeholder="Enter Here Your Size of Data..."></textarea>
+                        </div>
+
+                    </div>
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
+                </div>
+
+            </form>
+        </div>
+
+        <!-- SIZE OF DATA FORM END HERE  -->
+
+
+        <!-- DATA ANALYSIS DIALOG -->
+
+        <div class="modal-content" *ngIf="dataAnalysisDialog">
+            <form [formGroup]="surveyDetailsForm" (ngSubmit)="submitForm('surveyAnalysisDescription')">
+
+
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-dash-square"></i>&nbsp;Data
+                        Analysis</h1>
+
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="row">
+                        <div class="col">
+                            <label for="">Data Analysis</label>
+
+                            <textarea name="" id="" cols="30" rows="5"
+                                placeholder="Enter Here Your Data Analysis..."></textarea>
+                        </div>
+
+                    </div>
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
+                </div>
+
+            </form>
+        </div>
+
+        <!-- DATA ANALYSIS DIALOG END HERE -->
+
+
+        <!-- METHOD FORM -->
+
+        <div class="modal-content" *ngIf="methodDialog">
+            <form [formGroup]="surveyDetailsForm" (ngSubmit)="submitForm('surveyAnalysisDescription')">
+
+
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-dash-square"></i>&nbsp;Method
+                    </h1>
+
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="row">
+                        <div class="col">
+                            <label for="">Method</label>
+
+                            <textarea name="" id="" cols="30" rows="5"
+                                placeholder="Enter Here Your Method..."></textarea>
+                        </div>
+
+                    </div>
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
+                </div>
+
+            </form>
+        </div>
+
+        <!-- METHOD FORM END HERE -->
+
+
+        <!-- TYPE OF SOURCE FORM HERE -->
+
+        <div class="modal-content" *ngIf="typeofSourceDialog">
+            <form [formGroup]="surveyDetailsForm" (ngSubmit)="submitForm('surveyAnalysisDescription')">
+
+
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-dash-square"></i>&nbsp;Type of
+                        Source</h1>
+
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="row">
+                        <div class="col">
+                            <label for="">Type of Source</label>
+
+                            <textarea name="" id="" cols="30" rows="5"
+                                placeholder="Enter Here Your Type of Source..."></textarea>
+                        </div>
+
+                    </div>
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
+                </div>
+
+            </form>
+        </div>
+        <!-- TYPE OF SOURCE FORM END HERE -->
+
+
+
+
+        <!-- Data Tables FORM HERE -->
+
+        <div class="modal-content" *ngIf="dataofTablesDialog">
+            <form [formGroup]="surveyDetailsForm" (ngSubmit)="submitForm('surveyAnalysisDescription')">
+
+
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-dash-square"></i>&nbsp;Data
+                        Tables</h1>
+
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="row">
+                        <div class="col">
+                            <label for="">Data Tables</label>
+                            <textarea name="" id="" cols="30" rows="5"
+                                placeholder="Enter Here Your Data Tables..."></textarea>
+                        </div>
+
+                    </div>
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
+                </div>
+
+            </form>
+        </div>
+        <!-- Data Tables FORM END HERE -->
+
+        <!-- HOW TO USE DATA TABLES FORM -->
+        <div class="modal-content" *ngIf="howToUseDataDialog">
+            <form [formGroup]="surveyDetailsForm" (ngSubmit)="submitForm('surveyAnalysisDescription')">
+
+
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-dash-square"></i>&nbsp;How to
+                        use the data in yours Research.</h1>
+
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="row">
+                        <div class="col">
+                            <label for="">How to use the data in yours Research.</label>
+
+                            <textarea name="" id="" cols="30" rows="5"
+                                placeholder="Enter Here Your How to use the data in yours Research...."></textarea>
+                        </div>
+
+                    </div>
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
+                </div>
+
+            </form>
+        </div>
+
+        <!-- HOW TO USE DATA TABLES FORM END HERE -->
+
+
+        <!-- LIST OF ARTICLES FORM -->
+
+        <div class="modal-content" *ngIf="listArticlesDialog">
+            <form [formGroup]="articleListForm" (ngSubmit)="submitForm('articleList')">
+
+
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-dash-square"></i>&nbsp;List of
+                        Articles for Review Literature</h1>
+
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="arrayForm">
+                        <ng-container>
+
+                            <div class="row">
+                                <table class="table table-striped" style="margin: 10px;">
+                                    <thead style="font-weight: 500;">
+                                        <tr style="font-weight: 500;">
+                                            <th style="width:50px; font-size: 1em;">
+                                                S.No
+                                            </th>
+                                            <th style="width:270px;">
+                                                Title
+                                            </th>
+                                            <th style="width:230px;">
+                                                Journal Name
+                                            </th>
+                                            <th style="width:130px;">
+                                                IISN
+                                            </th>
+                                            <th style="width:130px;">
+                                                Year of Publication
+                                            </th>
+                                            <th>
+                                                Link
+                                            </th>
+                                            <th style="width:50px;">
+                                                <i class="bi bi-gear-fill"></i>
+                                            </th>
+                                        </tr>
+
+
+                                    </thead>
+
+                                    <tbody>
+                                        <tr *ngFor="let item of articleList; let i=index;">
+                                            <td>
+                                                {{i+1}}
+                                            </td>
+                                            <td>
+                                                {{item.title}}
+                                            </td>
+                                            <td>
+                                                {{item.journalName}}
+                                            </td>
+                                            <td>
+                                                {{item.iisn}}
+                                            </td>
+                                            <td>
+                                                {{item.year}}
+                                            </td>
+                                            <td>
+                                                <a href="{{item.link}}" target="_blank">
+
+                                                    {{item.link}}
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <i style="color:red" class="bi bi-trash3-fill"></i>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="row"
+                                style="margin-bottom: 0; vertical-align: middle; font-size: 1em;font-weight: 500;"
+                                *ngIf="false">
+                                <div class="coll" style="width:30px; height: 30px;padding: 0;margin-top: 2px;">
+                                    <label for="">S.N</label>
+
+                                </div>
+                                <div class="col">
+                                    <label for="">Title</label>
+
+                                </div>
+                                <div class="col">
+                                    <label for="">Journal Name</label>
+
+                                </div>
+                                <div class="col">
+                                    <label for="">IISN</label>
+
+                                </div>
+                                <div class="col">
+                                    <label for="">Date-Year of Publication </label>
+
+                                </div>
+                                <div class="col">
+                                    <label for="">Link</label>
+                                </div>
+                            </div>
+                            <ng-container *ngIf="false">
+
+
+                                <div class="row" *ngFor="let item of articleList; let i=index;">
+                                    <div class="coll" style="width:30px; height: 30px;padding: 0;margin-top: 2px;">
+                                        <!-- <label for="">S.N</label> -->
+                                        <div class="caption-c">{{i+1}}</div>
+                                    </div>
+                                    <div class="col">
+                                        <!-- <label for="">Title</label> -->
+                                        <div class="caption">{{item.title}}</div>
+                                    </div>
+                                    <div class="col">
+                                        <!-- <label for="">Journal Name</label> -->
+                                        <div class="caption">{{item.journalName}}</div>
+                                    </div>
+                                    <div class="col">
+                                        <!-- <label for="">IISN</label> -->
+                                        <div class="caption">{{item.iisn}}</div>
+                                    </div>
+                                    <div class="col">
+                                        <!-- <label for="">Date-Year of Publication </label> -->
+                                        <div class="caption">{{item.year}}</div>
+                                    </div>
+                                    <div class="col">
+                                        <!-- <label for="">Link</label> -->
+                                        <div class="caption">{{item.link}}</div>
+                                    </div>
+
+
+                                </div>
+                            </ng-container>
+                        </ng-container>
+                        <div class="row" style="gap:0px;">
+                            <div class="coll"
+                                style="width:30px; height: 30px;padding: 0;margin-top: 2px;margin-right: 5px;">
+                                <!-- <label for="">S.N</label> -->
+                                <div class="caption-c">{{articleList.length+1}}</div>
+                            </div>
+                            <div class="col" style=" padding: 0;">
+                                <!-- <label for="">Title</label> -->
+
+                                <input type="text" style="border-right: solid 0px transparent;" placeholder="Title"
+                                    formControlName="title">
+                            </div>
+                            <div class="col" style="padding: 0;">
+                                <!-- <label for="">Journal Name</label> -->
+
+                                <input type="text" style="border-right: solid 0px transparent;"
+                                    placeholder="Journal Name" formControlName="journalName">
+                            </div>
+                            <div class="col" style="padding: 0;">
+                                <!-- <label for="">IISN</label> -->
+
+                                <input type="text" style="border-right: solid 0px transparent;" placeholder="IISN"
+                                    formControlName="iisn">
+                            </div>
+                            <div class="col" style="padding: 0;">
+                                <!-- <label for="">Date-Year of Publication </label> -->
+
+                                <input type="date" style="border-right: solid 0px transparent;" max="31-12-2023"
+                                    placeholder="MM/DD/YYYY" onfocus="(this.type='date')" formControlName="year">
+                            </div>
+                            <div class="col" style="padding: 0;">
+                                <!-- <label for="">Link</label> -->
+
+                                <input type="text" placeholder="Link" formControlName="link">
+                            </div>
+
+                            <div class="coll"
+                                style="background-color: transparent; display: flex; width:fit-content;justify-content: flex-end;align-items: center; height: 100%;">
+
+                                <button type="button" class="add-btn" style="width:50px; padding: 5px;"
+                                    (click)="addList()"><i class="bi bi-plus-square-fill"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
+                </div>
+
+            </form>
+        </div>
+        <!-- LIST OF ARTICLES FORM END HERE -->
+    </div>
+</div>
+
+<div class="modal fade" id="levelTwoTest" tabindex="-1" aria-labelledby="title" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+
+
+   
+
+        <div class="modal-content">
+            <form [formGroup]="articleListForm" (ngSubmit)="submitForm('articleList')">
+
+
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-dash-square"></i>&nbsp;{{dialogTitle}}</h1>
+
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                
+            
+
+                        <label for="">{{dialogLabel}}</label>
+                        <textarea name="" id="" cols="30" rows="10" placeholder="{{dialogLabel}}"></textarea>
+                  
+
+                </div>
+
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
+                </div>
+
+            </form>
+        </div>
+        <!-- LIST OF ARTICLES FORM END HERE -->
+    </div>
+</div>
+
+
+<div class="modal fade" id="addarticle" tabindex="-1" aria-labelledby="title" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+
+        <div class="modal-content">
+            <form [formGroup]="articleListForm" (ngSubmit)="submitForm('articleList')">
+
+
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="addarticle"><i class="bi bi-dash-square"></i>&nbsp;Add New {{dialogTitle}}</h1>
+
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                
+                    <div class="arrayForm">
+                        <ng-container>
+
+                            <div class="row">
+                                <table class="table table-striped" style="margin: 10px;">
+                                    <thead style="font-weight: 500;">
+                                        <tr style="font-weight: 500;">
+                                            <th style="width:50px; font-size: 1em;">
+                                                S.No
+                                            </th>
+                                            <th style="width:270px;">
+                                                Title
+                                            </th>
+                                            <th style="width:230px;">
+                                                Journal Name
+                                            </th>
+                                            <th style="width:130px;">
+                                                IISN
+                                            </th>
+                                            <th style="width:130px;">
+                                                Year of Publication
+                                            </th>
+                                            <th>
+                                                Link
+                                            </th>
+                                            <th style="width:50px;">
+                                                <i class="bi bi-gear-fill"></i>
+                                            </th>
+                                        </tr>
+
+
+                                    </thead>
+
+                                    <tbody>
+                                        <tr *ngFor="let item of articleList; let i=index;">
+                                            <td>
+                                                {{i+1}}
+                                            </td>
+                                            <td>
+                                                {{item.title}}
+                                            </td>
+                                            <td>
+                                                {{item.journalName}}
+                                            </td>
+                                            <td>
+                                                {{item.iisn}}
+                                            </td>
+                                            <td>
+                                                {{item.year}}
+                                            </td>
+                                            <td>
+                                                <a href="{{item.link}}" target="_blank">
+
+                                                    {{item.link}}
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <i style="color:red" class="bi bi-trash3-fill"></i>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="row"
+                                style="margin-bottom: 0; vertical-align: middle; font-size: 1em;font-weight: 500;"
+                                *ngIf="false">
+                                <div class="coll" style="width:30px; height: 30px;padding: 0;margin-top: 2px;">
+                                    <label for="">S.N</label>
+
+                                </div>
+                                <div class="col">
+                                    <label for="">Title</label>
+
+                                </div>
+                                <div class="col">
+                                    <label for="">Journal Name</label>
+
+                                </div>
+                                <div class="col">
+                                    <label for="">IISN</label>
+
+                                </div>
+                                <div class="col">
+                                    <label for="">Date-Year of Publication </label>
+
+                                </div>
+                                <div class="col">
+                                    <label for="">Link</label>
+                                </div>
+                            </div>
+                            <ng-container *ngIf="false">
+
+
+                                <div class="row" *ngFor="let item of articleList; let i=index;">
+                                    <div class="coll" style="width:30px; height: 30px;padding: 0;margin-top: 2px;">
+                                        <!-- <label for="">S.N</label> -->
+                                        <div class="caption-c">{{i+1}}</div>
+                                    </div>
+                                    <div class="col">
+                                        <!-- <label for="">Title</label> -->
+                                        <div class="caption">{{item.title}}</div>
+                                    </div>
+                                    <div class="col">
+                                        <!-- <label for="">Journal Name</label> -->
+                                        <div class="caption">{{item.journalName}}</div>
+                                    </div>
+                                    <div class="col">
+                                        <!-- <label for="">IISN</label> -->
+                                        <div class="caption">{{item.iisn}}</div>
+                                    </div>
+                                    <div class="col">
+                                        <!-- <label for="">Date-Year of Publication </label> -->
+                                        <div class="caption">{{item.year}}</div>
+                                    </div>
+                                    <div class="col">
+                                        <!-- <label for="">Link</label> -->
+                                        <div class="caption">{{item.link}}</div>
+                                    </div>
+
+
+                                </div>
+                            </ng-container>
+                        </ng-container>
+                        <div class="row" style="gap:0px;">
+                            <div class="coll"
+                                style="width:30px; height: 30px;padding: 0;margin-top: 2px;margin-right: 5px;">
+                                <!-- <label for="">S.N</label> -->
+                                <div class="caption-c">{{articleList.length+1}}</div>
+                            </div>
+                            <div class="col" style=" padding: 0;">
+                                <!-- <label for="">Title</label> -->
+
+                                <input type="text" style="border-right: solid 0px transparent;" placeholder="Title"
+                                    formControlName="title">
+                            </div>
+                            <div class="col" style="padding: 0;">
+                                <!-- <label for="">Journal Name</label> -->
+
+                                <input type="text" style="border-right: solid 0px transparent;"
+                                    placeholder="Journal Name" formControlName="journalName">
+                            </div>
+                            <div class="col" style="padding: 0;">
+                                <!-- <label for="">IISN</label> -->
+
+                                <input type="text" style="border-right: solid 0px transparent;" placeholder="IISN"
+                                    formControlName="iisn">
+                            </div>
+                            <div class="col" style="padding: 0;">
+                                <!-- <label for="">Date-Year of Publication </label> -->
+
+                                <input type="date" style="border-right: solid 0px transparent;" max="31-12-2023"
+                                    placeholder="MM/DD/YYYY" onfocus="(this.type='date')" formControlName="year">
+                            </div>
+                            <div class="col" style="padding: 0;">
+                                <!-- <label for="">Link</label> -->
+
+                                <input type="text" placeholder="Link" formControlName="link">
+                            </div>
+
+                            <div class="coll"
+                                style="background-color: transparent; display: flex; width:fit-content;justify-content: flex-end;align-items: center; height: 100%;">
+
+                                <button type="button" class="add-btn" style="width:50px; padding: 5px;"
+                                    (click)="addList()"><i class="bi bi-plus-square-fill"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                      
+                  
+
+                </div>
+
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- answer dialog -->
+
+<div class="modal fade" id="answer" tabindex="-1" aria-labelledby="title" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+
+
+   
+
+        <div class="modal-content">
+
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-dash-square"></i>&nbsp;{{dialogTitle}}</h1>
+
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                
+            
+
+                      
+                        <p innerHtml="{{dialogLabel}}"></p>
+                  
+
+                </div>
+
+
+                <!-- <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
+                </div> -->
+
+           
+        </div>
+    
+    </div>
+</div>
+
+
+
+<!-- info dialog -->
+
+<div class="modal fade" id="info" tabindex="-1" aria-labelledby="title" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+
+
+   
+
+        <div class="modal-content">
+
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-dash-square"></i>&nbsp;Example</h1>
+
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                
+            
+
+                      
+                        <p style="padding:30px; font-size: 1.1em; font-weight: 500;" innerHtml="{{dialogLabel}}"></p>
+                  
+
+                </div>
+
+
+                <!-- <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
+                </div> -->
+
+           
+        </div>
+    
+    </div>
+</div>
+
+<!-- upload video -->
+
+<div class="modal fade" id="video" tabindex="-1" aria-labelledby="title" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+
+
+   
+
+        <div class="modal-content">
+
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-dash-square"></i>&nbsp;Upload Video</h1>
+
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                
+            
+
+                      
+                    <div class="row">
+                        <div class="col">
+                            <label for="">Upload Video</label>
+                            <input type="file">
+                        </div>
+                      </div>
+           
+
+                </div>
+
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
+                </div>
+
+           
+        </div>
+    
+    </div>
+</div>
+
+
+<!-- upload documents -->
+
+<div class="modal fade" id="doc" tabindex="-1" aria-labelledby="title" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+
+
+   
+
+        <div class="modal-content">
+
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-dash-square"></i>&nbsp;Upload Documents</h1>
+
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                
+            
+
+                      
+                      <div class="row">
+                        <div class="col">
+                            <label for="">Upload Documents</label>
+                            <input type="file">
+                        </div>
+                      </div>
+                  
+
+                </div>
+
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
+                </div>
+
+           
+        </div>
+    
+    </div>
+</div>
+<div class="container-fluid" *ngIf="false">
+    <div class="container">
+        <div class="alert-container" *ngIf="message.length >0">
+            <div class="alert alert-success w-50 text-center" role="alert">
+
+                {{message}}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </div>
+
+
+        <div class="card" *ngFor="let item of twoList">
+            <div class="card-inner">
+
+                <div class="header">
+                    <span style="font-weight: 500;">
+                        {{item.title}}
+                    </span>
+                    <div class="nav-icon">
+                        <a routerLink="/user-dash/video/{{item.video}}">
+                            <img src="assets/img/anushram-info.png" alt="ANUSHRAM DEMO VIDEO">
+                        </a>
+                    </div>
+                    <button *ngIf="item.addBtn" (click)="getBtnID(item.btnID)" data-bs-toggle="modal"
+                        data-bs-target="#levelTwo">Add+</button>
+
+                </div>
+
+                <div class="content">
+                    <ul>
+                        <li *ngFor="let data of item?.subTitle">
+
+                            <span>
+                                <i class="bi bi-check2-square" *ngIf="!item.updated"></i>
+                                <i class="bi bi-check-square-fill" style="color:seagreen" *ngIf="item.updated"></i>
+
+                                <a (click)="navigateTo(data.link)" style="font-weight: 500;">
+                                    &nbsp;{{data.topic}}
+                                </a>
+                                <button *ngIf="data.url=='Research Repository Source'" class="btn-view">
+                                    <a (click)="navigateTo(data.link)">
+
+                                        View
+                                    </a>
+                                </button>
+                            </span>
+
+                            <ul style="margin-top: 10px; margin-bottom: 20px">
+                                <li *ngFor="let subData of data.subjects" style="margin-bottom: 10px;">
+                                    <span>
+
+                                        <i class="bi bi-check2-square"></i>
+                                        {{subData.sub}}
+                                    </span>
+                                    <span class="info-btn">
+
+                                   
+                                    <i class="bi bi-info-circle-fill" *ngIf="subData?.info != undefined" data-bs-toggle="modal"
+                                    data-bs-target="#info" (click)="getDialogTitle(data.topic,subData.info)"></i>
+                                    <i *ngIf="subData.input == 'text'" (click)="getDialogTitle(data.topic,subData.sub)" data-bs-toggle="modal"
+                                        data-bs-target="#levelTwoTest" class="bi bi-plus-circle-fill"></i>
+                                        <i *ngIf="subData.input == 'add-article'" (click)="getDialogTitle(data.topic,subData.sub)" data-bs-toggle="modal"
+                                        data-bs-target="#addarticle" class="bi bi-plus-circle-fill"></i>
+                                   
+
+                                        <i *ngIf="subData.input == 'ans'" (click)="getDialogTitle(subData.sub,subData.ans)" data-bs-toggle="modal"
+                                        data-bs-target="#answer" class="bi bi-plus-circle-fill"></i>
+
+                                    </span>
+                                </li>
+
+                            </ul>
+
+                        </li>
+                       
+                    </ul>
+                </div>
+                <div class="footer">
+                    <div class="btn-group shadow text-white" role="group" aria-label="Basic mixed styles example">
+              
+                        <button type="button" class="btn btn-info text-white " data-bs-toggle="modal"
+                        data-bs-target="#video"><i class="bi bi-upload"></i> Video</button>
+                        <button type="button" class="btn btn-info text-white" data-bs-toggle="modal"
+                        data-bs-target="#doc"><i class="bi bi-upload"></i> Documents</button>
+                      </div>
+                </div>
+            </div>
+            <div class="icon"><i class="bi bi-bookmark-star-fill"></i></div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<!-- SPINNER -->
+<div class="spinner d-flex w-100 justify-content-center" *ngIf="spinner">
+
+    <div class="spinner-border text-info" role="status">
+        <span class="visually-hidden">Loading...</span>
+        
+    </div>
+    <p>&nbsp;Loading...</p>
+    
+</div>
+
+<!-- card theme -->
+
+
+
+<div class="container-fluid">
+<div class="card-wrapper">
+    
+    <div class="card" *ngFor="let item of twoList; let i=index;">
+        <div class="header bg-secondary bg-gradient text-white">
+            <span class="header-content">
+                {{i+1}}
+                
+            </span>
+            <span class="header-content">
+                
+                {{item.title}}
+            </span>
+        </div>
+        <div class="card-body">
+
+        </div>
+        <div class="footer">
+            <button type="button" routerLink="/user-dash/process-excercise/excercise/area-of-interest" class="btn btn-outline-primary">Start</button>
+        </div>
+    </div>
+
+
+
+
+</div>
+</div>

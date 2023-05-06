@@ -1,0 +1,23 @@
+<div class="container-fluid">
+    <div class="mentor-login">
+        <div class="caption">
+            Mentor Login
+        </div>
+
+        <form [formGroup]="mentorLoginForm" (ngSubmit)="Submit()">
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Email</label>
+              <input type="email" class="form-control" placeholder="Email" formControlName="email">
+         
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Password</label>
+              <input type="password" class="form-control" placeholder="Password" formControlName="password">
+            </div>
+            <div class="mb-3">
+                <span>don't have a account! &nbsp;<a routerLink="/mentor-registration"> click here to Register </a></span>
+              </div>
+            <button type="submit" class="btn btn-primary">Login</button>
+          </form>
+    </div>
+</div>
